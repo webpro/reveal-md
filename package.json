@@ -1,0 +1,19 @@
+{
+    "name": "reveal-md",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/webpro/reveal-md.git"
+    },
+    "bin": {
+        "reveal-md": "bin/server-cli.js"
+    },
+    "dependencies": {
+        "reveal.js": "git://github.com/webpro/reveal.js#markdown-cjs",
+        "express": "2.5.9",
+        "mustache": "0.4.0",
+        "open": "0.0.3",
+        "glob": "3.2.1",
+        "commander": "1.2.0"
+    }
+}

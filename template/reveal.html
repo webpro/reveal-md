@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Reveal.js</title>
+        <link rel="stylesheet" href="/css/reveal.css">
+        <link rel="stylesheet" href="/css/theme/{{theme}}.css" id="theme">
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides">{{{slides}}}</div>
+        </div>
+
+        <script src="/lib/js/head.min.js"></script>
+        <script src="/js/reveal.js"></script>
+
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme,
+                transition: Reveal.getQueryHash().transition || 'default',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '/plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+                    { src: '/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
