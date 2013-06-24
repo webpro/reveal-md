@@ -60,7 +60,6 @@ var renderMarkdownAsSlides = function(req, res) {
 
     markdown = fs.readFileSync(markdownPath).toString();
 
-    console.log(opts.separator);
     slides = md.slidifyMarkdown(markdown, opts.separator, opts.vertical);
 
     res.send(Mustache.to_html(opts.template, {
