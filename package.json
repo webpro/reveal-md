@@ -1,6 +1,7 @@
 {
     "name": "reveal-md",
     "description": "Markdown server for reveal.js",
+    "keywords": ["markdown", "reveal", "revealjs", "html", "server", "cli"],
     "version": "0.0.1",
     "repository": {
         "type": "git",
