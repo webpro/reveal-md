@@ -2,7 +2,7 @@
     "name": "reveal-md",
     "description": "Markdown server for reveal.js",
     "keywords": ["markdown", "reveal", "revealjs", "html", "server", "cli"],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "repository": {
         "type": "git",
         "url": "git://github.com/webpro/reveal-md.git"
