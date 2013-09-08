@@ -40,6 +40,7 @@ var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, s
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
     app.get('/', renderMarkdownFileListing);
+    app.get('/*', staticDir(opts.userBasePath));
 
     app.listen(opts.port || null);
 
