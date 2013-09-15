@@ -11,7 +11,7 @@
         "reveal-md": "bin/server-cli.js"
     },
     "dependencies": {
-        "reveal.js": "git://github.com/webpro/reveal.js#markdown-cjs",
+        "reveal.js": "2.5.0",
         "express": "2.5.9",
         "mustache": "0.4.0",
         "open": "0.0.3",
