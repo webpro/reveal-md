@@ -1,6 +1,6 @@
 {
     "name": "reveal-md",
-    "description": "Markdown server for reveal.js",
+    "description": "reveal.js on steroids! Get beautiful reveal.js presentations from your Markdown files.",
     "keywords": ["markdown", "reveal", "revealjs", "html", "server", "cli"],
     "version": "0.0.3",
     "repository": {
