@@ -44,6 +44,12 @@ To open specific Markdown file as Reveal.js slideshow:
 reveal-md slides.md
 ```
 
+You can also provide a url that resolves to a Markdown resource (over http(s)).
+
+``` bash
+reveal-md https://raw.github.com/webpro/reveal-md/master/demo/a.md
+```
+
 Show (recursive) directory listing of Markdown files:
 
 ``` bash

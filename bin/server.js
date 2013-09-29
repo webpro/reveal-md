@@ -1,5 +1,8 @@
 var path = require('path'),
     fs = require('fs'),
+    url = require('url'),
+    http = require('http'),
+    https = require('https'),
     express = require('express'),
     open = require('open'),
     Mustache = require('mustache'),
@@ -13,7 +16,7 @@ var serverBasePath = path.resolve(__dirname + '/../');
 
 var opts = {
     port: 1948,
-    userBasePath: process.cwd() + '/',
+    userBasePath: process.cwd(),
     revealBasePath: serverBasePath + '/node_modules/reveal.js/',
     template: fs.readFileSync(serverBasePath + '/template/reveal.html').toString(),
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
@@ -30,7 +33,7 @@ app.configure(function() {
 
 var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, vertical) {
 
-    opts.userBasePath = basePath + '/';
+    opts.userBasePath = basePath;
     opts.port = port || opts.port;
     opts.theme = theme || opts.theme;
     opts.separator = separator || opts.separator;
@@ -50,16 +53,30 @@ var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, s
 
 var renderMarkdownAsSlides = function(req, res) {
 
-    var markdownPath = path.resolve(opts.userBasePath + req.url),
-        markdown,
-        slides;
+    var markdown = '',
+        markdownPath = path.resolve(opts.userBasePath + req.url);
 
-    if(!fs.existsSync(markdownPath)) {
-        res.send('File not found: ' + markdownPath);
-        return;
+    if(fs.existsSync(markdownPath)) {
+        markdown = fs.readFileSync(markdownPath).toString();
+        render(res, markdown)
+    } else {
+        var parsedUrl = url.parse(opts.userBasePath);
+        if(parsedUrl) {
+            (parsedUrl.protocol === 'https:' ? https : http).get(opts.userBasePath, function(response) {
+                response.on('data', function(chunk) {
+                    markdown += chunk;
+                });
+                response.on('end', function() {
+                    render(res, markdown)
+                });
+            }).on('error', function(e) {
+                console.log('Problem with path/url: ' + e.message);
+            });
+        }
     }
+};
 
-    markdown = fs.readFileSync(markdownPath).toString();
+var render = function(res, markdown) {
 
     slides = md.slidifyMarkdown(markdown, opts.separator, opts.vertical);
 

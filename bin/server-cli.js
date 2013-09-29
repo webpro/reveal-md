@@ -25,31 +25,29 @@ if(program.args.length > 2) {
     program.help()
 }
 
-if(program.args[0] === 'demo') {
+var pathArg = program.args[0];
+
+if(pathArg === 'demo') {
 
     basePath = __dirname + '/../demo';
 
-} else if(program.args[0]) {
+} else if(pathArg) {
 
-    filePath = path.resolve(program.args[0]);
+    filePath = path.resolve(pathArg)
 
     if(fs.statSync(filePath).isFile()) {
 
         basePath = path.dirname(filePath);
         baseName = path.basename(filePath);
 
-        if(!fs.existsSync(filePath)) {
-            console.log('File not found:', filePath);
-            return;
-        }
-
-        if(['.md', '.markdown'].indexOf(path.extname(filePath)) === -1) {
-            console.log('Incorrect file type (.md, .markdown):', filePath);
-            return;
-        }
-    } else {
+    } else if(fs.statSync(filePath).isDirectory()) {
 
         basePath = filePath;
+
+    } else {
+
+        basePath = baseName = pathArg;
+
     }
 }
 
