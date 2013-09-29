@@ -60,9 +60,9 @@ var renderMarkdownAsSlides = function(req, res) {
         markdown = fs.readFileSync(markdownPath).toString();
         render(res, markdown)
     } else {
-        var parsedUrl = url.parse(opts.userBasePath);
+        var parsedUrl = url.parse(req.url.replace(/^\//, ''));
         if(parsedUrl) {
-            (parsedUrl.protocol === 'https:' ? https : http).get(opts.userBasePath, function(response) {
+            (parsedUrl.protocol === 'https:' ? https : http).get(parsedUrl.href, function(response) {
                 response.on('data', function(chunk) {
                     markdown += chunk;
                 });
@@ -71,6 +71,7 @@ var renderMarkdownAsSlides = function(req, res) {
                 });
             }).on('error', function(e) {
                 console.log('Problem with path/url: ' + e.message);
+                render(res, e.message)
             });
         }
     }

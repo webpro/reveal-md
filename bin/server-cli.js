@@ -33,16 +33,22 @@ if(pathArg === 'demo') {
 
 } else if(pathArg) {
 
-    filePath = path.resolve(pathArg)
+    filePath = path.resolve(pathArg);
 
-    if(fs.statSync(filePath).isFile()) {
+    if(fs.existsSync(filePath)) {
 
-        basePath = path.dirname(filePath);
-        baseName = path.basename(filePath);
+        var stat = fs.statSync(filePath);
 
-    } else if(fs.statSync(filePath).isDirectory()) {
+        if(stat.isFile()) {
 
-        basePath = filePath;
+            basePath = path.dirname(filePath);
+            baseName = path.basename(filePath);
+
+        } else if(stat.isDirectory()) {
+
+            basePath = filePath;
+
+        }
 
     } else {
 
