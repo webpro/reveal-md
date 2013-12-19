@@ -5,7 +5,7 @@
     "version": "0.0.6",
     "repository": {
         "type": "git",
-        "url": "git@github.com:samtsai/reveal-md.git"
+        "url": "git://github.com/webpro/reveal-md.git"
     },
     "bin": {
         "reveal-md": "bin/server-cli.js"
