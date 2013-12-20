@@ -69,19 +69,18 @@ var renderMarkdownAsSlides = function(req, res) {
                     markdown += chunk;
                 });
                 response.on('end', function() {
-                    render(res, markdown)
+                    render(res, markdown);
                 });
             }).on('error', function(e) {
                 console.log('Problem with path/url: ' + e.message);
-                render(res, e.message)
+                render(res, e.message);
             });
         }
     }
 };
 
 var render = function(res, markdown) {
-
-    slides = md.slidify(markdown, opts.separator, opts.vertical);
+    slides = md.slidify(markdown, opts);
 
     res.send(Mustache.to_html(opts.template, {
         theme: opts.theme,
