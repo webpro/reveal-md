@@ -20,10 +20,10 @@ program
     .option('-s, --separator [separator]', 'Slide separator')
     .option('-ns, --notesSeparator [separator]', 'Notes separator')
     .option('-v, --vertical [vertical separator]', 'Vertical slide separator')
-    .parse(process.argv)
+    .parse(process.argv);
 
 if(program.args.length > 2) {
-    program.help()
+    program.help();
 }
 
 var pathArg = program.args[0];

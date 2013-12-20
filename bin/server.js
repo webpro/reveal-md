@@ -60,7 +60,7 @@ var renderMarkdownAsSlides = function(req, res) {
 
     if(fs.existsSync(markdownPath)) {
         markdown = fs.readFileSync(markdownPath).toString();
-        render(res, markdown)
+        render(res, markdown);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
         if(parsedUrl) {
@@ -94,7 +94,7 @@ var generateMarkdownListing = function(userBasePath) {
     glob.sync("**/*.md", {
         cwd: userBasePath || opts.userBasePath
     }).forEach(function(file) {
-        list.push('<a href="' + file + '">' + file + '</a>')
+        list.push('<a href="' + file + '">' + file + '</a>');
     });
 
     return Mustache.to_html(opts.templateListing, {
@@ -104,7 +104,7 @@ var generateMarkdownListing = function(userBasePath) {
 };
 
 var renderMarkdownFileListing = function(req, res) {
-    res.send(generateMarkdownListing())
+    res.send(generateMarkdownListing());
 };
 
 module.exports = {
