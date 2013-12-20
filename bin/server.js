@@ -22,7 +22,8 @@ var opts = {
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
     theme: 'default',
     separator: '^\n---\n$',
-    vertical: '^\n----\n$'
+    vertical: '^\n----\n$',
+    notesSeparator: '^Note:'
 };
 
 app.configure(function() {
@@ -31,12 +32,13 @@ app.configure(function() {
     });
 });
 
-var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, vertical) {
+var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, notesSeparator, vertical) {
 
     opts.userBasePath = basePath;
     opts.port = port || opts.port;
     opts.theme = theme || opts.theme;
     opts.separator = separator || opts.separator;
+    opts.notesSeparator = notesSeparator || opts.notesSeparator;
     opts.vertical = vertical || opts.vertical;
 
     generateMarkdownListing();
