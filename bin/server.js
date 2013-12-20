@@ -22,7 +22,8 @@ var opts = {
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
     theme: 'default',
     separator: '^\n---\n$',
-    vertical: '^\n----\n$'
+    vertical: '^\n----\n$',
+    notesSeparator: '^Note:'
 };
 
 app.configure(function() {
@@ -31,12 +32,13 @@ app.configure(function() {
     });
 });
 
-var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, vertical) {
+var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, notesSeparator, vertical) {
 
     opts.userBasePath = basePath;
     opts.port = port || opts.port;
     opts.theme = theme || opts.theme;
     opts.separator = separator || opts.separator;
+    opts.notesSeparator = notesSeparator || opts.notesSeparator;
     opts.vertical = vertical || opts.vertical;
 
     generateMarkdownListing();
@@ -58,7 +60,7 @@ var renderMarkdownAsSlides = function(req, res) {
 
     if(fs.existsSync(markdownPath)) {
         markdown = fs.readFileSync(markdownPath).toString();
-        render(res, markdown)
+        render(res, markdown);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
         if(parsedUrl) {
@@ -67,19 +69,18 @@ var renderMarkdownAsSlides = function(req, res) {
                     markdown += chunk;
                 });
                 response.on('end', function() {
-                    render(res, markdown)
+                    render(res, markdown);
                 });
             }).on('error', function(e) {
                 console.log('Problem with path/url: ' + e.message);
-                render(res, e.message)
+                render(res, e.message);
             });
         }
     }
 };
 
 var render = function(res, markdown) {
-
-    slides = md.slidifyMarkdown(markdown, opts.separator, opts.vertical);
+    slides = md.slidify(markdown, opts);
 
     res.send(Mustache.to_html(opts.template, {
         theme: opts.theme,
@@ -93,7 +94,7 @@ var generateMarkdownListing = function(userBasePath) {
     glob.sync("**/*.md", {
         cwd: userBasePath || opts.userBasePath
     }).forEach(function(file) {
-        list.push('<a href="' + file + '">' + file + '</a>')
+        list.push('<a href="' + file + '">' + file + '</a>');
     });
 
     return Mustache.to_html(opts.templateListing, {
@@ -103,7 +104,7 @@ var generateMarkdownListing = function(userBasePath) {
 };
 
 var renderMarkdownFileListing = function(req, res) {
-    res.send(generateMarkdownListing())
+    res.send(generateMarkdownListing());
 };
 
 module.exports = {

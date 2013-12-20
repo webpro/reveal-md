@@ -18,11 +18,12 @@ program
     .option('-p, --port [port]', 'Port')
     .option('-t, --theme [theme]', 'Theme')
     .option('-s, --separator [separator]', 'Slide separator')
+    .option('-ns, --notesSeparator [separator]', 'Notes separator')
     .option('-v, --vertical [vertical separator]', 'Vertical slide separator')
-    .parse(process.argv)
+    .parse(process.argv);
 
 if(program.args.length > 2) {
-    program.help()
+    program.help();
 }
 
 var pathArg = program.args[0];
@@ -60,7 +61,7 @@ if(pathArg === 'demo') {
 theme = glob.sync('*.css', {
     cwd: themePath
 }).map(function(themePath) {
-    return path.basename(themePath).replace(path.extname(themePath), '')
+    return path.basename(themePath).replace(path.extname(themePath), '');
 }).indexOf(program.theme) !== -1 ? program.theme : theme;
 
-server.start(basePath, baseName, program.port, theme, program.separator, program.vertical);
+server.start(basePath, baseName, program.port, theme, program.separator, program.notesSeparator, program.vertical);
