@@ -18,7 +18,7 @@ program
     .option('-p, --port [port]', 'Port')
     .option('-t, --theme [theme]', 'Theme')
     .option('-s, --separator [separator]', 'Slide separator')
-    .option('-v, --vertical [vertical separator]', 'Vertical slide separator')
+    .option('-v, --verticalSeparator [vertical separator]', 'Vertical slide separator')
     .parse(process.argv)
 
 if(program.args.length > 2) {
@@ -63,4 +63,4 @@ theme = glob.sync('*.css', {
     return path.basename(themePath).replace(path.extname(themePath), '')
 }).indexOf(program.theme) !== -1 ? program.theme : theme;
 
-server.start(basePath, baseName, program.port, theme, program.separator, program.vertical);
+server.start(basePath, baseName, program.port, theme, program.separator, program.verticalSeparator);
