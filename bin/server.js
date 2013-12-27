@@ -22,7 +22,7 @@ var opts = {
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
     theme: 'default',
     separator: '^\n---\n$',
-    vertical: '^\n----\n$'
+    verticalSeparator: '^\n----\n$'
 };
 
 app.configure(function() {
@@ -31,13 +31,13 @@ app.configure(function() {
     });
 });
 
-var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, vertical) {
+var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, verticalSeparator) {
 
     opts.userBasePath = basePath;
     opts.port = port || opts.port;
     opts.theme = theme || opts.theme;
     opts.separator = separator || opts.separator;
-    opts.vertical = vertical || opts.vertical;
+    opts.verticalSeparator = verticalSeparator || opts.verticalSeparator;
 
     generateMarkdownListing();
 
@@ -79,7 +79,7 @@ var renderMarkdownAsSlides = function(req, res) {
 
 var render = function(res, markdown) {
 
-    slides = md.slidifyMarkdown(markdown, opts.separator, opts.vertical);
+    slides = md.slidify(markdown, opts);
 
     res.send(Mustache.to_html(opts.template, {
         theme: opts.theme,
