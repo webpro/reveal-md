@@ -2,7 +2,7 @@
     "name": "reveal-md",
     "description": "reveal.js on steroids! Get beautiful reveal.js presentations from your Markdown files.",
     "keywords": ["markdown", "reveal", "revealjs", "html", "server", "cli"],
-    "version": "0.0.6",
+    "version": "0.0.7",
     "repository": {
         "type": "git",
         "url": "git://github.com/webpro/reveal-md.git"
