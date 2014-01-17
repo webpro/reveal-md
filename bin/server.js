@@ -54,7 +54,14 @@ var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, s
 var renderMarkdownAsSlides = function(req, res) {
 
     var markdown = '',
-        markdownPath = path.resolve(opts.userBasePath + req.url);
+        markdownPath;
+
+    // Look for print-pdf option
+    if (~req.url.indexOf('?print-pdf')) {
+      req.url = req.url.replace('?print-pdf','');
+    }
+
+    markdownPath = path.resolve(opts.userBasePath + req.url);
 
     if(fs.existsSync(markdownPath)) {
         markdown = fs.readFileSync(markdownPath).toString();
