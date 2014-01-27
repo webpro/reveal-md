@@ -88,7 +88,8 @@ reveal-md slides.md --port 8888
 
 ## Print Support
 
-*Requires phantomjs to be installed (example shows it as a global install `npm install -g phantomjs`)
+*Requires phantomjs to be installed (preferably globally)*
+
 This will try to create a pdf with the passed in file (eg slides.md) and outputted to the name passed into the `--print` parameter (eg slides.pdf)
 
 ``` bash

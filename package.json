@@ -9,10 +9,10 @@
     "server",
     "cli"
   ],
-  "version": "0.0.8",
+  "version": "0.0.9",
   "repository": {
     "type": "git",
-    "url": "git://github.com/webpro/reveal-md.git"
+    "url": "git@github.com:samtsai/reveal-md.git#print_plugin_support"
   },
   "bin": {
     "reveal-md": "bin/server-cli.js"
