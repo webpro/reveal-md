@@ -7,7 +7,8 @@ var path = require('path'),
     open = require('open'),
     Mustache = require('mustache'),
     glob = require('glob'),
-    md = require('../node_modules/reveal.js/plugin/markdown/markdown');
+    md = require('../node_modules/reveal.js/plugin/markdown/markdown'),
+    exec = require('child_process').exec;
 
 var app = express.createServer();
 var staticDir = express.static;
@@ -15,6 +16,7 @@ var staticDir = express.static;
 var serverBasePath = path.resolve(__dirname + '/../');
 
 var opts = {
+    printMode: false,
     port: 1948,
     userBasePath: process.cwd(),
     revealBasePath: serverBasePath + '/node_modules/reveal.js/',
@@ -25,20 +27,22 @@ var opts = {
     verticalSeparator: '^\n----\n$'
 };
 
+var printPluginPath = serverBasePath + '/node_modules/reveal.js/plugin/print-pdf/print-pdf.js';
+
 app.configure(function() {
     [ 'css', 'js', 'images', 'plugin', 'lib' ].forEach(function(dir) {
         app.use('/' + dir, staticDir(opts.revealBasePath + dir));
     });
 });
 
-var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, verticalSeparator) {
+var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, verticalSeparator, printFile) {
 
     opts.userBasePath = basePath;
     opts.port = port || opts.port;
     opts.theme = theme || opts.theme;
     opts.separator = separator || opts.separator;
     opts.verticalSeparator = verticalSeparator || opts.verticalSeparator;
-
+    opts.printMode = !!printFile.length || opts.printMode,
     generateMarkdownListing();
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
@@ -47,8 +51,24 @@ var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, s
 
     app.listen(opts.port || null);
 
-    console.log('Reveal-server started, opening at http://localhost:' + opts.port);
-    open('http://localhost:' + opts.port + (initialMarkdownPath ? '/' + initialMarkdownPath : ''));
+    var initialFilePath = 'http://localhost:' + opts.port + (initialMarkdownPath ? '/' + initialMarkdownPath : '');
+
+    if (!!opts.printMode) {
+      exec('phantomjs ' + printPluginPath + ' ' + initialFilePath + '?print-pdf' + ' ' + printFile, function( err, stdout, stderr ) {
+          if (err) {
+            console.log(("[Error with path '" + printFile + "']\n" + stderr + "\n" + err.toString()).red);
+          } else {
+            console.log(stdout);
+          }
+          // close the server after we're done, print mode we won't keep the server open
+          // this could be configurable if we wanted to, but my thought was that
+          // when you're deciding to print, you just want the output pdf file
+          app.close();
+      });
+    } else {
+      console.log('Reveal-server started, opening at http://localhost:' + opts.port);
+      open(initialFilePath);
+    }
 };
 
 var renderMarkdownAsSlides = function(req, res) {
