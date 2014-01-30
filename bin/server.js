@@ -36,13 +36,14 @@ app.configure(function() {
 });
 
 var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, verticalSeparator, printFile) {
+    var sourceFile;
 
     opts.userBasePath = basePath;
     opts.port = port || opts.port;
     opts.theme = theme || opts.theme;
     opts.separator = separator || opts.separator;
     opts.verticalSeparator = verticalSeparator || opts.verticalSeparator;
-    opts.printMode = !!printFile.length || opts.printMode,
+    opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode,
     generateMarkdownListing();
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
@@ -54,6 +55,15 @@ var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, s
     var initialFilePath = 'http://localhost:' + opts.port + (initialMarkdownPath ? '/' + initialMarkdownPath : '');
 
     if (!!opts.printMode) {
+      sourceFile = initialMarkdownPath;
+
+      // If print parameter was left empty, printFile should equal `true`
+      // Give it a better filename, default to the initialMarkdownPath
+      if (printFile === true) {
+        printFile = sourceFile.replace(/\.md$/,'');
+      }
+
+      console.log('Attempting to print "' + sourceFile + '" to filename "' + printFile + '" as PDF');
       exec('phantomjs ' + printPluginPath + ' ' + initialFilePath + '?print-pdf' + ' ' + printFile, function( err, stdout, stderr ) {
           if (err) {
             console.log(("[Error with path '" + printFile + "']\n" + stderr + "\n" + err.toString()).red);
