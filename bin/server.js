@@ -60,6 +60,7 @@ var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, s
       // If print parameter was left empty, printFile should equal `true`
       // Give it a better filename, default to the initialMarkdownPath
       if (printFile === true) {
+        // Strip .md file extension from output/print filename
         printFile = sourceFile.replace(/\.md$/,'');
       }
 
