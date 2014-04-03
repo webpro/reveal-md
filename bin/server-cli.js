@@ -4,7 +4,8 @@ var fs = require('fs'),
     path = require('path'),
     glob = require('glob'),
     program = require('commander'),
-    server = require('./server');
+    server = require('./server'),
+    pkg = require('../package.json');
 
 var basePath = process.cwd(),
     baseName,
@@ -13,7 +14,7 @@ var basePath = process.cwd(),
     theme = 'default';
 
 program
-    .version('0.0.1')
+    .version(pkg.version)
     .usage('<slides.md> [options]')
     .option('-p, --port [port]', 'Port')
     .option('-t, --theme [theme]', 'Theme')
