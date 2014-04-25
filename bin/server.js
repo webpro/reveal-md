@@ -23,6 +23,7 @@ var opts = {
     template: fs.readFileSync(serverBasePath + '/template/reveal.html').toString(),
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
     theme: 'default',
+    codeTheme: 'zenburn',
     separator: '^\n---\n$',
     verticalSeparator: '^\n----\n$'
 };
@@ -35,15 +36,16 @@ app.configure(function() {
     });
 });
 
-var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, verticalSeparator, printFile) {
+var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, codeTheme, separator, verticalSeparator, printFile) {
     var sourceFile;
 
     opts.userBasePath = basePath;
     opts.port = port || opts.port;
     opts.theme = theme || opts.theme;
+    opts.codeTheme = codeTheme || opts.codeTheme;
     opts.separator = separator || opts.separator;
     opts.verticalSeparator = verticalSeparator || opts.verticalSeparator;
-    opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode,
+    opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
     generateMarkdownListing();
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
@@ -96,7 +98,7 @@ var renderMarkdownAsSlides = function(req, res) {
 
     if(fs.existsSync(markdownPath)) {
         markdown = fs.readFileSync(markdownPath).toString();
-        render(res, markdown)
+        render(res, markdown);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
         if(parsedUrl) {
@@ -105,11 +107,11 @@ var renderMarkdownAsSlides = function(req, res) {
                     markdown += chunk;
                 });
                 response.on('end', function() {
-                    render(res, markdown)
+                    render(res, markdown);
                 });
             }).on('error', function(e) {
                 console.log('Problem with path/url: ' + e.message);
-                render(res, e.message)
+                render(res, e.message);
             });
         }
     }
@@ -121,6 +123,7 @@ var render = function(res, markdown) {
 
     res.send(Mustache.to_html(opts.template, {
         theme: opts.theme,
+        codeTheme: opts.codeTheme,
         slides: slides
     }));
 };
@@ -131,7 +134,7 @@ var generateMarkdownListing = function(userBasePath) {
     glob.sync("**/*.md", {
         cwd: userBasePath || opts.userBasePath
     }).forEach(function(file) {
-        list.push('<a href="' + file + '">' + file + '</a>')
+        list.push('<a href="' + file + '">' + file + '</a>');
     });
 
     return Mustache.to_html(opts.templateListing, {
@@ -141,7 +144,7 @@ var generateMarkdownListing = function(userBasePath) {
 };
 
 var renderMarkdownFileListing = function(req, res) {
-    res.send(generateMarkdownListing())
+    res.send(generateMarkdownListing());
 };
 
 module.exports = {

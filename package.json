@@ -9,7 +9,7 @@
     "server",
     "cli"
   ],
-  "version": "0.0.10",
+  "version": "0.0.11",
   "repository": {
     "type": "git",
     "url": "git://github.com/webpro/reveal-md.git"
@@ -18,7 +18,7 @@
     "reveal-md": "bin/server-cli.js"
   },
   "dependencies": {
-    "reveal.js": "2.6.0",
+    "reveal.js": "git+ssh://git@github.com:abelnation/reveal.js.git#master",
     "express": "2.5.9",
     "mustache": "0.4.0",
     "open": "0.0.3",
