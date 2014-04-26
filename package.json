@@ -18,7 +18,7 @@
     "reveal-md": "bin/server-cli.js"
   },
   "dependencies": {
-    "reveal.js": "git://github.com/abelnation/reveal.js.git#master",
+    "reveal.js": "git://github.com/hakimel/reveal.js.git#dev",
     "express": "2.5.9",
     "mustache": "0.4.0",
     "open": "0.0.3",

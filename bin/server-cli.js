@@ -12,7 +12,7 @@ var basePath = process.cwd(),
     filePath,
     themePath = __dirname + '/../node_modules/reveal.js/css/theme',
     theme = 'default',
-    codeThemePath = __dirname + '/../node_modules/reveal.js/lib/css/',
+    codeThemePath = __dirname + '/../template/css/',
     codeTheme = 'zenburn';
 
 program
