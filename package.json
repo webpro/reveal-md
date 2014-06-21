@@ -23,6 +23,7 @@
     "mustache": "0.4.0",
     "open": "0.0.3",
     "glob": "3.2.1",
-    "commander": "1.2.0"
+    "commander": "1.2.0",
+    "colors": "0.6.2"
   }
 }
