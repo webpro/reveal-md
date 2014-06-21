@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/reveal.css">
         <link rel="stylesheet" href="/css/theme/{{theme}}.css" id="theme">
         <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="/lib/css/zenburn.css">
+        <link rel="stylesheet" href="/template/css/{{codeTheme}}.css">
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
         <script>
@@ -30,11 +30,15 @@
                 center: true,
 
                 theme: Reveal.getQueryHash().theme,
-                transition: Reveal.getQueryHash().transition || 'default',
+                transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
                 // Optional libraries used to extend on reveal.js
                 dependencies: [
                     { src: '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '/plugin/highlight/highlight.js', async: true, callback: function() {
+                        console.log("hljs: " + hljs);
+                        hljs.initHighlightingOnLoad();
+                    } },
                     { src: '/plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
                     { src: '/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } }
                 ]

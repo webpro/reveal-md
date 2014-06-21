@@ -14,16 +14,18 @@ var path = require('path'),
 var app = express.createServer();
 var staticDir = express.static;
 
-var serverBasePath = path.resolve(__dirname + '/../');
+var serverBasePath = path.resolve(__dirname + '/../'),
+    templateBasePath = serverBasePath + '/template/';
 
 var opts = {
     printMode: false,
     port: 1948,
     userBasePath: process.cwd(),
     revealBasePath: serverBasePath + '/node_modules/reveal.js/',
-    template: fs.readFileSync(serverBasePath + '/template/reveal.html').toString(),
-    templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
+    template: fs.readFileSync(templateBasePath + 'reveal.html').toString(),
+    templateListing: fs.readFileSync(templateBasePath + 'listing.html').toString(),
     theme: 'default',
+    codeTheme: 'zenburn',
     separator: '^\n---\n$',
     verticalSeparator: '^\n----\n$'
 };
@@ -31,20 +33,22 @@ var opts = {
 var printPluginPath = serverBasePath + '/node_modules/reveal.js/plugin/print-pdf/print-pdf.js';
 
 app.configure(function() {
+    app.use('/template', staticDir(templateBasePath));
     [ 'css', 'js', 'images', 'plugin', 'lib' ].forEach(function(dir) {
         app.use('/' + dir, staticDir(opts.revealBasePath + dir));
     });
 });
 
-var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, verticalSeparator, printFile) {
+var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, codeTheme, separator, verticalSeparator, printFile) {
     var sourceFile;
 
     opts.userBasePath = basePath;
     opts.port = port || opts.port;
     opts.theme = theme || opts.theme;
+    opts.codeTheme = codeTheme || opts.codeTheme;
     opts.separator = separator || opts.separator;
     opts.verticalSeparator = verticalSeparator || opts.verticalSeparator;
-    opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode,
+    opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
     generateMarkdownListing();
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
@@ -97,7 +101,7 @@ var renderMarkdownAsSlides = function(req, res) {
 
     if(fs.existsSync(markdownPath)) {
         markdown = fs.readFileSync(markdownPath).toString();
-        render(res, markdown)
+        render(res, markdown);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
         if(parsedUrl) {
@@ -106,11 +110,11 @@ var renderMarkdownAsSlides = function(req, res) {
                     markdown += chunk;
                 });
                 response.on('end', function() {
-                    render(res, markdown)
+                    render(res, markdown);
                 });
             }).on('error', function(e) {
                 console.log('Problem with path/url: ' + e.message);
-                render(res, e.message)
+                render(res, e.message);
             });
         }
     }
@@ -122,6 +126,7 @@ var render = function(res, markdown) {
 
     res.send(Mustache.to_html(opts.template, {
         theme: opts.theme,
+        codeTheme: opts.codeTheme,
         slides: slides
     }));
 };
@@ -132,7 +137,7 @@ var generateMarkdownListing = function(userBasePath) {
     glob.sync("**/*.md", {
         cwd: userBasePath || opts.userBasePath
     }).forEach(function(file) {
-        list.push('<a href="' + file + '">' + file + '</a>')
+        list.push('<a href="' + file + '">' + file + '</a>');
     });
 
     return Mustache.to_html(opts.templateListing, {
@@ -142,7 +147,7 @@ var generateMarkdownListing = function(userBasePath) {
 };
 
 var renderMarkdownFileListing = function(req, res) {
-    res.send(generateMarkdownListing())
+    res.send(generateMarkdownListing());
 };
 
 module.exports = {
