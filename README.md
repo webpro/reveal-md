@@ -32,9 +32,16 @@ Example:
 
 > Best quote ever.
 
+Note: speaker notes FTW!
+
 ```
 
 The separator syntax can be overriden (e.g. I like to use three blank lines).
+
+## Speaker Notes
+
+You can use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) feature by using a line starting with `Note:`.
+
 
 ## Usage
 

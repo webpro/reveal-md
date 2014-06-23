@@ -1,5 +1,7 @@
 Foo
 
+Note: test note
+
 ---
 
 Bar
