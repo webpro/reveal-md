@@ -25,7 +25,8 @@ var opts = {
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
     theme: 'default',
     separator: '^\n---\n$',
-    verticalSeparator: '^\n----\n$'
+    verticalSeparator: '^\n----\n$',
+    revealOptions: {}
 };
 
 var printPluginPath = serverBasePath + '/node_modules/reveal.js/plugin/print-pdf/print-pdf.js';
@@ -36,15 +37,19 @@ app.configure(function() {
     });
 });
 
-var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, separator, verticalSeparator, printFile) {
+var startMarkdownServer = function(options) {
+    var initialMarkdownPath = options.initialMarkdownPath;
+    var printFile = options.printFile;
     var sourceFile;
 
-    opts.userBasePath = basePath;
-    opts.port = port || opts.port;
-    opts.theme = theme || opts.theme;
-    opts.separator = separator || opts.separator;
-    opts.verticalSeparator = verticalSeparator || opts.verticalSeparator;
+    opts.userBasePath = options.basePath;
+    opts.port = options.port || opts.port;
+    opts.theme = options.theme || opts.theme;
+    opts.separator = options.separator || opts.separator;
+    opts.verticalSeparator = options.verticalSeparator || opts.verticalSeparator;
     opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
+    opts.revealOptions = options.revealOptions || {};
+
     generateMarkdownListing();
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
@@ -120,12 +125,12 @@ var renderMarkdownAsSlides = function(req, res) {
 };
 
 var render = function(res, markdown) {
-
-    slides = md.slidify(markdown, opts);
+    var slides = md.slidify(markdown, opts);
 
     res.send(Mustache.to_html(opts.template, {
         theme: opts.theme,
-        slides: slides
+        slides: slides,
+        options: JSON.stringify(opts.revealOptions, null, 2)
     }));
 };
 
