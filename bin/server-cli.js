@@ -11,7 +11,7 @@ var basePath = process.cwd(),
     baseName,
     filePath,
     themePath = __dirname + '/../node_modules/reveal.js/css/theme',
-    theme = 'default';
+    theme = 'black';
 
 program
     .version(pkg.version)
