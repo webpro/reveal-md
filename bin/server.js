@@ -44,7 +44,7 @@ var startMarkdownServer = function(basePath, initialMarkdownPath, port, theme, s
     opts.theme = theme || opts.theme;
     opts.separator = separator || opts.separator;
     opts.verticalSeparator = verticalSeparator || opts.verticalSeparator;
-    opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode,
+    opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
     generateMarkdownListing();
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
@@ -100,7 +100,7 @@ var renderMarkdownAsSlides = function(req, res) {
 
     if(fs.existsSync(fsPath)) {
         markdown = fs.readFileSync(fsPath).toString();
-        render(res, markdown)
+        render(res, markdown);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
         if(parsedUrl) {
@@ -109,11 +109,11 @@ var renderMarkdownAsSlides = function(req, res) {
                     markdown += chunk;
                 });
                 response.on('end', function() {
-                    render(res, markdown)
+                    render(res, markdown);
                 });
             }).on('error', function(e) {
                 console.log('Problem with path/url: ' + e.message);
-                render(res, e.message)
+                render(res, e.message);
             });
         }
     }
@@ -135,7 +135,7 @@ var generateMarkdownListing = function(userBasePath) {
     glob.sync("**/*.md", {
         cwd: userBasePath || opts.userBasePath
     }).forEach(function(file) {
-        list.push('<a href="' + file + '">' + file + '</a>')
+        list.push('<a href="' + file + '">' + file + '</a>');
     });
 
     return Mustache.to_html(opts.templateListing, {
@@ -145,7 +145,7 @@ var generateMarkdownListing = function(userBasePath) {
 };
 
 var renderMarkdownFileListing = function(req, res) {
-    res.send(generateMarkdownListing())
+    res.send(generateMarkdownListing());
 };
 
 module.exports = {
