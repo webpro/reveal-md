@@ -11,7 +11,7 @@ var path = require('path'),
     colors = require('colors'),
     exec = require('child_process').exec;
 
-var app = express.createServer();
+var app = express();
 var staticDir = express.static;
 
 var serverBasePath = path.resolve(__dirname + '/../');
@@ -23,7 +23,7 @@ var opts = {
     revealBasePath: serverBasePath + '/node_modules/reveal.js/',
     template: fs.readFileSync(serverBasePath + '/template/reveal.html').toString(),
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
-    theme: 'default',
+    theme: 'black',
     separator: '^\n---\n$',
     verticalSeparator: '^\n----\n$',
     revealOptions: {}
@@ -31,10 +31,8 @@ var opts = {
 
 var printPluginPath = serverBasePath + '/node_modules/reveal.js/plugin/print-pdf/print-pdf.js';
 
-app.configure(function() {
-    [ 'css', 'js', 'images', 'plugin', 'lib' ].forEach(function(dir) {
-        app.use('/' + dir, staticDir(opts.revealBasePath + dir));
-    });
+['css', 'js', 'images', 'plugin', 'lib'].forEach(function(dir) {
+  app.use('/' + dir, staticDir(opts.revealBasePath + dir));
 });
 
 var startMarkdownServer = function(options) {
