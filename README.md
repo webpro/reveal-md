@@ -69,7 +69,7 @@ Show directory listing of Markdown files in current directory:
 reveal-md
 ```
 
-Override theme (default: `default`):
+Override theme (default: `black`):
 
 ``` bash
 reveal-md slides.md --theme solarized
@@ -102,6 +102,10 @@ This will try to create a pdf with the passed in file (eg slides.md) and outputt
 ``` bash
 reveal-md slides.md --print slides.pdf
 ```
+
+## Options
+
+You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `release.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically.
 
 ## Notes
 
