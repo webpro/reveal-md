@@ -18,6 +18,7 @@ var serverBasePath = path.resolve(__dirname + '/../');
 
 var opts = {
     printMode: false,
+    host: 'localhost',
     port: 1948,
     userBasePath: process.cwd(),
     revealBasePath: serverBasePath + '/node_modules/reveal.js/',
@@ -41,6 +42,7 @@ var startMarkdownServer = function(options) {
     var sourceFile;
 
     opts.userBasePath = options.basePath;
+    opts.host = options.host || opts.host;
     opts.port = options.port || opts.port;
     opts.theme = options.theme || opts.theme;
     opts.separator = options.separator || opts.separator;
@@ -56,7 +58,7 @@ var startMarkdownServer = function(options) {
 
     var server = app.listen(opts.port || null);
 
-    var initialFilePath = 'http://localhost:' + opts.port + (initialMarkdownPath ? '/' + initialMarkdownPath : '');
+    var initialFilePath = 'http://' + opts.host + ':' + opts.port + (initialMarkdownPath ? '/' + initialMarkdownPath : '');
 
     if (!!opts.printMode) {
       sourceFile = initialMarkdownPath;
@@ -81,7 +83,7 @@ var startMarkdownServer = function(options) {
           server.close();
       });
     } else {
-      console.log('Reveal-server started, opening at http://localhost:' + opts.port);
+      console.log('Reveal-server started, opening at http://' + opts.host + ':' + opts.port);
       open(initialFilePath);
     }
 };
