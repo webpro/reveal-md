@@ -16,6 +16,7 @@ var basePath = process.cwd(),
 program
     .version(pkg.version)
     .usage('<slides.md> [options]')
+    .option('-h, --host [host]', 'Host')
     .option('-p, --port [port]', 'Port')
     .option('-t, --theme [theme]', 'Theme')
     .option('-r, --print [filename]', 'Print')
@@ -88,6 +89,7 @@ if (!program.theme && revealOptions.theme) {
 server.start({
   basePath: basePath,
   initialMarkdownPath: baseName,
+  host: program.host,
   port: program.port,
   theme: theme,
   separator: program.separator,
