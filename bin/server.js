@@ -25,8 +25,8 @@ var opts = {
     template: fs.readFileSync(serverBasePath + '/template/reveal.html').toString(),
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
     theme: 'black',
-    separator: '^\n---\n$',
-    verticalSeparator: '^\n----\n$',
+    separator: '^(\r\n?|\n)---(\r\n?|\n)$',
+    verticalSeparator: '^(\r\n?|\n)----(\r\n?|\n)$',
     revealOptions: {}
 };
 
