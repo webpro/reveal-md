@@ -8,7 +8,6 @@ var path = require('path'),
     Mustache = require('mustache'),
     glob = require('glob'),
     md = require('../node_modules/reveal.js/plugin/markdown/markdown'),
-    colors = require('colors'),
     exec = require('child_process').exec;
 
 var app = express();
