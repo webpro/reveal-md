@@ -10,7 +10,7 @@ var fs = require('fs'),
 var basePath = process.cwd(),
     baseName,
     filePath,
-    themePath = __dirname + '/../node_modules/reveal.js/css/theme',
+    revealPath = __dirname + '/../node_modules/reveal.js',
     theme = 'black';
 
 program
@@ -61,11 +61,13 @@ if(pathArg === 'demo') {
     }
 }
 
-theme = glob.sync('*.css', {
-    cwd: themePath
-}).map(function(themePath) {
-    return path.basename(themePath).replace(path.extname(themePath), '');
-}).indexOf(program.theme) !== -1 ? program.theme : theme;
+theme = glob.sync('css/theme/*.css', {
+    cwd: revealPath
+}).concat(glob.sync('theme/*.css', {
+  cwd: path.resolve('./')
+})).filter(function(themePath) {
+  return path.basename(themePath).replace(path.extname(themePath), '') === program.theme;
+}).pop() || 'css/theme/' + theme + '.css';
 
 // load custom reveal.js options from reveal.json
 var revealOptions = {};
