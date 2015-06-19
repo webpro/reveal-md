@@ -64,7 +64,7 @@ if(pathArg === 'demo') {
 theme = glob.sync('css/theme/*.css', {
     cwd: revealPath
 }).concat(glob.sync('theme/*.css', {
-  cwd: path.resolve('./')
+  cwd: path.resolve(basePath)
 })).filter(function(themePath) {
   return path.basename(themePath).replace(path.extname(themePath), '') === program.theme;
 }).pop() || 'css/theme/' + theme + '.css';
