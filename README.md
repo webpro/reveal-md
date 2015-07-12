@@ -105,7 +105,14 @@ reveal-md slides.md --print slides.pdf
 
 ## Options
 
-You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically.
+You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
+
+``` json
+{
+    "controls": true,
+    "progress": true
+}
+```
 
 ## Notes
 
