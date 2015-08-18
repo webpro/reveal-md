@@ -24,6 +24,7 @@ var opts = {
     template: fs.readFileSync(serverBasePath + '/template/reveal.html').toString(),
     templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
     theme: 'black',
+    highlightTheme: 'zenburn',
     separator: '^(\r\n?|\n)---(\r\n?|\n)$',
     verticalSeparator: '^(\r\n?|\n)----(\r\n?|\n)$',
     revealOptions: {}
@@ -44,12 +45,16 @@ var startMarkdownServer = function(options) {
     opts.host = options.host || opts.host;
     opts.port = options.port || opts.port;
     opts.theme = options.theme || opts.theme;
+    opts.highlightTheme = options.highlightTheme || opts.highlightTheme;
     opts.separator = options.separator || opts.separator;
     opts.verticalSeparator = options.verticalSeparator || opts.verticalSeparator;
     opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
     opts.revealOptions = options.revealOptions || {};
 
     generateMarkdownListing();
+
+    app.use('/lib/css/' + opts.highlightTheme + '.css',
+      staticDir(serverBasePath + '/node_modules/highlight.js/styles/' + opts.highlightTheme + '.css'));
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
     app.get('/', renderMarkdownFileListing);
@@ -128,6 +133,7 @@ var render = function(res, markdown) {
 
     res.send(Mustache.to_html(opts.template, {
         theme: opts.theme,
+        highlightTheme: opts.highlightTheme,
         slides: slides,
         options: JSON.stringify(opts.revealOptions, null, 2)
     }));
