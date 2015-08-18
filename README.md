@@ -75,6 +75,12 @@ Override theme (default: `black`):
 reveal-md slides.md --theme solarized
 ```
 
+Override [highlight theme](https://github.com/isagalaev/highlight.js/tree/master/src/styles) (default: `zenburn`):
+
+``` bash
+reveal-md slides.md --highlightTheme github
+```
+
 Override slide separator (default: `\n---\n`):
 
 ``` bash

@@ -11,7 +11,8 @@ var basePath = process.cwd(),
     baseName,
     filePath,
     revealPath = __dirname + '/../node_modules/reveal.js',
-    theme = 'black';
+    theme = 'black',
+    highlightTheme = 'zenburn';
 
 program
     .version(pkg.version)
@@ -19,6 +20,7 @@ program
     .option('-h, --host [host]', 'Host')
     .option('-p, --port [port]', 'Port')
     .option('-t, --theme [theme]', 'Theme')
+    .option('-H, --highlightTheme [highlight theme]', 'Highlight theme')
     .option('-r, --print [filename]', 'Print')
     .option('-s, --separator [separator]', 'Slide separator')
     .option('-v, --verticalSeparator [vertical separator]', 'Vertical slide separator')
@@ -69,6 +71,8 @@ theme = glob.sync('css/theme/*.css', {
   return path.basename(themePath).replace(path.extname(themePath), '') === program.theme;
 }).pop() || 'css/theme/' + theme + '.css';
 
+highlightTheme = program.highlightTheme || highlightTheme;
+
 // load custom reveal.js options from reveal.json
 var revealOptions = {};
 var manifestPath = path.join(basePath, 'reveal.json');
@@ -88,12 +92,18 @@ if (!program.theme && revealOptions.theme) {
   theme = revealOptions.theme;
 }
 
+// overide default highlight theme from manifest options
+if (!program.highlightTheme && revealOptions.highlightTheme) {
+  highlightTheme = revealOptions.highlightTheme;
+}
+
 server.start({
   basePath: basePath,
   initialMarkdownPath: baseName,
   host: program.host,
   port: program.port,
   theme: theme,
+  highlightTheme: highlightTheme,
   separator: program.separator,
   verticalSeparator: program.verticalSeparator,
   printFile: program.print,
