@@ -7,22 +7,22 @@ var path = require('path'),
     open = require('open'),
     Mustache = require('mustache'),
     glob = require('glob'),
-    md = require('../node_modules/reveal.js/plugin/markdown/markdown'),
+    md = require('reveal.js/plugin/markdown/markdown'),
     exec = require('child_process').exec;
 
 var app = express();
 var staticDir = express.static;
 
-var serverBasePath = path.resolve(__dirname + '/../');
+var serverBasePath = path.join(__dirname, '..');
 
 var opts = {
     printMode: false,
     host: 'localhost',
     port: 1948,
     userBasePath: process.cwd(),
-    revealBasePath: serverBasePath + '/node_modules/reveal.js/',
-    template: fs.readFileSync(serverBasePath + '/template/reveal.html').toString(),
-    templateListing: fs.readFileSync(serverBasePath + '/template/listing.html').toString(),
+    revealBasePath: path.join(serverBasePath, 'node_modules', 'reveal.js'),
+    template: fs.readFileSync(path.join(serverBasePath, 'template', 'reveal.html')).toString(),
+    templateListing: fs.readFileSync(path.join(serverBasePath, 'template', 'listing.html')).toString(),
     theme: 'black',
     highlightTheme: 'zenburn',
     separator: '^(\r\n?|\n)---(\r\n?|\n)$',
@@ -30,10 +30,10 @@ var opts = {
     revealOptions: {}
 };
 
-var printPluginPath = serverBasePath + '/node_modules/reveal.js/plugin/print-pdf/print-pdf.js';
+var printPluginPath = path.join(serverBasePath, 'node_modules', 'reveal.js', 'plugin', 'print-pdf', 'print-pdf.js');
 
 ['css', 'js', 'images', 'plugin', 'lib'].forEach(function(dir) {
-  app.use('/' + dir, staticDir(opts.revealBasePath + dir));
+    app.use('/' + dir, staticDir(path.join(opts.revealBasePath, dir)));
 });
 
 var startMarkdownServer = function(options) {
@@ -54,7 +54,7 @@ var startMarkdownServer = function(options) {
     generateMarkdownListing();
 
     app.use('/lib/css/' + opts.highlightTheme + '.css',
-      staticDir(serverBasePath + '/node_modules/highlight.js/styles/' + opts.highlightTheme + '.css'));
+        staticDir(path.join(serverBasePath, 'node_modules', 'highlight.js', 'styles', opts.highlightTheme + '.css')));
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
     app.get('/', renderMarkdownFileListing);
