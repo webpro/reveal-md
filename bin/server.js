@@ -64,31 +64,31 @@ var startMarkdownServer = function(options) {
 
     var initialFilePath = 'http://' + opts.host + ':' + opts.port + (initialMarkdownPath ? '/' + initialMarkdownPath : '');
 
-    if (!!opts.printMode) {
-      sourceFile = initialMarkdownPath;
+    if(!!opts.printMode) {
+        sourceFile = initialMarkdownPath;
 
-      // If print parameter was left empty, printFile should equal `true`
-      // Give it a better filename, default to the initialMarkdownPath
-      if (printFile === true) {
-        // Strip .md file extension from output/print filename
-        printFile = sourceFile.replace(/\.md$/,'');
-      }
+        // If print parameter was left empty, printFile should equal `true`
+        // Give it a better filename, default to the initialMarkdownPath
+        if(printFile === true) {
+            // Strip .md file extension from output/print filename
+            printFile = sourceFile.replace(/\.md$/, '');
+        }
 
-      console.log('Attempting to print "' + sourceFile + '" to filename "' + printFile + '" as PDF');
-      exec('phantomjs ' + printPluginPath + ' ' + initialFilePath + '?print-pdf' + ' ' + printFile, function( err, stdout, stderr ) {
-          if (err) {
-            console.log(("[Error with path '" + printFile + "']\n" + stderr + "\n" + err.toString()).red);
-          } else {
-            console.log(stdout);
-          }
-          // close the server after we're done, print mode we won't keep the server open
-          // this could be configurable if we wanted to, but my thought was that
-          // when you're deciding to print, you just want the output pdf file
-          server.close();
-      });
+        console.log('Attempting to print "' + sourceFile + '" to filename "' + printFile + '" as PDF');
+        exec('phantomjs ' + printPluginPath + ' ' + initialFilePath + '?print-pdf' + ' ' + printFile, function(err, stdout, stderr) {
+            if(err) {
+                console.log(("[Error with path '" + printFile + "']\n" + stderr + "\n" + err.toString()).red);
+            } else {
+                console.log(stdout);
+            }
+            // close the server after we're done, print mode we won't keep the server open
+            // this could be configurable if we wanted to, but my thought was that
+            // when you're deciding to print, you just want the output pdf file
+            server.close();
+        });
     } else {
-      console.log('Reveal-server started, opening at http://' + opts.host + ':' + opts.port);
-      open(initialFilePath);
+        console.log('Reveal-server started, opening at http://' + opts.host + ':' + opts.port);
+        open(initialFilePath);
     }
 };
 
@@ -99,8 +99,8 @@ var renderMarkdownAsSlides = function(req, res) {
         fsPath;
 
     // Look for print-pdf option
-    if (~req.url.indexOf('?print-pdf')) {
-      req.url = req.url.replace('?print-pdf','');
+    if(~req.url.indexOf('?print-pdf')) {
+        req.url = req.url.replace('?print-pdf', '');
     }
 
     markdownPath = path.resolve(opts.userBasePath + req.url);

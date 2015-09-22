@@ -66,9 +66,9 @@ if(pathArg === 'demo') {
 theme = glob.sync('css/theme/*.css', {
     cwd: revealPath
 }).concat(glob.sync('theme/*.css', {
-  cwd: path.resolve(basePath)
+    cwd: path.resolve(basePath)
 })).filter(function(themePath) {
-  return path.basename(themePath).replace(path.extname(themePath), '') === program.theme;
+    return path.basename(themePath).replace(path.extname(themePath), '') === program.theme;
 }).pop() || 'css/theme/' + theme + '.css';
 
 highlightTheme = program.highlightTheme || highlightTheme;
@@ -76,36 +76,36 @@ highlightTheme = program.highlightTheme || highlightTheme;
 // load custom reveal.js options from reveal.json
 var revealOptions = {};
 var manifestPath = path.join(basePath, 'reveal.json');
-if (fs.existsSync(manifestPath) && fs.statSync(manifestPath).isFile(manifestPath)) {
-  try {
-    var options = require(manifestPath);
-    if (typeof options === "object") {
-      revealOptions = options;
+if(fs.existsSync(manifestPath) && fs.statSync(manifestPath).isFile(manifestPath)) {
+    try {
+        var options = require(manifestPath);
+        if(typeof options === "object") {
+            revealOptions = options;
+        }
+    } catch(err) {
+        console.log(err);
     }
-  } catch (err) {
-    console.log(err);
-  }
 }
 
 // overide default theme from manifest options
-if (!program.theme && revealOptions.theme) {
-  theme = revealOptions.theme;
+if(!program.theme && revealOptions.theme) {
+    theme = revealOptions.theme;
 }
 
 // overide default highlight theme from manifest options
-if (!program.highlightTheme && revealOptions.highlightTheme) {
-  highlightTheme = revealOptions.highlightTheme;
+if(!program.highlightTheme && revealOptions.highlightTheme) {
+    highlightTheme = revealOptions.highlightTheme;
 }
 
 server.start({
-  basePath: basePath,
-  initialMarkdownPath: baseName,
-  host: program.host,
-  port: program.port,
-  theme: theme,
-  highlightTheme: highlightTheme,
-  separator: program.separator,
-  verticalSeparator: program.verticalSeparator,
-  printFile: program.print,
-  revealOptions: revealOptions
+    basePath: basePath,
+    initialMarkdownPath: baseName,
+    host: program.host,
+    port: program.port,
+    theme: theme,
+    highlightTheme: highlightTheme,
+    separator: program.separator,
+    verticalSeparator: program.verticalSeparator,
+    printFile: program.print,
+    revealOptions: revealOptions
 });
