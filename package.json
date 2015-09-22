@@ -15,7 +15,7 @@
     "url": "git://github.com/webpro/reveal-md.git"
   },
   "bin": {
-    "reveal-md": "bin/server-cli.js"
+    "reveal-md": "bin/cli.js"
   },
   "dependencies": {
     "reveal.js": "3.1.0",
