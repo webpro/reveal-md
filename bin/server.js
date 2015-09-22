@@ -20,7 +20,7 @@ var opts = {
     host: 'localhost',
     port: 1948,
     userBasePath: process.cwd(),
-    revealBasePath: path.join(serverBasePath, 'node_modules', 'reveal.js'),
+    revealBasePath: path.resolve(require.resolve('reveal.js'), '..', '..'),
     template: fs.readFileSync(path.join(serverBasePath, 'template', 'reveal.html')).toString(),
     templateListing: fs.readFileSync(path.join(serverBasePath, 'template', 'listing.html')).toString(),
     theme: 'black',

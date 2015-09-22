@@ -10,7 +10,7 @@ var fs = require('fs'),
 var basePath = process.cwd(),
     baseName,
     filePath,
-    revealPath = __dirname + '/../node_modules/reveal.js',
+    revealPath = path.resolve(require.resolve('reveal.js'), '..', '..'),
     theme = 'black',
     highlightTheme = 'zenburn';
 
