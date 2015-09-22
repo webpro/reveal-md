@@ -51,8 +51,6 @@ var startMarkdownServer = function(options) {
     opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
     opts.revealOptions = options.revealOptions || {};
 
-    generateMarkdownListing();
-
     app.use('/lib/css/' + opts.highlightTheme + '.css',
         staticDir(path.join(serverBasePath, 'node_modules', 'highlight.js', 'styles', opts.highlightTheme + '.css')));
 
