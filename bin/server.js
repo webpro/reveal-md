@@ -144,8 +144,9 @@ var generateMarkdownListing = function(userBasePath) {
     var list = [];
 
     glob.sync('**/*.md', {
-        cwd: userBasePath || opts.userBasePath
-      }).forEach(function(file) {
+        cwd: userBasePath || opts.userBasePath,
+        ignore: 'node_modules/**'
+    }).forEach(function(file) {
         list.push('<a href="' + file + '">' + file + '</a>');
     });
 
