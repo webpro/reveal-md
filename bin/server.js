@@ -50,6 +50,7 @@ var startMarkdownServer = function(options) {
     opts.verticalSeparator = options.verticalSeparator || opts.verticalSeparator;
     opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
     opts.revealOptions = options.revealOptions || {};
+    opts.openWebBrowser = options.openWebBrowser;
 
     app.use('/lib/css/' + opts.highlightTheme + '.css',
         staticDir(path.join(serverBasePath, 'node_modules', 'highlight.js', 'styles', opts.highlightTheme + '.css')));
@@ -86,7 +87,9 @@ var startMarkdownServer = function(options) {
         });
     } else {
         console.log('Reveal-server started, opening at http://' + opts.host + ':' + opts.port);
-        open(initialFilePath);
+        if(opts.openWebBrowser){
+          open(initialFilePath);
+        }
     }
 };
 
@@ -140,8 +143,9 @@ var render = function(res, markdown) {
 var generateMarkdownListing = function(userBasePath) {
     var list = [];
 
-    glob.sync("**/*.md", {
-        cwd: userBasePath || opts.userBasePath
+    glob.sync('**/*.md', {
+        cwd: userBasePath || opts.userBasePath,
+        ignore: 'node_modules/**'
     }).forEach(function(file) {
         list.push('<a href="' + file + '">' + file + '</a>');
     });

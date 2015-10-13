@@ -24,6 +24,7 @@ program
     .option('-r, --print [filename]', 'Print')
     .option('-s, --separator [separator]', 'Slide separator')
     .option('-v, --verticalSeparator [vertical separator]', 'Vertical slide separator')
+    .option('--disableAutoOpen', 'Disable to automatically open your web browser')
     .parse(process.argv);
 
 if(program.args.length > 2) {
@@ -35,7 +36,7 @@ var pathArg = program.args[0];
 // TODO: fix user can have own demo file/directory
 if(pathArg === 'demo') {
 
-    basePath = __dirname + '/../demo';
+    basePath = path.join(__dirname, '../demo');
 
 } else if(pathArg) {
 
@@ -79,7 +80,7 @@ var manifestPath = path.join(basePath, 'reveal.json');
 if(fs.existsSync(manifestPath) && fs.statSync(manifestPath).isFile(manifestPath)) {
     try {
         var options = require(manifestPath);
-        if(typeof options === "object") {
+        if(typeof options === 'object') {
             revealOptions = options;
         }
     } catch(err) {
@@ -107,5 +108,6 @@ server.start({
     separator: program.separator,
     verticalSeparator: program.verticalSeparator,
     printFile: program.print,
-    revealOptions: revealOptions
+    revealOptions: revealOptions,
+    openWebBrowser: !program.disableAutoOpen
 });

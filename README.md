@@ -75,6 +75,13 @@ Override theme (default: `black`):
 reveal-md slides.md --theme solarized
 ```
 
+Override reveal theme with a custom one:
+
+``` bash
+# you'll need a theme/my-custom.css file
+reveal-md slides.md --theme my-custom
+```
+
 Override [highlight theme](https://github.com/isagalaev/highlight.js/tree/master/src/styles) (default: `zenburn`):
 
 ``` bash
@@ -97,6 +104,12 @@ Override port (default: `1948`):
 
 ``` bash
 reveal-md slides.md --port 8888
+```
+
+Disable to automatically open your web browser:
+
+``` bash
+reveal-md slides.md --disableAutoOpen
 ```
 
 ## Print Support
