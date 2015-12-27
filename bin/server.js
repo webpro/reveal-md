@@ -73,6 +73,11 @@ var startMarkdownServer = function(options) {
             printFile = sourceFile.replace(/\.md$/, '');
         }
 
+        // Both the console.log line below and the reveal.js print-pdf plugin
+        // will append .pdf if it is missing, so let's be consistent and remove
+        // it here
+        printFile = printFile.replace(/\.pdf$/, '')
+
         console.log('Attempting to print "' + sourceFile + '" to filename "' + printFile + '.pdf" as PDF');
         exec('phantomjs ' + printPluginPath + ' ' + initialFilePath + '?print-pdf' + ' ' + printFile, function(err, stdout, stderr) {
             if(err) {
