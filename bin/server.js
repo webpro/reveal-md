@@ -78,7 +78,8 @@ var startMarkdownServer = function(options) {
         // it here
         printFile = printFile.replace(/\.pdf$/, '')
 
-        console.log('Attempting to print "' + sourceFile + '" to filename "' + printFile + '.pdf" as PDF');
+        console.log('Attempting to print "' + sourceFile + '" to filename "' + printFile + '.pdf" as PDF.');
+        console.log('Make sure to have PhantomJS installed (and in your path).');
         exec('phantomjs ' + printPluginPath + ' ' + initialFilePath + '?print-pdf' + ' ' + printFile, function(err, stdout, stderr) {
             if(err) {
                 console.log(("[Error with path '" + printFile + "']\n" + stderr + "\n" + err.toString()).red);
