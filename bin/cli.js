@@ -25,6 +25,8 @@ program
     .option('-s, --separator [separator]', 'Slide separator')
     .option('-v, --verticalSeparator [vertical separator]', 'Vertical slide separator')
     .option('--disableAutoOpen', 'Disable to automatically open your web browser')
+    .option('--static', 'Export static html to stdout. Save to reveal.js/index.html to' +
+        ' match dependencies. HINT: printing does not work properly in this mode')
     .parse(process.argv);
 
 if(program.args.length > 2) {
@@ -98,16 +100,32 @@ if(!program.highlightTheme && revealOptions.highlightTheme) {
     highlightTheme = revealOptions.highlightTheme;
 }
 
-server.start({
-    basePath: basePath,
-    initialMarkdownPath: baseName,
-    host: program.host,
-    port: program.port,
-    theme: theme,
-    highlightTheme: highlightTheme,
-    separator: program.separator,
-    verticalSeparator: program.verticalSeparator,
-    printFile: program.print,
-    revealOptions: revealOptions,
-    openWebBrowser: !program.disableAutoOpen
-});
+if (program.static) {
+        server.toStaticHTML({
+            basePath: basePath,
+            initialMarkdownPath: baseName,
+            theme: theme,
+            highlightTheme: highlightTheme,
+            separator: program.separator,
+            verticalSeparator: program.verticalSeparator,
+            printFile: program.print,
+            revealOptions: revealOptions,
+        });
+} else {
+        server.start({
+            basePath: basePath,
+            initialMarkdownPath: baseName,
+            host: program.host,
+            port: program.port,
+            theme: theme,
+            highlightTheme: highlightTheme,
+            separator: program.separator,
+            verticalSeparator: program.verticalSeparator,
+            printFile: program.print,
+            revealOptions: revealOptions,
+            openWebBrowser: !program.disableAutoOpen
+        });
+}
+
+
+// TODO: include make_static here!

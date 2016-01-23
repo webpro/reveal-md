@@ -36,11 +36,7 @@ var printPluginPath = path.join(serverBasePath, 'node_modules', 'reveal.js', 'pl
     app.use('/' + dir, staticDir(path.join(opts.revealBasePath, dir)));
 });
 
-var startMarkdownServer = function(options) {
-    var initialMarkdownPath = options.initialMarkdownPath;
-    var printFile = options.printFile;
-    var sourceFile;
-
+var fillOpts = function(options) {
     opts.userBasePath = options.basePath;
     opts.host = options.host || opts.host;
     opts.port = options.port || opts.port;
@@ -51,6 +47,15 @@ var startMarkdownServer = function(options) {
     opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
     opts.revealOptions = options.revealOptions || {};
     opts.openWebBrowser = options.openWebBrowser;
+};
+
+
+var startMarkdownServer = function(options) {
+    var initialMarkdownPath = options.initialMarkdownPath;
+    var printFile = options.printFile;
+    var sourceFile;
+
+    fillOpts(options);
 
     app.use('/lib/css/' + opts.highlightTheme + '.css',
         staticDir(path.join(serverBasePath, 'node_modules', 'highlight.js', 'styles', opts.highlightTheme + '.css')));
@@ -166,6 +171,26 @@ var renderMarkdownFileListing = function(req, res) {
     res.send(generateMarkdownListing());
 };
 
+var to_html = function (options) {
+    var initialMarkdownPath = options.initialMarkdownPath;
+    fillOpts(options);
+
+    if(fs.existsSync(initialMarkdownPath)) {
+        markdown = fs.readFileSync(initialMarkdownPath).toString();
+        var slides = md.slidify(markdown, opts);
+
+        var html = Mustache.to_html(opts.template, {
+            theme: opts.theme,
+            highlightTheme: opts.highlightTheme,
+            slides: slides,
+            options: JSON.stringify(opts.revealOptions, null, 2)
+        });
+
+        console.log(html);
+    }
+}
+
 module.exports = {
-    start: startMarkdownServer
+    start: startMarkdownServer,
+    toStaticHTML: to_html
 };
