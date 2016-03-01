@@ -97,7 +97,7 @@ reveal-md slides.md --separator "^\n\n\n"
 Override vertical/nested slide separator (default: `\n----\n`):
 
 ``` bash
-reveal-md slides.md --vertical "^\n\n"
+reveal-md slides.md --verticalSeparator "^\n\n"
 ```
 
 Override port (default: `1948`):
