@@ -42,6 +42,23 @@ The separator syntax can be overriden (e.g. I like to use three blank lines).
 
 You can use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) feature by using a line starting with `Note:`.
 
+## Custom slide attributes
+
+You can use the [reveal.js slide attributes](https://github.com/hakimel/reveal.js#slide-attributes) functionality to add HTML attributes e.g. custom backgrounds. Alternatively you could add an HTML `id` to a specific slide and style it with your own `css`.
+
+If you want yor second slide to have a png background:
+``` text
+# slide1
+
+This slide has no background image.
+
+---
+
+<!-- .slide: data-background="./image1.png" -->
+# slide2
+
+This one does!
+```
 
 ## Usage
 
