@@ -44,7 +44,7 @@ var fillOpts = function(options) {
     opts.highlightTheme = options.highlightTheme || opts.highlightTheme;
     opts.separator = options.separator || opts.separator;
     opts.verticalSeparator = options.verticalSeparator || opts.verticalSeparator;
-    opts.printMode = typeof printFile !== 'undefined' && printFile || opts.printMode;
+    opts.printMode = typeof options.printFile !== 'undefined' && options.printFile || opts.printMode;
     opts.revealOptions = options.revealOptions || {};
     opts.openWebBrowser = options.openWebBrowser;
 };
@@ -172,7 +172,7 @@ var renderMarkdownFileListing = function(req, res) {
 };
 
 var to_html = function (options) {
-    var initialMarkdownPath = options.initialMarkdownPath;
+    var initialMarkdownPath = path.join(options.basePath, options.initialMarkdownPath);
     fillOpts(options);
 
     if(fs.existsSync(initialMarkdownPath)) {
