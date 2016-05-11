@@ -101,30 +101,30 @@ if(!program.highlightTheme && revealOptions.highlightTheme) {
 }
 
 if (program.static) {
-        server.toStaticHTML({
-            basePath: basePath,
-            initialMarkdownPath: baseName,
-            theme: theme,
-            highlightTheme: highlightTheme,
-            separator: program.separator,
-            verticalSeparator: program.verticalSeparator,
-            printFile: program.print,
-            revealOptions: revealOptions,
-        });
+    server.toStaticHTML({
+        basePath: basePath,
+        initialMarkdownPath: baseName,
+        theme: theme,
+        highlightTheme: highlightTheme,
+        separator: program.separator,
+        verticalSeparator: program.verticalSeparator,
+        printFile: program.print,
+        revealOptions: revealOptions
+    });
 } else {
-        server.start({
-            basePath: basePath,
-            initialMarkdownPath: baseName,
-            host: program.host,
-            port: program.port,
-            theme: theme,
-            highlightTheme: highlightTheme,
-            separator: program.separator,
-            verticalSeparator: program.verticalSeparator,
-            printFile: program.print,
-            revealOptions: revealOptions,
-            openWebBrowser: !program.disableAutoOpen
-        });
+    server.start({
+        basePath: basePath,
+        initialMarkdownPath: baseName,
+        host: program.host,
+        port: program.port,
+        theme: theme,
+        highlightTheme: highlightTheme,
+        separator: program.separator,
+        verticalSeparator: program.verticalSeparator,
+        printFile: program.print,
+        revealOptions: revealOptions,
+        openWebBrowser: !program.disableAutoOpen
+    });
 }
 
 
