@@ -87,6 +87,11 @@ Inject custom scripts into the page:
 reveal-md slides.md --scripts script.js,another-script.js
 ```
 
+Override reveal theme with a remote one (use rawgit.com because the url must allow cross-site access):
+```
+reveal-md slides.md --theme https://rawgit.com/puzzle/pitc-revealjs-theme/master/theme/puzzle.css
+```
+
 Override [highlight theme](https://github.com/isagalaev/highlight.js/tree/master/src/styles) (default: `zenburn`):
 
 ``` bash

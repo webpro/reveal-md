@@ -69,14 +69,17 @@ if(pathArg === 'demo') {
     }
 }
 
-theme = glob.sync('css/theme/*.css', {
-    cwd: revealPath
-}).concat(glob.sync('theme/*.css', {
-    cwd: path.resolve(basePath)
-})).filter(function(themePath) {
-    return path.basename(themePath).replace(path.extname(themePath), '') === program.theme;
-}).pop() || 'css/theme/' + theme + '.css';
-
+if (program.theme && program.theme.match(/^http.*css$/)) {
+    theme = program.theme
+} else {
+    theme = glob.sync('css/theme/*.css', {
+        cwd: revealPath
+    }).concat(glob.sync('theme/*.css', {
+        cwd: path.resolve(basePath)
+    })).filter(function(themePath) {
+        return path.basename(themePath).replace(path.extname(themePath), '') === program.theme;
+    }).pop() || 'css/theme/' + theme + '.css';
+}
 highlightTheme = program.highlightTheme || highlightTheme;
 title = program.title || title;
 
