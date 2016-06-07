@@ -25,6 +25,7 @@ var opts = {
     templateListing: fs.readFileSync(path.join(serverBasePath, 'template', 'listing.html')).toString(),
     theme: 'black',
     highlightTheme: 'zenburn',
+    title: 'reveal-md',
     separator: '^(\r\n?|\n)---(\r\n?|\n)$',
     verticalSeparator: '^(\r\n?|\n)----(\r\n?|\n)$',
     revealOptions: {}
@@ -42,6 +43,7 @@ var fillOpts = function(options) {
     opts.port = options.port || opts.port;
     opts.theme = options.theme || opts.theme;
     opts.highlightTheme = options.highlightTheme || opts.highlightTheme;
+    opts.title = options.title || opts.title;
     opts.separator = options.separator || opts.separator;
     opts.verticalSeparator = options.verticalSeparator || opts.verticalSeparator;
     opts.printMode = typeof options.printFile !== 'undefined' && options.printFile || opts.printMode;
@@ -146,6 +148,7 @@ var render = function(res, markdown) {
     res.send(Mustache.to_html(opts.template, {
         theme: opts.theme,
         highlightTheme: opts.highlightTheme,
+        title: opts.title,
         slides: slides,
         options: JSON.stringify(opts.revealOptions, null, 2)
     }));
@@ -163,6 +166,7 @@ var generateMarkdownListing = function(userBasePath) {
 
     return Mustache.to_html(opts.templateListing, {
         theme: opts.theme,
+        title: opts.title,
         listing: list.join('<br>')
     });
 };
@@ -182,6 +186,7 @@ var to_html = function (options) {
         var html = Mustache.to_html(opts.template, {
             theme: opts.theme,
             highlightTheme: opts.highlightTheme,
+            title: opts.title,
             slides: slides,
             options: JSON.stringify(opts.revealOptions, null, 2)
         });

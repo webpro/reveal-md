@@ -12,7 +12,8 @@ var basePath = process.cwd(),
     filePath,
     revealPath = path.resolve(require.resolve('reveal.js'), '..', '..'),
     theme = 'black',
-    highlightTheme = 'zenburn';
+    highlightTheme = 'zenburn',
+    title;
 
 program
     .version(pkg.version)
@@ -21,6 +22,7 @@ program
     .option('-p, --port [port]', 'Port')
     .option('-t, --theme [theme]', 'Theme')
     .option('-H, --highlightTheme [highlight theme]', 'Highlight theme')
+    .option('--title [title]', 'Title of the presentation')
     .option('-r, --print [filename]', 'Print')
     .option('-s, --separator [separator]', 'Slide separator')
     .option('-v, --verticalSeparator [vertical separator]', 'Vertical slide separator')
@@ -75,6 +77,7 @@ theme = glob.sync('css/theme/*.css', {
 }).pop() || 'css/theme/' + theme + '.css';
 
 highlightTheme = program.highlightTheme || highlightTheme;
+title = program.title || title;
 
 // load custom reveal.js options from reveal.json
 var revealOptions = {};
@@ -106,6 +109,7 @@ if (program.static) {
         initialMarkdownPath: baseName,
         theme: theme,
         highlightTheme: highlightTheme,
+        title: title,
         separator: program.separator,
         verticalSeparator: program.verticalSeparator,
         printFile: program.print,
@@ -119,6 +123,7 @@ if (program.static) {
         port: program.port,
         theme: theme,
         highlightTheme: highlightTheme,
+        title: title,
         separator: program.separator,
         verticalSeparator: program.verticalSeparator,
         printFile: program.print,
