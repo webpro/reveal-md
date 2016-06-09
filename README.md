@@ -81,6 +81,12 @@ Override reveal theme with a custom one:
 reveal-md slides.md --theme my-custom
 ```
 
+Inject custom scripts into the page:
+
+``` bash
+reveal-md slides.md --scripts script.js,another-script.js
+```
+
 Override [highlight theme](https://github.com/isagalaev/highlight.js/tree/master/src/styles) (default: `zenburn`):
 
 ``` bash
