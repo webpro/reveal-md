@@ -26,6 +26,7 @@ program
     .option('-r, --print [filename]', 'Print')
     .option('-s, --separator [separator]', 'Slide separator')
     .option('-v, --verticalSeparator [vertical separator]', 'Vertical slide separator')
+    .option('-i, --scripts [list of scripts]', 'Scripts to inject into the page')
     .option('--disableAutoOpen', 'Disable to automatically open your web browser')
     .option('--static', 'Export static html to stdout. Save to reveal.js/index.html to' +
         ' match dependencies. HINT: printing does not work properly in this mode')
@@ -128,7 +129,10 @@ if (program.static) {
         verticalSeparator: program.verticalSeparator,
         printFile: program.print,
         revealOptions: revealOptions,
-        openWebBrowser: !program.disableAutoOpen
+        openWebBrowser: !program.disableAutoOpen,
+        scripts: (program.scripts || '').split(',').map(function (script) {
+            return script[0] === '/' ? script : path.resolve(process.cwd(), script);
+        })
     });
 }
 

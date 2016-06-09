@@ -28,7 +28,8 @@ var opts = {
     title: 'reveal-md',
     separator: '^(\r\n?|\n)---(\r\n?|\n)$',
     verticalSeparator: '^(\r\n?|\n)----(\r\n?|\n)$',
-    revealOptions: {}
+    revealOptions: {},
+    scripts: {}
 };
 
 var printPluginPath = path.join(serverBasePath, 'node_modules', 'reveal.js', 'plugin', 'print-pdf', 'print-pdf.js');
@@ -49,6 +50,11 @@ var fillOpts = function(options) {
     opts.printMode = typeof options.printFile !== 'undefined' && options.printFile || opts.printMode;
     opts.revealOptions = options.revealOptions || {};
     opts.openWebBrowser = options.openWebBrowser;
+    
+    opts.scripts = {};
+    options.scripts.forEach(function (script) {
+        opts.scripts[ path.basename(script) ] = script;
+    });
 };
 
 
@@ -63,6 +69,7 @@ var startMarkdownServer = function(options) {
         staticDir(path.join(serverBasePath, 'node_modules', 'highlight.js', 'styles', opts.highlightTheme + '.css')));
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
+    app.get('/scripts/*', getScript);
     app.get('/', renderMarkdownFileListing);
     app.get('/*', staticDir(opts.userBasePath));
 
@@ -142,6 +149,10 @@ var renderMarkdownAsSlides = function(req, res) {
     }
 };
 
+var getScript = function (req, res) {
+    res.sendFile( opts.scripts[req.url.substr( req.url.indexOf('/scripts/') + 9 )] );
+};
+
 var render = function(res, markdown) {
     var slides = md.slidify(markdown, opts);
 
@@ -150,7 +161,8 @@ var render = function(res, markdown) {
         highlightTheme: opts.highlightTheme,
         title: opts.title,
         slides: slides,
-        options: JSON.stringify(opts.revealOptions, null, 2)
+        options: JSON.stringify(opts.revealOptions, null, 2),
+        scripts: Object.keys(opts.scripts)
     }));
 };
 
