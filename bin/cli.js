@@ -104,7 +104,7 @@ if(!program.highlightTheme && revealOptions.highlightTheme) {
     highlightTheme = revealOptions.highlightTheme;
 }
 
-if (program.static) {
+if(program.static) {
     server.toStaticHTML({
         basePath: basePath,
         initialMarkdownPath: baseName,
@@ -130,11 +130,10 @@ if (program.static) {
         printFile: program.print,
         revealOptions: revealOptions,
         openWebBrowser: !program.disableAutoOpen,
-        scripts: (program.scripts || '').split(',').map(function (script) {
+        scripts: (program.scripts || '').split(',').map(function(script) {
             return script[0] === '/' ? script : path.resolve(process.cwd(), script);
         })
     });
 }
-
 
 // TODO: include make_static here!

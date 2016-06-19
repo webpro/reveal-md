@@ -50,13 +50,12 @@ var fillOpts = function(options) {
     opts.printMode = typeof options.printFile !== 'undefined' && options.printFile || opts.printMode;
     opts.revealOptions = options.revealOptions || {};
     opts.openWebBrowser = options.openWebBrowser;
-    
+
     opts.scripts = {};
-    options.scripts.forEach(function (script) {
-        opts.scripts[ path.basename(script) ] = script;
+    options.scripts.forEach(function(script) {
+        opts.scripts[path.basename(script)] = script;
     });
 };
-
 
 var startMarkdownServer = function(options) {
     var initialMarkdownPath = options.initialMarkdownPath;
@@ -107,8 +106,8 @@ var startMarkdownServer = function(options) {
         });
     } else {
         console.log('Reveal-server started, opening at http://' + opts.host + ':' + opts.port);
-        if(opts.openWebBrowser){
-          open(initialFilePath);
+        if(opts.openWebBrowser) {
+            open(initialFilePath);
         }
     }
 };
@@ -149,8 +148,8 @@ var renderMarkdownAsSlides = function(req, res) {
     }
 };
 
-var getScript = function (req, res) {
-    res.sendFile( opts.scripts[req.url.substr( req.url.indexOf('/scripts/') + 9 )] );
+var getScript = function(req, res) {
+    res.sendFile(opts.scripts[req.url.substr(req.url.indexOf('/scripts/') + 9)]);
 };
 
 var render = function(res, markdown) {
@@ -187,7 +186,7 @@ var renderMarkdownFileListing = function(req, res) {
     res.send(generateMarkdownListing());
 };
 
-var to_html = function (options) {
+var to_html = function(options) {
     var initialMarkdownPath = path.join(options.basePath, options.initialMarkdownPath);
     fillOpts(options);
 
