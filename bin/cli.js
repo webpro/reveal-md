@@ -117,7 +117,10 @@ if(program.static) {
         separator: program.separator,
         verticalSeparator: program.verticalSeparator,
         printFile: program.print,
-        revealOptions: revealOptions
+        revealOptions: revealOptions,
+        scripts: (program.scripts || '').split(',').map(function(script) {
+            return script[0] === '/' ? script : path.resolve(process.cwd(), script);
+        })
     });
 } else {
     server.start({

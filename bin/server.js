@@ -199,7 +199,8 @@ var to_html = function(options) {
             highlightTheme: opts.highlightTheme,
             title: opts.title,
             slides: slides,
-            options: JSON.stringify(opts.revealOptions, null, 2)
+            options: JSON.stringify(opts.revealOptions, null, 2),
+            scripts: Object.keys(opts.scripts)
         });
 
         console.log(html);
