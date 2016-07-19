@@ -13,6 +13,7 @@ var basePath = process.cwd(),
     revealPath = path.resolve(require.resolve('reveal.js'), '..', '..'),
     theme = 'black',
     highlightTheme = 'zenburn',
+    watch = false,
     title;
 
 program
@@ -27,6 +28,7 @@ program
     .option('-s, --separator [separator]', 'Slide separator')
     .option('-v, --verticalSeparator [vertical separator]', 'Vertical slide separator')
     .option('-i, --scripts [list of scripts]', 'Scripts to inject into the page')
+	.option('-w, --watch', 'Watch for changes in markdown file and livereload presentation')
     .option('--disableAutoOpen', 'Disable to automatically open your web browser')
     .option('-P, --preprocessor [script]', 'Preprocessor script')
     .option('--static', 'Export static html to stdout. Save to reveal.js/index.html to' +
@@ -124,7 +126,8 @@ if(program.static) {
         printFile: program.print,
         revealOptions: revealOptions,
         scripts: scripts,
-        preprocessor: program.preprocessor
+        preprocessor: program.preprocessor,
+        watch: program.watch
     });
 } else {
     server.start({
@@ -141,7 +144,8 @@ if(program.static) {
         revealOptions: revealOptions,
         openWebBrowser: !program.disableAutoOpen,
         scripts: scripts,
-        preprocessor: program.preprocessor
+        preprocessor: program.preprocessor,
+        watch: program.watch
     });
 }
 

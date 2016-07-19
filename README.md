@@ -122,6 +122,12 @@ Disable to automatically open your web browser:
 reveal-md slides.md --disableAutoOpen
 ```
 
+## Live-reload
+
+Using `-w` option changes to markdown files will trigger the browser to
+reload and thus display the changed presentation without the user having
+to reload the browser.
+
 ## YAML Front matter
 
 You can set markdown options and revealoptions specific to your pressentation in the .md file with YAML
