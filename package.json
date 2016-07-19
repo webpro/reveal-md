@@ -18,12 +18,13 @@
     "reveal-md": "bin/cli.js"
   },
   "dependencies": {
-    "reveal.js": "3.2.0",
+    "commander": "2.9.0",
     "express": "4.13.4",
+    "glob": "7.0.0",
+    "highlight.js": "9.2.0",
+    "livereload": "^0.5.0",
     "mustache": "2.2.1",
     "open": "0.0.5",
-    "glob": "7.0.0",
-    "commander": "2.9.0",
-    "highlight.js": "9.2.0"
+    "reveal.js": "3.2.0"
   }
 }

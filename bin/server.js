@@ -29,7 +29,8 @@ var opts = {
     separator: '^(\r\n?|\n)---(\r\n?|\n)$',
     verticalSeparator: '^(\r\n?|\n)----(\r\n?|\n)$',
     revealOptions: {},
-    scripts: {}
+    scripts: {},
+	watch: false
 };
 
 var printPluginPath = path.join(serverBasePath, 'node_modules', 'reveal.js', 'plugin', 'print-pdf', 'print-pdf.js');
@@ -50,7 +51,7 @@ var fillOpts = function(options) {
     opts.printMode = typeof options.printFile !== 'undefined' && options.printFile || opts.printMode;
     opts.revealOptions = options.revealOptions || {};
     opts.openWebBrowser = options.openWebBrowser;
-
+	opts.watch = options.watch || opts.watch;
     opts.scripts = {};
     options.scripts.forEach(function(script) {
         opts.scripts[path.basename(script)] = script;
@@ -66,6 +67,14 @@ var startMarkdownServer = function(options) {
 
     app.use('/lib/css/' + opts.highlightTheme + '.css',
         staticDir(path.join(serverBasePath, 'node_modules', 'highlight.js', 'styles', opts.highlightTheme + '.css')));
+
+	if(opts.watch) {
+		var livereload = require('livereload');
+		var liveReloadServer = livereload.createServer({
+			exts: ['md']
+		});
+		liveReloadServer.watch(opts.userBasePath);
+	}
 
     app.get(/(\w+\.md)$/, renderMarkdownAsSlides);
     app.get('/scripts/*', getScript);
@@ -110,6 +119,7 @@ var startMarkdownServer = function(options) {
             open(initialFilePath);
         }
     }
+
 };
 
 var renderMarkdownAsSlides = function(req, res) {
