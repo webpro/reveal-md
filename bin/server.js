@@ -8,7 +8,8 @@ var path = require('path'),
     Mustache = require('mustache'),
     glob = require('glob'),
     md = require('reveal.js/plugin/markdown/markdown'),
-    exec = require('child_process').exec;
+    exec = require('child_process').exec,
+    yamlFrontMatter = require('yaml-front-matter');
 
 var app = express();
 var staticDir = express.static;
@@ -114,22 +115,30 @@ var startMarkdownServer = function(options) {
 
 var renderMarkdownAsSlides = function(req, res) {
 
-    var markdown = '',
+    var document = {},
+        markdown = '',
         markdownPath,
-        fsPath;
-
+        fsPath,
+        prop;
+    
     // Look for print-pdf option
     if(~req.url.indexOf('?print-pdf')) {
         req.url = req.url.replace('?print-pdf', '');
     }
 
     markdownPath = path.resolve(opts.userBasePath + req.url);
-
     fsPath = markdownPath.replace(/(\?.*)$/, '');
 
     if(fs.existsSync(fsPath)) {
-        markdown = fs.readFileSync(fsPath).toString();
-        render(res, markdown);
+        document = yamlFrontMatter.loadFront(fs.readFileSync(fsPath).toString());
+        markdown = document.__content ? document.__content : document;
+        for(prop in opts){
+            if(!document.hasOwnProperty(prop)){
+                document[prop] = opts[prop];
+            }
+        }
+
+        render(res, markdown, document);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
         if(parsedUrl) {
@@ -152,16 +161,19 @@ var getScript = function(req, res) {
     res.sendFile(opts.scripts[req.url.substr(req.url.indexOf('/scripts/') + 9)]);
 };
 
-var render = function(res, markdown) {
-    var slides = md.slidify(markdown, opts);
+var render = function(res, markdown,renderOptions) {
+    var slides;
+    if(!renderOptions)
+    renderOptions = renderOptions ? renderOptions : opts;
+    slides = md.slidify(markdown, renderOptions);
 
-    res.send(Mustache.to_html(opts.template, {
-        theme: opts.theme,
-        highlightTheme: opts.highlightTheme,
-        title: opts.title,
+    res.send(Mustache.to_html(renderOptions.template, {
+        theme: renderOptions.theme,
+        highlightTheme: renderOptions.highlightTheme,
+        title: renderOptions.title,
         slides: slides,
-        options: JSON.stringify(opts.revealOptions, null, 2),
-        scripts: Object.keys(opts.scripts)
+        options: JSON.stringify(renderOptions.revealOptions, null, 2),
+        scripts: Object.keys(renderOptions.scripts)
     }));
 };
 
