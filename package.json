@@ -24,6 +24,7 @@
     "open": "0.0.5",
     "glob": "7.0.0",
     "commander": "2.9.0",
-    "highlight.js": "9.2.0"
+    "highlight.js": "9.2.0",
+    "yaml-front-matter": "^3.4.0"
   }
 }

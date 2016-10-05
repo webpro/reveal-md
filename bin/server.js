@@ -114,10 +114,13 @@ var startMarkdownServer = function(options) {
 
 var renderMarkdownAsSlides = function(req, res) {
 
-    var markdown = '',
+    var document = "",
+        markdown = '',
         markdownPath,
         fsPath;
 
+    var yamlFrontMatter = require('yaml-front-matter');
+    
     // Look for print-pdf option
     if(~req.url.indexOf('?print-pdf')) {
         req.url = req.url.replace('?print-pdf', '');
@@ -128,7 +131,12 @@ var renderMarkdownAsSlides = function(req, res) {
     fsPath = markdownPath.replace(/(\?.*)$/, '');
 
     if(fs.existsSync(fsPath)) {
-        markdown = fs.readFileSync(fsPath).toString();
+        document = yamlFrontMatter.loadFront(fs.readFileSync(fsPath).toString());
+        markdown = (document.__content)?document.__content:document;
+        var prop;
+        for(prop in document){
+            opts[prop] = document[prop];
+        }
         render(res, markdown);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
