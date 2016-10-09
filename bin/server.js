@@ -114,10 +114,11 @@ var startMarkdownServer = function(options) {
 
 var renderMarkdownAsSlides = function(req, res) {
 
-    var document = "",
+    var document = {},
         markdown = '',
         markdownPath,
         fsPath;
+        
 
     var yamlFrontMatter = require('yaml-front-matter');
     
@@ -134,10 +135,12 @@ var renderMarkdownAsSlides = function(req, res) {
         document = yamlFrontMatter.loadFront(fs.readFileSync(fsPath).toString());
         markdown = (document.__content)?document.__content:document;
         var prop;
-        for(prop in document){
-            opts[prop] = document[prop];
+        for(prop in opts){
+            if(!document.hasOwnProperty(prop)){
+                document[prop] = opts[prop];
+            }
         }
-        render(res, markdown);
+        render(res, markdown, document);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
         if(parsedUrl) {
@@ -160,16 +163,19 @@ var getScript = function(req, res) {
     res.sendFile(opts.scripts[req.url.substr(req.url.indexOf('/scripts/') + 9)]);
 };
 
-var render = function(res, markdown) {
-    var slides = md.slidify(markdown, opts);
+var render = function(res, markdown,renderOptions) {
+    var slides;
+    if(!renderOptions)
+    renderOptions = (renderOptions)?renderOptions:opts;
+    slides = md.slidify(markdown, renderOptions);
 
-    res.send(Mustache.to_html(opts.template, {
-        theme: opts.theme,
-        highlightTheme: opts.highlightTheme,
-        title: opts.title,
+    res.send(Mustache.to_html(renderOptions.template, {
+        theme: renderOptions.theme,
+        highlightTheme: renderOptions.highlightTheme,
+        title: renderOptions.title,
         slides: slides,
-        options: JSON.stringify(opts.revealOptions, null, 2),
-        scripts: Object.keys(opts.scripts)
+        options: JSON.stringify(renderOptions.revealOptions, null, 2),
+        scripts: Object.keys(renderOptions.scripts)
     }));
 };
 
