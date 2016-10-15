@@ -8,7 +8,8 @@ var path = require('path'),
     Mustache = require('mustache'),
     glob = require('glob'),
     md = require('reveal.js/plugin/markdown/markdown'),
-    exec = require('child_process').exec;
+    exec = require('child_process').exec,
+    yamlFrontMatter = require('yaml-front-matter');
 
 var app = express();
 var staticDir = express.static;
@@ -117,10 +118,8 @@ var renderMarkdownAsSlides = function(req, res) {
     var document = {},
         markdown = '',
         markdownPath,
-        fsPath;
-        
-
-    var yamlFrontMatter = require('yaml-front-matter');
+        fsPath,
+        prop;
     
     // Look for print-pdf option
     if(~req.url.indexOf('?print-pdf')) {
@@ -128,18 +127,17 @@ var renderMarkdownAsSlides = function(req, res) {
     }
 
     markdownPath = path.resolve(opts.userBasePath + req.url);
-
     fsPath = markdownPath.replace(/(\?.*)$/, '');
 
     if(fs.existsSync(fsPath)) {
-        document = yamlFrontMatter.loadFront(fs.readFileSync(fsPath).toString());
-        markdown = (document.__content)?document.__content:document;
-        var prop;
+        document = yamlFrontMatter.loadFront( fs.readFileSync( fsPath ).toString() );
+        markdown = (document.__content)? document.__content : document;
         for(prop in opts){
-            if(!document.hasOwnProperty(prop)){
-                document[prop] = opts[prop];
+            if ( !document.hasOwnProperty( prop ) ){
+                document[ prop ] = opts[ prop ];
             }
         }
+
         render(res, markdown, document);
     } else {
         var parsedUrl = url.parse(req.url.replace(/^\//, ''));
