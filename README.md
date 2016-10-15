@@ -122,6 +122,31 @@ Disable to automatically open your web browser:
 reveal-md slides.md --disableAutoOpen
 ```
 
+## YAML Front matter
+
+You can set markdown options and revealoptions specific to your pressentation in the .md file with YAML
+front matter header Jekyll style.
+
+```
+---
+title: Foobar
+separator: <!--s-->
+verticalSeparator: <!--v-->
+theme: css/theme/solarized.css
+revealOptions:
+    transition: 'fade'
+---
+Foo
+
+Note: test note
+
+<!--s-->
+
+# Bar
+
+<!--v-->
+```   
+
 ## Print Support
 
 *Requires phantomjs to be installed (preferably globally)*
