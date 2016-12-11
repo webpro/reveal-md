@@ -90,7 +90,7 @@ var startMarkdownServer = function(options) {
         // Both the console.log line below and the reveal.js print-pdf plugin
         // will append .pdf if it is missing, so let's be consistent and remove
         // it here
-        printFile = printFile.replace(/\.pdf$/, '')
+        printFile = printFile.replace(/\.pdf$/, '');
 
         console.log('Attempting to print "' + sourceFile + '" to filename "' + printFile + '.pdf" as PDF.');
         console.log('Make sure to have PhantomJS installed (and in your path).');
@@ -161,7 +161,7 @@ var getScript = function(req, res) {
     res.sendFile(opts.scripts[req.url.substr(req.url.indexOf('/scripts/') + 9)]);
 };
 
-var render = function(res, markdown,renderOptions) {
+var render = function(res, markdown, renderOptions) {
     var slides;
     if(!renderOptions)
     renderOptions = renderOptions ? renderOptions : opts;
@@ -218,7 +218,7 @@ var to_html = function(options) {
 
         console.log(html);
     }
-}
+};
 
 module.exports = {
     start: startMarkdownServer,
