@@ -107,6 +107,10 @@ if(!program.highlightTheme && revealOptions.highlightTheme) {
     highlightTheme = revealOptions.highlightTheme;
 }
 
+var scripts = (typeof program.scripts === 'string' ? program.scripts.split(',') : []).map(function(script) {
+  return script[0] === '/' ? script : path.resolve(process.cwd(), script);
+});
+
 if(program.static) {
     server.toStaticHTML({
         basePath: basePath,
@@ -118,9 +122,7 @@ if(program.static) {
         verticalSeparator: program.verticalSeparator,
         printFile: program.print,
         revealOptions: revealOptions,
-        scripts: (program.scripts || '').split(',').map(function(script) {
-            return script[0] === '/' ? script : path.resolve(process.cwd(), script);
-        })
+        scripts: scripts
     });
 } else {
     server.start({
@@ -136,9 +138,7 @@ if(program.static) {
         printFile: program.print,
         revealOptions: revealOptions,
         openWebBrowser: !program.disableAutoOpen,
-        scripts: (program.scripts || '').split(',').map(function(script) {
-            return script[0] === '/' ? script : path.resolve(process.cwd(), script);
-        })
+        scripts: scripts
     });
 }
 
