@@ -168,6 +168,7 @@ var render = function(res, markdown,renderOptions) {
     slides = md.slidify(markdown, renderOptions);
 
     res.send(Mustache.to_html(renderOptions.template, {
+        host: opts.host + ':' + opts.port,
         theme: renderOptions.theme,
         highlightTheme: renderOptions.highlightTheme,
         title: renderOptions.title,
