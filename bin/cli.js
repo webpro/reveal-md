@@ -28,6 +28,7 @@ program
     .option('-v, --verticalSeparator [vertical separator]', 'Vertical slide separator')
     .option('-i, --scripts [list of scripts]', 'Scripts to inject into the page')
     .option('--disableAutoOpen', 'Disable to automatically open your web browser')
+    .option('-P, --preprocessor [script]', 'Preprocessor script')
     .option('--static', 'Export static html to stdout. Save to reveal.js/index.html to' +
         ' match dependencies. HINT: printing does not work properly in this mode')
     .parse(process.argv);
@@ -122,7 +123,8 @@ if(program.static) {
         verticalSeparator: program.verticalSeparator,
         printFile: program.print,
         revealOptions: revealOptions,
-        scripts: scripts
+        scripts: scripts,
+        preprocessor: program.preprocessor
     });
 } else {
     server.start({
@@ -138,7 +140,8 @@ if(program.static) {
         printFile: program.print,
         revealOptions: revealOptions,
         openWebBrowser: !program.disableAutoOpen,
-        scripts: scripts
+        scripts: scripts,
+        preprocessor: program.preprocessor
     });
 }
 
