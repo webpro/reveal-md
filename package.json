@@ -14,6 +14,7 @@
     "type": "git",
     "url": "git://github.com/webpro/reveal-md.git"
   },
+  "license": "MIT",
   "bin": {
     "reveal-md": "bin/cli.js"
   },
