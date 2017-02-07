@@ -18,6 +18,9 @@
   "bin": {
     "reveal-md": "bin/cli.js"
   },
+  "scripts": {
+    "lint": "eslint bin"
+  },
   "dependencies": {
     "reveal.js": "3.4.1",
     "express": "4.14.1",
@@ -27,5 +30,8 @@
     "commander": "2.9.0",
     "highlight.js": "9.9.0",
     "yaml-front-matter": "^3.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.15.0"
   }
 }

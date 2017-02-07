@@ -71,7 +71,7 @@ if(pathArg === 'demo') {
 }
 
 if (program.theme && program.theme.match(/^http.*css$/)) {
-    theme = program.theme
+    theme = program.theme;
 } else {
     theme = glob.sync('css/theme/*.css', {
         cwd: revealPath

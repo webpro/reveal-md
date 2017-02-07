@@ -55,7 +55,7 @@ var fillOpts = function(options) {
     // if there is no preprocessor, create a passthu function
     opts.preprocessor 
         = options.preprocessor ? require( serverBasePath + '/' + options.preprocessor )
-                               : function(raw_text) { return raw_text };
+                               : function(raw_text) { return raw_text; };
 
     opts.scripts = {};
     options.scripts.forEach(function(script) {
@@ -101,7 +101,7 @@ var startMarkdownServer = function(options) {
         console.log('Make sure to have PhantomJS installed (and in your path).');
         exec('phantomjs ' + printPluginPath + ' ' + initialFilePath + '?print-pdf' + ' ' + printFile, function(err, stdout, stderr) {
             if(err) {
-                console.log(("[Error with path '" + printFile + "']\n" + stderr + "\n" + err.toString()).red);
+                console.log(('[Error with path \'' + printFile + '\']\n' + stderr + '\n' + err.toString()).red);
             } else {
                 console.log(stdout);
             }
