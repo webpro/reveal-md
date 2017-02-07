@@ -52,6 +52,11 @@ var fillOpts = function(options) {
     opts.revealOptions = options.revealOptions || {};
     opts.openWebBrowser = options.openWebBrowser;
 
+    // if there is no preprocessor, create a passthu function
+    opts.preprocessor 
+        = options.preprocessor ? require( serverBasePath + '/' + options.preprocessor )
+                               : function(raw_text) { return raw_text };
+
     opts.scripts = {};
     options.scripts.forEach(function(script) {
         opts.scripts[path.basename(script)] = script;
@@ -165,6 +170,7 @@ var render = function(res, markdown, renderOptions) {
     var slides;
     if(!renderOptions)
     renderOptions = renderOptions ? renderOptions : opts;
+    markdown = opts.preprocessor(markdown,renderOptions);
     slides = md.slidify(markdown, renderOptions);
 
     res.send(Mustache.to_html(renderOptions.template, {

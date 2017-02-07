@@ -187,6 +187,39 @@ This slide has no background image.
 This one does!
 ```
 
+## Markdown preprocessor
+
+`reveal-md` can be given a markdown preprocessor script via the `--preprocessor` (or
+`-P`) option. This can be useful to implement custom tweaks on the document
+format without having to dive into the guys of the Markdown parser.
+
+For example, to have headers automatically create new slides, one could have
+the script `preproc.js`:
+
+```javascript
+// headings trigger a new slide
+// headings with a caret (e.g., '##^ foo`) trigger a new vertical slide
+module.exports = (mkd,opt) => 
+    mkd.split( "\n" )
+        .map( line => {
+            if ( ! /^#/.test(line) ) return line;
+
+            var is_vertical = /#\^/.test(line);
+
+            return ( 
+                is_vertical ? "\n\n<!--v-->\n\n" : "\n\n---\n\n"
+            ) + line.replace( '#^', '#' );
+        })
+        .join("\n");
+```
+
+and use it like this
+
+```bash
+$ reveal-md -P preproc.js slides.md
+```
+
+
 ## Notes
 
 * `reveal-md` always starts a local server and opens the default browser
