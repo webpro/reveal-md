@@ -2,9 +2,35 @@
   "env": {
     "node": true
   },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {}
+  },
+  "extends": "eslint:recommended",
+  "plugins": [
+    "import"
+  ],
   "rules": {
     "strict": 0,
-    "quotes": [1, "single"],
-    "semi": [1, "always"]
+    "indent": ["error", 2],
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
+    "keyword-spacing": [2, {
+      "before": true,
+      "after": true,
+      "overrides": {
+        "catch": { "after": false},
+        "for": {"after": false},
+        "if": {"after": false},
+        "switch": { "after": false},
+        "while": {"after": false}
+      }
+    }],
+    "eqeqeq": [2, "smart"],
+    "no-multi-spaces": 2,
+    "import/no-unresolved": 2
+  },
+  "globals": {
+    "Promise": true
   }
 }

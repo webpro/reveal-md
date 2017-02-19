@@ -1,0 +1,16 @@
+{
+  "disableAutoOpen": false,
+  "highlightTheme": "zenburn",
+  "host": "localhost",
+  "scripts": [],
+  "preprocessor": false,
+  "port": 1948,
+  "print": false,
+  "revealOptions": {},
+  "theme": "black",
+  "title": "reveal-md",
+  "separator": "^(\r\n?|\n)---(\r\n?|\n)$",
+  "static": false,
+  "verticalSeparator": "^(\r\n?|\n)----(\r\n?|\n)$",
+  "watch": false
+}

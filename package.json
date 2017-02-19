@@ -19,20 +19,33 @@
     "reveal-md": "bin/cli.js"
   },
   "scripts": {
-    "lint": "eslint bin"
+    "test": "mocha",
+    "lint": "eslint bin lib",
+    "fix": "eslint bin lib --fix"
   },
   "dependencies": {
+    "bluebird": "^3.4.7",
     "commander": "2.9.0",
     "express": "4.14.1",
+    "fs-extra": "^2.0.0",
     "glob": "7.1.1",
+    "got": "^6.7.1",
     "highlight.js": "9.9.0",
-    "livereload": "^0.5.0",
+    "livereload": "^0.6.0",
+    "lodash": "^4.17.4",
     "mustache": "2.3.0",
     "open": "0.0.5",
     "reveal.js": "3.4.1",
     "yaml-front-matter": "^3.4.0"
   },
   "devDependencies": {
-    "eslint": "^3.15.0"
+    "debug": "^2.6.1",
+    "eslint": "^3.15.0",
+    "eslint-plugin-import": "^2.2.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=4"
   }
 }

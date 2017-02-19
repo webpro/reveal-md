@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{{title}}}</title>
+        <link rel="stylesheet" href="{{{base}}}/css/reveal.css">
+        <link rel="stylesheet" href="{{{themeUrl}}}" id="theme">
+        <link rel="stylesheet" href="{{{highlightThemeUrl}}}">
+        <link rel="stylesheet" href="{{{base}}}/css/print/{{#print}}pdf{{/print}}{{^print}}paper{{/print}}.css" type="text/css" media="print">
+
+        {{#watch}}
+		<script>
+		  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+		  ':35729/livereload.js?snipver=1"></' + 'script>')
+		</script>
+        {{/watch}}
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides">{{{slides}}}</div>
+        </div>
+
+        <script src="{{{base}}}/lib/js/head.min.js"></script>
+        <script src="{{{base}}}/js/reveal.js"></script>
+
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
+            }
+
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: '{{{base}}}/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: '{{{base}}}/plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: '{{{base}}}/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: '{{{base}}}/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: '{{{base}}}/plugin/zoom-js/zoom.js', async: true },
+              { src: '{{{base}}}/plugin/notes/notes.js', async: true },
+              { src: '{{{base}}}/plugin/math/math.js', async: true }
+            ];
+
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default', // none/fade/slide/convex/concave/zoom
+              dependencies: deps
+            };
+
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
+
+            var options = {{{revealOptionsStr}}};
+            options = extend(defaultOptions, options, queryOptions);
+            Reveal.initialize(options);
+        </script>
+        
+        {{#scriptPaths}}
+          <script src="{{{base}}}/{{{.}}}"></script>
+        {{/scriptPaths}}
+    </body>
+</html>
