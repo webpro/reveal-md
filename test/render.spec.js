@@ -11,6 +11,7 @@ describe('render', () => {
     expect(actual).toInclude('<title>reveal-md</title>');
     expect(actual).toInclude('<link rel="stylesheet" href="/css/theme/black.css"');
     expect(actual).toInclude('<link rel="stylesheet" href="/css/highlight/zenburn.css"');
+    expect(actual).toInclude('<link rel="stylesheet" href="/css/print/paper.css" type="text/css" media="print">');
     expect(actual).toInclude('<div class="slides"><section  data-markdown><script type="text/template"></script></section></div>');
     expect(actual).toInclude('<script src="/js/reveal.js"></script>');
     expect(actual).toInclude('{ src: \'/plugin/markdown/markdown.js\'');
@@ -26,6 +27,11 @@ describe('render', () => {
     const actual = render.render('# header', {scripts: 'custom.js,also.js'});
     expect(actual).toInclude('<script src="/scripts/custom.js"></script>');
     expect(actual).toInclude('<script src="/scripts/also.js"></script>');
+  });
+
+  it('should render print stylesheet', () => {
+    const actual = render.render('', {print: true});
+    expect(actual).toInclude('<link rel="stylesheet" href="/css/print/pdf.css" type="text/css" media="print">');
   });
 });
 
