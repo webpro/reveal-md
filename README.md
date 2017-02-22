@@ -8,7 +8,17 @@
 npm install -g reveal-md
 ```
 
+## Run
+
+``` bash
+reveal-md path/to/my/slides.md
+```
+
+This starts a local server and opens your Markdown file as a reveal.js presentation in the default browser.
+
 ## Quick demo
+
+Get a quick preview with a few demo decks:
 
 ``` bash
 reveal-md demo
@@ -95,7 +105,7 @@ reveal-md slides.md --theme https://rawgit.com/puzzle/pitc-revealjs-theme/master
 Override [highlight theme](https://github.com/isagalaev/highlight.js/tree/master/src/styles) (default: `zenburn`):
 
 ``` bash
-reveal-md slides.md --highlightTheme github
+reveal-md slides.md --highlight-theme github
 ```
 
 Override slide separator (default: `\n---\n`):
@@ -107,7 +117,7 @@ reveal-md slides.md --separator "^\n\n\n"
 Override vertical/nested slide separator (default: `\n----\n`):
 
 ``` bash
-reveal-md slides.md --verticalSeparator "^\n\n"
+reveal-md slides.md --vertical-separator "^\n\n"
 ```
 
 Override port (default: `1948`):
@@ -119,7 +129,7 @@ reveal-md slides.md --port 8888
 Disable to automatically open your web browser:
 
 ``` bash
-reveal-md slides.md --disableAutoOpen
+reveal-md slides.md --disable-auto-open
 ```
 
 ## Live-reload
@@ -151,13 +161,13 @@ Note: test note
 # Bar
 
 <!--v-->
-```   
+```
 
 ## Print Support
 
 *Requires phantomjs to be installed (preferably globally)*
 
-This will try to create a pdf with the passed in file (eg slides.md) and outputted to the name passed into the `--print` parameter (eg slides.pdf)
+This will create a PDF from the provided Markdown file and saved to the name passed into the `--print` parameter (e.g. slides.pdf):
 
 ``` bash
 reveal-md slides.md --print slides.pdf
@@ -228,11 +238,6 @@ and use it like this
 ```bash
 $ reveal-md -P preproc.js slides.md
 ```
-
-## Notes
-
-* `reveal-md` always starts a local server and opens the default browser
-* From any presentation, navigate to the root (e.g. [http://localhost:1948](http://localhost:1948)) to get directory listing of (linked) Markdown files. Root folder is resolved from Markdown file (or directory) `reveal-md` was started with.
 
 ## License
 
