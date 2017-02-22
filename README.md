@@ -163,6 +163,14 @@ This will try to create a pdf with the passed in file (eg slides.md) and outputt
 reveal-md slides.md --print slides.pdf
 ```
 
+## Publish Support
+
+This will produce a standalone version of the passed file in html packaged with Reveal.js suitable for web publishing or offline viewing without the presence of reveal-md. It is outputted to the name passed to the `--static` parameter (eg publish) `_static` if not provided
+
+```bash
+reveal-md slides.md --static publish
+```
+
 ## Options
 
 You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
