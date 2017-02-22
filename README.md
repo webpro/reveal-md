@@ -163,6 +163,15 @@ This will try to create a pdf with the passed in file (eg slides.md) and outputt
 reveal-md slides.md --print slides.pdf
 ```
 
+## Static website
+
+This will produce a standalone version of the passed file in HTML including static scripts and stylesheets.
+The files are saved to the directory passed to the `--static` parameter, or `./_static` if not provided:
+
+```bash
+reveal-md slides.md --static _site
+```
+
 ## Options
 
 You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
@@ -219,7 +228,6 @@ and use it like this
 ```bash
 $ reveal-md -P preproc.js slides.md
 ```
-
 
 ## Notes
 
