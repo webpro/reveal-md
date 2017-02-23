@@ -9,12 +9,12 @@ describe('render', () => {
   it('should render basic template', () => {
     const actual = render.render('', {});
     expect(actual).toInclude('<title>reveal-md</title>');
-    expect(actual).toInclude('<link rel="stylesheet" href="/css/theme/black.css"');
-    expect(actual).toInclude('<link rel="stylesheet" href="/css/highlight/zenburn.css"');
-    expect(actual).toInclude('<link rel="stylesheet" href="/css/print/paper.css" type="text/css" media="print">');
+    expect(actual).toInclude('<link rel="stylesheet" href="./css/theme/black.css"');
+    expect(actual).toInclude('<link rel="stylesheet" href="./css/highlight/zenburn.css"');
+    expect(actual).toInclude('<link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">');
     expect(actual).toInclude('<div class="slides"><section  data-markdown><script type="text/template"></script></section></div>');
-    expect(actual).toInclude('<script src="/js/reveal.js"></script>');
-    expect(actual).toInclude('{ src: \'/plugin/markdown/markdown.js\'');
+    expect(actual).toInclude('<script src="./js/reveal.js"></script>');
+    expect(actual).toInclude('{ src: \'./plugin/markdown/markdown.js\'');
     expect(actual).toInclude('var options = {};');
   });
 
@@ -25,25 +25,25 @@ describe('render', () => {
 
   it('should render custom scripts', () => {
     const actual = render.render('# header', {scripts: 'custom.js,also.js'});
-    expect(actual).toInclude('<script src="/scripts/custom.js"></script>');
-    expect(actual).toInclude('<script src="/scripts/also.js"></script>');
+    expect(actual).toInclude('<script src="./scripts/custom.js"></script>');
+    expect(actual).toInclude('<script src="./scripts/also.js"></script>');
   });
 
   it('should render print stylesheet', () => {
     const actual = render.render('', {print: true});
-    expect(actual).toInclude('<link rel="stylesheet" href="/css/print/pdf.css" type="text/css" media="print">');
+    expect(actual).toInclude('<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print">');
   });
 
   it('should render alternate theme stylesheet', () => {
     const actual = render.render('', {theme: 'white'});
-    expect(actual).toInclude('<link rel="stylesheet" href="/css/theme/white.css"');
+    expect(actual).toInclude('<link rel="stylesheet" href="./css/theme/white.css"');
   });
 
   it('should render root-based domain-less links for static markup', () => {
     const actual = render.render('', {static: true});
-    expect(actual.match(/href="\//g).length).toBe(4);
-    expect(actual.match(/src="\//g).length).toBe(2);
-    expect(actual.match(/src:\ '\//g).length).toBe(7);
+    expect(actual.match(/href="\.\//g).length).toBe(4);
+    expect(actual.match(/src="\.\//g).length).toBe(2);
+    expect(actual.match(/src:\ '\.\//g).length).toBe(7);
   });
 
   it('should render reveal.js options', () => {
