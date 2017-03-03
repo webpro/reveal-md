@@ -5,6 +5,10 @@ const program = require('commander'),
   revealMarkdown = require('./../lib'),
   pkg = require('../package.json');
 
+  function list(val) {
+    return val.split(',');
+  }
+
 program
   .version(pkg.version)
   .usage('<slides.md> [options]')
@@ -19,6 +23,7 @@ program
   .option('-T, --title <title>', 'Title of the presentation', defaults.title)
   .option('-s, --separator <separator>', 'Slide separator', defaults.separator)
   .option('-S, --static [dir]', 'Export static html to directory [_static]. Incompatible with --print.', defaults.static)
+  .option('-S, --static-dirs <dirs>', 'Extra directories to copy into static directory. Only used in conjunction with --static.', list, defaults.staticDirs)
   .option('-v, --vertical-separator <separator>', 'Vertical slide separator', defaults.verticalSeparator)
   .option('-w, --watch', 'Watch for changes in markdown file and livereload presentation [false]', defaults.watch)
   .parse(process.argv);
