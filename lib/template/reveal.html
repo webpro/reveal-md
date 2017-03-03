@@ -11,7 +11,7 @@
         {{#watch}}
 		<script>
 		  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-		  ':35729/livereload.js?snipver=1"></' + 'script>')
+		  ':{{{liveReloadPort}}}/livereload.js?snipver=1"></' + 'script>')
 		</script>
         {{/watch}}
     </head>
@@ -66,7 +66,7 @@
             options = extend(defaultOptions, options, queryOptions);
             Reveal.initialize(options);
         </script>
-        
+
         {{#scriptPaths}}
           <script src="{{{base}}}/{{{.}}}"></script>
         {{/scriptPaths}}
