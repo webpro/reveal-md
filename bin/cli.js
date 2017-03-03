@@ -19,6 +19,7 @@ program
   .option('-T, --title <title>', 'Title of the presentation', defaults.title)
   .option('-s, --separator <separator>', 'Slide separator', defaults.separator)
   .option('-S, --static [dir]', 'Export static html to directory [_static]. Incompatible with --print.', defaults.static)
+  .option('-S, --static-dirs <dirs>', 'Extra directories to copy into static directory. Only used in conjunction with --static.', defaults.static_dirs)
   .option('-v, --vertical-separator <separator>', 'Vertical slide separator', defaults.verticalSeparator)
   .option('-w, --watch', 'Watch for changes in markdown file and livereload presentation [false]', defaults.watch)
   .parse(process.argv);
