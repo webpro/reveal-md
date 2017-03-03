@@ -2,6 +2,7 @@
   "disableAutoOpen": false,
   "highlightTheme": "zenburn",
   "host": "localhost",
+  "liveReloadPort": 35729,
   "scripts": [],
   "preprocessor": false,
   "port": 1948,
