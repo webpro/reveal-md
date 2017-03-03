@@ -1,6 +1,6 @@
 {
-  "name": "reveal-md",
-  "description": "reveal.js on steroids! Get beautiful reveal.js presentations from your Markdown files.",
+  "name": "reveal-md-atomized",
+  "description": "reveal.js on steroids! Get beautiful reveal.js presentations from your Markdown files. (Atom Edition)",
   "keywords": [
     "markdown",
     "reveal",
@@ -12,7 +12,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/webpro/reveal-md.git"
+    "url": "git://github.com/amahon/reveal-md.git"
   },
   "license": "MIT",
   "bin": {
@@ -51,5 +51,14 @@
   },
   "engines": {
     "node": ">=4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/amahon/reveal-md/issues"
+  },
+  "homepage": "https://github.com/amahon/reveal-md#readme",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "Andrew Mahon <andrewmahon@fastmail.com> (https://andrewmahon.info)"
 }
