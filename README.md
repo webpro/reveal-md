@@ -148,7 +148,7 @@ front matter header Jekyll style.
 title: Foobar
 separator: <!--s-->
 verticalSeparator: <!--v-->
-theme: css/theme/solarized.css
+theme: solarized
 revealOptions:
     transition: 'fade'
 ---
