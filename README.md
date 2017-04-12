@@ -143,6 +143,17 @@ You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configur
 }
 ```
 
+### Reveal-md Options
+
+You can define Reveal-md options similar to command-line options in a `reveal-md.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
+
+``` json
+{
+  "separator": "^\n\n\n",
+  "verticalSeparator: "^\n\n"
+}
+```
+
 ### Speaker Notes
 
 You can use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) feature by using a line starting with `Note:`.
