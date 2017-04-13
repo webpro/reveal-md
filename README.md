@@ -40,6 +40,7 @@ reveal-md demo
 * YAML Front Matter
 * Live Reload
 * Custom Scripts
+* Custom CSS
 * Pre-process Markdown
 * Print to PDF
 * Static Website
@@ -150,7 +151,7 @@ You can define Reveal-md options similar to command-line options in a `reveal-md
 ``` json
 {
   "separator": "^\n\n\n",
-  "verticalSeparator: "^\n\n"
+  "verticalSeparator": "^\n\n"
 }
 ```
 
@@ -195,6 +196,14 @@ Inject custom scripts into the page:
 
 ``` bash
 reveal-md slides.md --scripts script.js,another-script.js
+```
+
+### Custom CSS
+
+Inject custom CSS into the page:
+
+``` bash
+reveal-md slides.md --css style.css,another-style.css
 ```
 
 ### Pre-process Markdown

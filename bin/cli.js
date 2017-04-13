@@ -12,6 +12,7 @@ program
   .option('-H, --highlight-theme <theme>', `Highlight theme [${defaults.highlightTheme}]`, defaults.highlightTheme)
   .option('-h, --host <host>', `Host [${defaults.host}]`, defaults.host)
   .option('-i, --scripts <scripts>', 'Scripts to inject into the page', defaults.scripts)
+  .option('-c, --css <css>', 'CSS files to inject into the page', defaults.css)
   .option('-m, --preprocessor <script>', 'Markdown preprocessor script', defaults.preprocessor)
   .option('-p, --port <port>', `Port [${defaults.port}]`, defaults.port)
   .option('-P, --print [filename]', 'Print', defaults.print)

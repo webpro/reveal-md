@@ -3,6 +3,7 @@
   "highlightTheme": "zenburn",
   "host": "localhost",
   "scripts": [],
+  "css": [],
   "preprocessor": false,
   "port": 1948,
   "print": false,

@@ -29,6 +29,18 @@ describe('render', () => {
     expect(actual).toInclude('<script src="./scripts/also.js"></script>');
   });
 
+  it('should render custom css after theme', () => {
+    const actual = render.render('# header', {css: 'style1.css,style2.css'});
+    const themeLink = '<link rel="stylesheet" href="./css/highlight/zenburn.css">';
+    const style1Link = '<link rel="stylesheet" href="./scripts/style1.css">';
+    const style2Link = '<link rel="stylesheet" href="./scripts/style2.css">';
+    expect(actual).toInclude(themeLink);
+    expect(actual).toInclude(style1Link);
+    expect(actual).toInclude(style2Link);
+    expect(actual.indexOf(style1Link)).toBeGreaterThan(actual.indexOf(themeLink))
+    expect(actual.indexOf(style2Link)).toBeGreaterThan(actual.indexOf(style1Link))
+  });
+
   it('should render print stylesheet', () => {
     const actual = render.render('', {print: true});
     expect(actual).toInclude('<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print">');
