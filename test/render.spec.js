@@ -37,8 +37,8 @@ describe('render', () => {
     expect(actual).toInclude(themeLink);
     expect(actual).toInclude(style1Link);
     expect(actual).toInclude(style2Link);
-    expect(actual.indexOf(style1Link)).toBeGreaterThan(actual.indexOf(themeLink))
-    expect(actual.indexOf(style2Link)).toBeGreaterThan(actual.indexOf(style1Link))
+    expect(actual.indexOf(style1Link)).toBeGreaterThan(actual.indexOf(themeLink));
+    expect(actual.indexOf(style2Link)).toBeGreaterThan(actual.indexOf(style1Link));
   });
 
   it('should render print stylesheet', () => {
