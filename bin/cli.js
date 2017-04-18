@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander'),
-  defaults = require('../lib/options').getDefaults(),
+  defaults = require('../lib/defaults'),
   revealMarkdown = require('./../lib'),
   pkg = require('../package.json');
 
@@ -19,7 +19,7 @@ program
   .option('-t, --theme <theme>', `Theme [${defaults.theme}]`, defaults.theme)
   .option('-T, --title <title>', 'Title of the presentation', defaults.title)
   .option('-s, --separator <separator>', 'Slide separator', defaults.separator)
-  .option('-S, --static [dir]', `Export static html to directory [${typeof defaults.static === 'string' ? defaults.static : '_static'}]. Incompatible with --print.`, defaults.static)
+  .option('-S, --static [dir]', 'Export static html to directory [_static]. Incompatible with --print.', defaults.static)
   .option('-v, --vertical-separator <separator>', 'Vertical slide separator', defaults.verticalSeparator)
   .option('-w, --watch', `Watch for changes in markdown file and livereload presentation [${defaults.watch}]`, defaults.watch)
   .parse(process.argv);
