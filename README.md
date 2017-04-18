@@ -35,6 +35,7 @@ reveal-md demo
 * Highlight Theme
 * Custom Slide Separators
 * Custom Slide Attributes
+* reveal-md Options
 * Reveal.js Options
 * Speaker Notes
 * YAML Front Matter
@@ -133,25 +134,25 @@ This slide has no background image.
 This one does!
 ```
 
+### reveal-md Options
+
+You can define options similar to command-line options in a `reveal-md.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
+
+``` json
+{
+  "separator": "^\n\n\n",
+  "verticalSeparator": "^\n\n"
+}
+```
+
 ### Reveal.js Options
 
 You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
 
 ``` json
 {
-    "controls": true,
-    "progress": true
-}
-```
-
-### Reveal-md Options
-
-You can define Reveal-md options similar to command-line options in a `reveal-md.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
-
-``` json
-{
-  "separator": "^\n\n\n",
-  "verticalSeparator": "^\n\n"
+  "controls": true,
+  "progress": true
 }
 ```
 
