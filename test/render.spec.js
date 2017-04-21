@@ -25,15 +25,15 @@ describe('render', () => {
 
   it('should render custom scripts', () => {
     const actual = render.render('# header', {scripts: 'custom.js,also.js'});
-    expect(actual).toInclude('<script src="./scripts/custom.js"></script>');
-    expect(actual).toInclude('<script src="./scripts/also.js"></script>');
+    expect(actual).toInclude('<script src="./assets/custom.js"></script>');
+    expect(actual).toInclude('<script src="./assets/also.js"></script>');
   });
 
   it('should render custom css after theme', () => {
     const actual = render.render('# header', {css: 'style1.css,style2.css'});
     const themeLink = '<link rel="stylesheet" href="./css/highlight/zenburn.css">';
-    const style1Link = '<link rel="stylesheet" href="./scripts/style1.css">';
-    const style2Link = '<link rel="stylesheet" href="./scripts/style2.css">';
+    const style1Link = '<link rel="stylesheet" href="./assets/style1.css">';
+    const style2Link = '<link rel="stylesheet" href="./assets/style2.css">';
     expect(actual).toInclude(themeLink);
     expect(actual).toInclude(style1Link);
     expect(actual).toInclude(style2Link);
