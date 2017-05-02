@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+'use strict';
 const path = require('path'),
   program = require('commander'),
   debug = require('debug')('reveal-md'),
