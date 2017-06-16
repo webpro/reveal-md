@@ -283,11 +283,12 @@ Override port (default: `1948`):
 reveal-md slides.md --port 8888
 ```
 
-## Alternatives
+## Related Projects & Alternatives
 
 * [Slides](https://slides.com/) is a place for creating, presenting and sharing slide decks.
 * [Sandstorm Hacker Slides](https://github.com/jacksingleton/hacker-slides), a simple app that combines Ace Editor and RevealJS.
 * [Tools](https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware#tools) in the Plugins, Tools and Hardware section of Reveal.js.
+* [Org-Reveal](https://github.com/yjwen/org-reveal) - Exports Org-mode contents to Reveal.js HTML presentation.
 
 ## License
 
