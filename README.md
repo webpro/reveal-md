@@ -286,9 +286,10 @@ reveal-md slides.md --port 8888
 ## Related Projects & Alternatives
 
 * [Slides](https://slides.com/) is a place for creating, presenting and sharing slide decks.
-* [Sandstorm Hacker Slides](https://github.com/jacksingleton/hacker-slides), a simple app that combines Ace Editor and RevealJS.
+* [Sandstorm Hacker Slides](https://github.com/jacksingleton/hacker-slides) is a simple app that combines Ace Editor and RevealJS.
 * [Tools](https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware#tools) in the Plugins, Tools and Hardware section of Reveal.js.
-* [Org-Reveal](https://github.com/yjwen/org-reveal) - Exports Org-mode contents to Reveal.js HTML presentation.
+* [Org-Reveal](https://github.com/yjwen/org-reveal) exports Org-mode contents to Reveal.js HTML presentation.
+* [DeckTape](https://github.com/astefanutti/decktape) is a high-quality PDF exporter for HTML5 presentation frameworks.
 
 ## License
 
