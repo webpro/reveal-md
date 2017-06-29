@@ -2,6 +2,7 @@
   "disableAutoOpen": false,
   "highlightTheme": "zenburn",
   "host": "localhost",
+  "liveReloadPort": 35729,
   "scripts": [],
   "css": [],
   "preprocessor": false,
@@ -12,6 +13,7 @@
   "title": "reveal-md",
   "separator": "^(\r\n?|\n)---(\r\n?|\n)$",
   "static": false,
+  "staticDirs": [],
   "verticalSeparator": "^(\r\n?|\n)----(\r\n?|\n)$",
   "watch": false
 }
