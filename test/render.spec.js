@@ -9,12 +9,12 @@ describe('render', () => {
   it('should render basic template', () => {
     const actual = render.render('', {});
     expect(actual).toInclude('<title>reveal-md</title>');
-    expect(actual).toInclude('<link rel="stylesheet" href="./css/theme/black.css"');
-    expect(actual).toInclude('<link rel="stylesheet" href="./css/highlight/zenburn.css"');
-    expect(actual).toInclude('<link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">');
+    expect(actual).toInclude('<link rel="stylesheet" href="/css/theme/black.css"');
+    expect(actual).toInclude('<link rel="stylesheet" href="/css/highlight/zenburn.css"');
+    expect(actual).toInclude('<link rel="stylesheet" href="/css/print/paper.css" type="text/css" media="print">');
     expect(actual).toInclude('<div class="slides"><section  data-markdown><script type="text/template"></script></section></div>');
-    expect(actual).toInclude('<script src="./js/reveal.js"></script>');
-    expect(actual).toInclude('{ src: \'./plugin/markdown/markdown.js\'');
+    expect(actual).toInclude('<script src="/js/reveal.js"></script>');
+    expect(actual).toInclude('{ src: \'/plugin/markdown/markdown.js\'');
     expect(actual).toInclude('var options = {};');
   });
 
@@ -25,18 +25,30 @@ describe('render', () => {
 
   it('should render custom scripts', () => {
     const actual = render.render('# header', {scripts: 'custom.js,also.js'});
-    expect(actual).toInclude('<script src="./scripts/custom.js"></script>');
-    expect(actual).toInclude('<script src="./scripts/also.js"></script>');
+    expect(actual).toInclude('<script src="/assets/custom.js"></script>');
+    expect(actual).toInclude('<script src="/assets/also.js"></script>');
+  });
+
+  it('should render custom css after theme', () => {
+    const actual = render.render('# header', {css: 'style1.css,style2.css'});
+    const themeLink = '<link rel="stylesheet" href="/css/highlight/zenburn.css">';
+    const style1Link = '<link rel="stylesheet" href="/assets/style1.css">';
+    const style2Link = '<link rel="stylesheet" href="/assets/style2.css">';
+    expect(actual).toInclude(themeLink);
+    expect(actual).toInclude(style1Link);
+    expect(actual).toInclude(style2Link);
+    expect(actual.indexOf(style1Link)).toBeGreaterThan(actual.indexOf(themeLink));
+    expect(actual.indexOf(style2Link)).toBeGreaterThan(actual.indexOf(style1Link));
   });
 
   it('should render print stylesheet', () => {
     const actual = render.render('', {print: true});
-    expect(actual).toInclude('<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print">');
+    expect(actual).toInclude('<link rel="stylesheet" href="/css/print/pdf.css" type="text/css" media="print">');
   });
 
   it('should render alternate theme stylesheet', () => {
     const actual = render.render('', {theme: 'white'});
-    expect(actual).toInclude('<link rel="stylesheet" href="./css/theme/white.css"');
+    expect(actual).toInclude('<link rel="stylesheet" href="/css/theme/white.css"');
   });
 
   it('should render root-based domain-less links for static markup', () => {

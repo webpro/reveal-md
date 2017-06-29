@@ -4,6 +4,7 @@
   "host": "localhost",
   "liveReloadPort": 35729,
   "scripts": [],
+  "css": [],
   "preprocessor": false,
   "port": 1948,
   "print": false,

@@ -1,9 +1,18 @@
 {
-	"buildCommand": "cat gh-pages/index.yml README.md > dist/index.md",
-	"dist": {
-	    "repo": "git@github.com:webpro/reveal-md.git#gh-pages"
-	},
-	"npm": {
-	    "forcePublishSourceRepo": true
-	}
+  "buildCommand": "cat gh-pages/index.yml README.md > dist/index.md",
+  "dist": {
+    "repo": "git@github.com:webpro/reveal-md.git#gh-pages"
+  },
+  "npm": {
+    "forcePublishSourceRepo": true
+  },
+  "prompt": {
+    "src": {
+      "publish": true
+    },
+    "dist": {
+      "tag": false,
+      "release": false
+    }
+  }
 }

@@ -8,13 +8,17 @@
 npm install -g reveal-md
 ```
 
-## Run
+## Usage
 
 ``` bash
 reveal-md path/to/my/slides.md
 ```
 
-This starts a local server and opens your Markdown file as a reveal.js presentation in the default browser.
+This starts a local server and opens your Markdown file as a reveal.js presentation in the default browser. Remote resources are also possible:
+
+``` bash
+reveal-md https://raw.githubusercontent.com/webpro/reveal-md/master/demo/a.md
+```
 
 ## Quick demo
 
@@ -24,11 +28,30 @@ Get a quick preview with a few demo decks:
 reveal-md demo
 ```
 
-## Markdown in reveal.js
+## Features
 
-The Markdown feature of reveal.js is awesome, and has an easy (and configurable) syntax to separate slides.
-Use three dashes surrounded by two blank lines (`\n---\n`).
-Example:
+* Markdown
+* Theme
+* Highlight Theme
+* Custom Slide Separators
+* Custom Slide Attributes
+* reveal-md Options
+* Reveal.js Options
+* Speaker Notes
+* YAML Front Matter
+* Live Reload
+* Custom Scripts
+* Custom CSS
+* Pre-process Markdown
+* Print to PDF
+* Static Website
+* Disable Auto-open Browser
+* Directory Listing
+* Custom Port
+
+### Markdown
+
+The Markdown feature of reveal.js is awesome, and has an easy (and configurable) syntax to separate slides. Use three dashes surrounded by two blank lines (`\n---\n`). Example:
 
 ``` text
 # Title
@@ -46,37 +69,7 @@ Note: speaker notes FTW!
 
 ```
 
-The separator syntax can be overriden (e.g. I like to use three blank lines).
-
-## Speaker Notes
-
-You can use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) feature by using a line starting with `Note:`.
-
-## Usage
-
-To open specific Markdown file as Reveal.js slideshow:
-
-``` bash
-reveal-md slides.md
-```
-
-You can also provide a url that resolves to a Markdown resource (over http(s)).
-
-``` bash
-reveal-md https://raw.github.com/webpro/reveal-md/master/demo/a.md
-```
-
-Show (recursive) directory listing of Markdown files:
-
-``` bash
-reveal-md dir/
-```
-
-Show directory listing of Markdown files in current directory:
-
-``` bash
-reveal-md
-```
+### Theme
 
 Override theme (default: `black`):
 
@@ -84,29 +77,31 @@ Override theme (default: `black`):
 reveal-md slides.md --theme solarized
 ```
 
-Override reveal theme with a custom one:
+See [available themes](https://github.com/hakimel/reveal.js/tree/master/css/theme).
+
+Override reveal theme with a custom one. In this example, the file must be at `./theme/my-custom.css`:
 
 ``` bash
-# you'll need a theme/my-custom.css file
 reveal-md slides.md --theme my-custom
 ```
 
-Inject custom scripts into the page:
+Override reveal theme with a remote one (use rawgit.com because the url must allow cross-site access):
 
 ``` bash
-reveal-md slides.md --scripts script.js,another-script.js
-```
-
-Override reveal theme with a remote one (use rawgit.com because the url must allow cross-site access):
-```
 reveal-md slides.md --theme https://rawgit.com/puzzle/pitc-revealjs-theme/master/theme/puzzle.css
 ```
 
-Override [highlight theme](https://github.com/isagalaev/highlight.js/tree/master/src/styles) (default: `zenburn`):
+### Highlight Theme
+
+Override highlight theme (default: `zenburn`):
 
 ``` bash
 reveal-md slides.md --highlight-theme github
 ```
+
+See [available themes](https://github.com/isagalaev/highlight.js/tree/master/src/styles).
+
+### Custom Slide Separators
 
 Override slide separator (default: `\n---\n`):
 
@@ -120,80 +115,7 @@ Override vertical/nested slide separator (default: `\n----\n`):
 reveal-md slides.md --vertical-separator "^\n\n"
 ```
 
-Override port (default: `1948`):
-
-``` bash
-reveal-md slides.md --port 8888
-```
-
-Disable to automatically open your web browser:
-
-``` bash
-reveal-md slides.md --disable-auto-open
-```
-
-## Live-reload
-
-Using `-w` option changes to markdown files will trigger the browser to
-reload and thus display the changed presentation without the user having
-to reload the browser.
-
-## YAML Front matter
-
-You can set markdown options and revealoptions specific to your pressentation in the .md file with YAML
-front matter header Jekyll style.
-
-```
----
-title: Foobar
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: css/theme/solarized.css
-revealOptions:
-    transition: 'fade'
----
-Foo
-
-Note: test note
-
-<!--s-->
-
-# Bar
-
-<!--v-->
-```
-
-## Print Support
-
-*Requires phantomjs to be installed (preferably globally)*
-
-This will create a PDF from the provided Markdown file and saved to the name passed into the `--print` parameter (e.g. slides.pdf):
-
-``` bash
-reveal-md slides.md --print slides.pdf
-```
-
-## Static website
-
-This will produce a standalone version of the passed file in HTML including static scripts and stylesheets.
-The files are saved to the directory passed to the `--static` parameter, or `./_static` if not provided:
-
-```bash
-reveal-md slides.md --static _site
-```
-
-## Options
-
-You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
-
-``` json
-{
-    "controls": true,
-    "progress": true
-}
-```
-
-## Custom slide attributes
+### Custom Slide Attributes
 
 You can use the [reveal.js slide attributes](https://github.com/hakimel/reveal.js#slide-attributes) functionality to add HTML attributes, e.g. custom backgrounds. Alternatively you could add an HTML `id` attribute to a specific slide and style it with your own CSS.
 
@@ -212,7 +134,80 @@ This slide has no background image.
 This one does!
 ```
 
-## Markdown preprocessor
+### reveal-md Options
+
+You can define options similar to command-line options in a `reveal-md.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
+
+``` json
+{
+  "separator": "^\n\n\n",
+  "verticalSeparator": "^\n\n"
+}
+```
+
+### Reveal.js Options
+
+You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
+
+``` json
+{
+  "controls": true,
+  "progress": true
+}
+```
+
+### Speaker Notes
+
+You can use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) feature by using a line starting with `Note:`.
+
+### YAML Front matter
+
+You can set markdown options and revealoptions specific to your pressentation in the .md file with YAML
+front matter header Jekyll style.
+
+```
+---
+title: Foobar
+separator: <!--s-->
+verticalSeparator: <!--v-->
+theme: solarized
+revealOptions:
+    transition: 'fade'
+---
+Foo
+
+Note: test note
+
+<!--s-->
+
+# Bar
+
+<!--v-->
+```
+
+### Live Reload
+
+Using `-w` option changes to markdown files will trigger the browser to
+reload and thus display the changed presentation without the user having
+to reload the browser.
+
+### Custom Scripts
+
+Inject custom scripts into the page:
+
+``` bash
+reveal-md slides.md --scripts script.js,another-script.js
+```
+
+### Custom CSS
+
+Inject custom CSS into the page:
+
+``` bash
+reveal-md slides.md --css style.css,another-style.css
+```
+
+### Pre-process Markdown
 
 `reveal-md` can be given a markdown preprocessor script via the `--preprocessor` (or
 `-P`) option. This can be useful to implement custom tweaks on the document
@@ -236,8 +231,65 @@ module.exports = (markdown, options) => {
 and use it like this
 
 ```bash
-$ reveal-md -P preproc.js slides.md
+$ reveal-md --preprocessor preproc.js slides.md
 ```
+
+### Print to PDF
+
+*Requires phantomjs to be installed (preferably globally)*
+
+This will create a PDF from the provided Markdown file and saves a PDF file:
+
+``` bash
+reveal-md slides.md --print slides.pdf
+```
+
+### Static Website
+
+This will produce a standalone version of the passed file in HTML including static scripts and stylesheets.
+The files are saved to the directory passed to the `--static` parameter, or `./_static` if not provided:
+
+```bash
+reveal-md slides.md --static _site
+```
+
+### Disable Auto-open Browser
+
+Disable to automatically open your web browser:
+
+``` bash
+reveal-md slides.md --disable-auto-open
+```
+
+### Directory Listing
+
+Show (recursive) directory listing of Markdown files:
+
+``` bash
+reveal-md dir/
+```
+
+Show directory listing of Markdown files in current directory:
+
+``` bash
+reveal-md
+```
+
+### Custom Port
+
+Override port (default: `1948`):
+
+``` bash
+reveal-md slides.md --port 8888
+```
+
+## Related Projects & Alternatives
+
+* [Slides](https://slides.com/) is a place for creating, presenting and sharing slide decks.
+* [Sandstorm Hacker Slides](https://github.com/jacksingleton/hacker-slides) is a simple app that combines Ace Editor and RevealJS.
+* [Tools](https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware#tools) in the Plugins, Tools and Hardware section of Reveal.js.
+* [Org-Reveal](https://github.com/yjwen/org-reveal) exports Org-mode contents to Reveal.js HTML presentation.
+* [DeckTape](https://github.com/astefanutti/decktape) is a high-quality PDF exporter for HTML5 presentation frameworks.
 
 ## License
 

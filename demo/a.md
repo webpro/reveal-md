@@ -1,5 +1,7 @@
 Foo
 
+![cat](sub/cat.jpg)
+
 Note: test note
 
 ---
