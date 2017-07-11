@@ -44,6 +44,8 @@ program
   .option('-S, --static [dir]', 'Export static html to directory [_static]. Incompatible with --print.', defaults.static)
   .option('-v, --vertical-separator <separator>', 'Vertical slide separator', defaults.verticalSeparator)
   .option('-w, --watch', `Watch for changes in markdown file and livereload presentation [${libDefaults.watch}]`, defaults.watch)
+  .option('-r, --reveal-template [filename]', 'Template file for reveal.js', defaults.revealTemplate)
+  .option('-l, --listing-template [filename]', 'Template file for listing', defaults.listingTemplate)
   .parse(process.argv);
 
 if(program.args.length > 2) {

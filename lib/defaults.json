@@ -8,6 +8,8 @@
   "port": 1948,
   "print": false,
   "revealOptions": {},
+  "revealTemplate": "",
+  "listingTemplate": "",
   "theme": "black",
   "title": "reveal-md",
   "separator": "^(\r\n?|\n)---(\r\n?|\n)$",
