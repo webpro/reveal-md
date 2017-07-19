@@ -285,13 +285,13 @@ reveal-md slides.md --port 8888
 
 ### Custom Template
 
-Override reveal.js HTML template (default: [this one](https://github.com/webpro/reveal-md/blob/master/lib/template/reveal.html))
+Override reveal.js HTML template ([default template](https://github.com/webpro/reveal-md/blob/master/lib/template/reveal.html)):
 
 ``` bash
 reveal-md slides.md --reveal-template my-reveal-template.html
 ```
 
-Override listing HTML template (default: [this one](https://github.com/webpro/reveal-md/blob/master/lib/template/reveal.html))
+Override listing HTML template ([default template](https://github.com/webpro/reveal-md/blob/master/lib/template/reveal.html)):
 
 ``` bash
 reveal-md slides.md --listing-template my-listing-template.html
