@@ -25,11 +25,11 @@
   },
   "dependencies": {
     "bluebird": "3.5.0",
-    "commander": "2.9.0",
+    "commander": "2.11.0",
     "express": "4.15.3",
     "fs-extra": "3.0.1",
     "glob": "7.1.2",
-    "got": "7.0.0",
+    "got": "7.1.0",
     "highlight.js": "9.12.0",
     "image-data-uri": "1.0.0",
     "livereload": "0.6.2",
@@ -41,8 +41,8 @@
   },
   "devDependencies": {
     "debug": "2.6.8",
-    "eslint": "4.0.0",
-    "eslint-plugin-import": "2.3.0",
+    "eslint": "4.2.0",
+    "eslint-plugin-import": "2.7.0",
     "expect": "1.20.2",
     "mocha": "3.4.2"
   },
