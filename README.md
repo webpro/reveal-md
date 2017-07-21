@@ -244,6 +244,8 @@ This will create a PDF from the provided Markdown file and saves a PDF file:
 reveal-md slides.md --print slides.pdf
 ```
 
+Alternatively, you can append `?print-pdf` to the url in the browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the brower's (not the native) print dialog. This seems to work in Chrome.
+
 ### Static Website
 
 This will produce a standalone version of the passed file in HTML including static scripts and stylesheets.
@@ -304,6 +306,7 @@ reveal-md slides.md --listing-template my-listing-template.html
 * [Tools](https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware#tools) in the Plugins, Tools and Hardware section of Reveal.js.
 * [Org-Reveal](https://github.com/yjwen/org-reveal) exports Org-mode contents to Reveal.js HTML presentation.
 * [DeckTape](https://github.com/astefanutti/decktape) is a high-quality PDF exporter for HTML5 presentation frameworks.
+* [GitPitch](https://gitpitch.com) generates slideshows from PITCHME.md found in hosted Git repos.
 
 ## License
 
