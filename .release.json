@@ -3,9 +3,6 @@
   "dist": {
     "repo": "git@github.com:webpro/reveal-md.git#gh-pages"
   },
-  "npm": {
-    "forcePublishSourceRepo": true
-  },
   "prompt": {
     "src": {
       "publish": true
