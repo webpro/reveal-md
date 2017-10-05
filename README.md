@@ -30,24 +30,25 @@ reveal-md demo
 
 ## Features
 
-* Markdown
-* Theme
-* Highlight Theme
-* Custom Slide Separators
-* Custom Slide Attributes
-* reveal-md Options
-* Reveal.js Options
-* Speaker Notes
-* YAML Front Matter
-* Live Reload
-* Custom Scripts
-* Custom CSS
-* Pre-process Markdown
-* Print to PDF
-* Static Website
-* Disable Auto-open Browser
-* Directory Listing
-* Custom Port
+* [Markdown](#markdown)
+* [Theme](#theme)
+* [Highlight Theme](#highlight-theme)
+* [Custom Slide Separators](#custom-slide-separators)
+* [Custom Slide Attributes](#custom-slide-attributes)
+* [reveal-md Options](#reveal-md-options)
+* [Reveal.js Options](#revealjs-options)
+* [Speaker Notes](#speaker-notes)
+* [YAML Front Matter](#yaml-front-matter)
+* [Live Reload](#live-reload)
+* [Custom Scripts](#custom-scripts)
+* [Custom CSS](#custom-css)
+* [Pre-process Markdown](#pre-process-markdown)
+* [Print to PDF](#print-to-pdf)
+* [Static Website](#static-website)
+* [Disable Auto-open Browser](#disable-auto-open-browser)
+* [Directory Listing](#directory-listing)
+* [Custom Port](#custom-port)
+* [Custom Template](#custom-template)
 
 ### Markdown
 
