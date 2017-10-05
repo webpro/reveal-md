@@ -162,7 +162,7 @@ You can use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-not
 
 ### YAML Front matter
 
-You can set markdown options and revealoptions specific to your pressentation in the .md file with YAML
+You can set markdown options and revealoptions specific to your presentation in the .md file with YAML
 front matter header Jekyll style.
 
 ```
