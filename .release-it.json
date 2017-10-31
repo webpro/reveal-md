@@ -2,14 +2,5 @@
   "buildCommand": "cat gh-pages/index.yml README.md > dist/index.md",
   "dist": {
     "repo": "git@github.com:webpro/reveal-md.git#gh-pages"
-  },
-  "prompt": {
-    "src": {
-      "publish": true
-    },
-    "dist": {
-      "tag": false,
-      "release": false
-    }
   }
 }

@@ -18,6 +18,11 @@
   "bin": {
     "reveal-md": "bin/cli.js"
   },
+  "files": [
+    "bin",
+    "demo",
+    "lib"
+  ],
   "scripts": {
     "test": "mocha",
     "format": "prettier --write lib/**/*.js"
