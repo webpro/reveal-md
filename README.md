@@ -80,10 +80,10 @@ reveal-md slides.md --theme solarized
 
 See [available themes](https://github.com/hakimel/reveal.js/tree/master/css/theme).
 
-Override reveal theme with a custom one. In this example, the file must be at `./theme/my-custom.css`:
+Override reveal theme with a custom one. In this example, the file is at `./theme/my-custom.css`:
 
 ``` bash
-reveal-md slides.md --theme my-custom
+reveal-md slides.md --theme theme/my-custom.css
 ```
 
 Override reveal theme with a remote one (use rawgit.com because the url must allow cross-site access):
