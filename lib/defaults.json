@@ -14,6 +14,7 @@
   "title": "reveal-md",
   "separator": "^(\r\n?|\n)---(\r\n?|\n)$",
   "static": false,
+  "staticDirs": [],
   "verticalSeparator": "^(\r\n?|\n)----(\r\n?|\n)$",
   "watch": false
 }

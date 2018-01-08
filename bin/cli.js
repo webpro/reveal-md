@@ -42,6 +42,7 @@ program
   .option('    --title <title>', 'Title of the presentation', defaults.title)
   .option('-s, --separator <separator>', 'Slide separator', defaults.separator)
   .option('    --static [dir]', 'Export static html to directory [_static]. Incompatible with --print.', defaults.static)
+  .option('    --static-dirs <dirs>', 'Extra directories to copy into static directory. Only used in conjunction with --static.', defaults.staticDirs)
   .option('-S, --vertical-separator <separator>', 'Vertical slide separator', defaults.verticalSeparator)
   .option('-w, --watch', `Watch for changes in markdown file and livereload presentation [${libDefaults.watch}]`, defaults.watch)
   .option('    --template <filename>', 'Template file for reveal.js', defaults.template)
