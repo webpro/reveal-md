@@ -12,9 +12,9 @@
   "listingTemplate": "",
   "theme": "black",
   "title": "reveal-md",
-  "separator": "^(\r\n?|\n)---(\r\n?|\n)$",
+  "separator": "\r?\n---\r?\n",
   "static": false,
   "staticDirs": [],
-  "verticalSeparator": "^(\r\n?|\n)----(\r\n?|\n)$",
+  "verticalSeparator": "\r?\n----\r?\n",
   "watch": false
 }
