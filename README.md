@@ -212,7 +212,7 @@ reveal-md slides.md --css style.css,another-style.css
 
 `reveal-md` can be given a markdown preprocessor script via the `--preprocessor` (or
 `-P`) option. This can be useful to implement custom tweaks on the document
-format without having to dive into the guys of the Markdown parser.
+format without having to dive into the guts of the Markdown parser.
 
 For example, to have headers automatically create new slides, one could have
 the script `preproc.js`:
