@@ -40,7 +40,9 @@
     "lodash": "4.17.4",
     "mustache": "2.3.0",
     "open": "0.0.5",
+    "puppeteer": "^1.1.1",
     "reveal.js": "3.6.0",
+    "serve-favicon": "^2.4.5",
     "yaml-front-matter": "3.4.0"
   },
   "devDependencies": {
@@ -50,6 +52,6 @@
     "prettier": "1.10.2"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   }
 }

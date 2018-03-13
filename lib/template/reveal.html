@@ -2,21 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
         <title>{{{title}}}</title>
         <link rel="stylesheet" href="{{{base}}}/css/reveal.css">
         <link rel="stylesheet" href="{{{themeUrl}}}" id="theme">
-        <link rel="stylesheet" href="{{{highlightThemeUrl}}}">
+        <link rel="stylesheet" href="{{{base}}}{{{highlightThemeUrl}}}">
         <link rel="stylesheet" href="{{{base}}}/css/print/{{#print}}pdf{{/print}}{{^print}}paper{{/print}}.css" type="text/css" media="print">
         {{#cssPaths}}
           <link rel="stylesheet" href="{{{base}}}/{{{.}}}">
         {{/cssPaths}}
 
-        {{#watch}}
+    {{#watch}}
 		<script>
 		  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
 		  ':35729/livereload.js?snipver=1"></' + 'script>')
 		</script>
-        {{/watch}}
+    {{/watch}}
+
     </head>
     <body>
 
