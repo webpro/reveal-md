@@ -73,12 +73,9 @@ describe('render', () => {
 
   it('should render title from YAML front matter', () => {
     return render.render('---\ntitle: Foo Bar\n---\nSlide', {}).then(actual => {
-      console.log(actual);
       expect(actual).toMatch(/<title>Foo Bar<\/title>/);
     });
   });
-
-
 });
 
 describe('parseSlides', () => {
