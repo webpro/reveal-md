@@ -1,0 +1,25 @@
+name: reveal-md
+version: git
+summary: Get beautiful reveal.js presentations from your Markdown files
+description: |
+  reveal.js on steroids! Get beautiful reveal.js presentations from your Markdown files.
+
+grade: devel
+confinement: strict
+
+apps:
+  reveal-md:
+    command: reveal-md
+    plugs:
+    - desktop
+    - browser-support
+    - network-bind
+    - home
+
+parts:
+  reveal-md:
+    # See 'snapcraft plugins'
+    plugin: nodejs
+    source: .
+    node-engine: 8.10.0
+    npm-flags: [--no-optional]
