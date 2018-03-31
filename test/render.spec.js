@@ -57,8 +57,8 @@ describe('render', () => {
     });
   });
 
-  it.only('should render root-based domain-less links for static markup', () => {
-    return render.render('', { static: true, theme: 'white' }).then(actual => {
+  it('should render root-based domain-less links for static markup', () => {
+    return render.render('', { static: true }).then(actual => {
       expect(actual.match(/href="\.\//g).length).toBe(4);
       expect(actual.match(/src="\.\//g).length).toBe(2);
       expect(actual.match(/src:\ '\.\//g).length).toBe(7);
