@@ -239,15 +239,13 @@ $ reveal-md --preprocessor preproc.js slides.md
 
 ### Print to PDF
 
-*Requires phantomjs to be installed (preferably globally)*
-
 This will create a PDF from the provided Markdown file and saves a PDF file:
 
 ``` bash
 reveal-md slides.md --print slides.pdf
 ```
 
-Alternatively, you can append `?print-pdf` to the url in the browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the brower's (not the native) print dialog. This seems to work in Chrome.
+Alternatively, you can append `?print-pdf` to the url from the command-line or in the browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the brower's (not the native) print dialog. This seems to work in Chrome.
 
 ### Static Website
 
