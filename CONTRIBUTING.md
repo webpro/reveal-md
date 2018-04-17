@@ -26,11 +26,10 @@ In case you've encountered a bug, please make sure:
 * You are using the [latest version](https://github.com/webpro/reveal-md/releases).
 * You have read the [documentation](https://github.com/webpro/reveal-md/blob/master/README.md) first, and double-checked your configuration.
 * In your issue description, please include:
-	* What you expected to see, and what happened instead.
-	* Your operating system and other environment information.
-	* As much information as possible, such as the command and configuration used.
-	* Interesting logs with `DEBUG=reveal-md reveal-md [...]`.
-	* All steps to reproduce the issue.
+  * What you expected to see, and what happened instead.
+  * Your operating system and other environment information.
+  * As much information as possible, such as the command and configuration used.
+  * Interesting logs with `DEBUG=reveal-md reveal-md [...]`. \* All steps to reproduce the issue.
 
 ## 🎁 Pull Requests
 
