@@ -29,29 +29,29 @@
   },
   "dependencies": {
     "bluebird": "3.5.1",
-    "commander": "^2.15.1",
-    "express": "^4.16.3",
-    "fs-extra": "3.0.1",
+    "commander": "2.15.1",
+    "express": "4.16.3",
+    "fs-extra": "5.0.0",
     "glob": "7.1.2",
-    "got": "^8.3.0",
+    "got": "8.3.0",
     "highlight.js": "9.12.0",
     "image-data-uri": "1.0.1",
-    "livereload": "^0.7.0",
-    "lodash": "^4.17.5",
+    "livereload": "0.7.0",
+    "lodash": "4.17.5",
     "mustache": "2.3.0",
     "open": "0.0.5",
     "reveal.js": "3.6.0",
-    "serve-favicon": "^2.5.0",
-    "yaml-front-matter": "3.4.0"
+    "serve-favicon": "2.5.0",
+    "yaml-front-matter": "4.0.0"
   },
   "optionalDependencies": {
     "puppeteer": "1.3.0"
   },
   "devDependencies": {
     "debug": "3.1.0",
-    "expect": "^22.4.3",
-    "mocha": "^5.0.5",
-    "prettier": "^1.11.1"
+    "expect": "22.4.3",
+    "mocha": "5.1.1",
+    "prettier": "1.12.1"
   },
   "engines": {
     "node": ">=6"
