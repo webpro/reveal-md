@@ -35,7 +35,7 @@
     "glob": "7.1.2",
     "got": "8.3.0",
     "highlight.js": "9.12.0",
-    "image-data-uri": "1.0.1",
+    "image-data-uri": "1.1.0",
     "livereload": "0.7.0",
     "lodash": "4.17.5",
     "mustache": "2.3.0",
