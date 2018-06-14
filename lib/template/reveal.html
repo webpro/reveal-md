@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <title>{{{title}}}</title>
+        {{#absoluteUrl}}
+          <meta property="og:title" content="{{{title}}}">
+          <meta property="og:type" content="website">
+          <meta property="og:image" content="{{{absoluteUrl}}}/featured-slide.jpg">
+          <meta property="og:url" content="{{{absoluteUrl}}}">
+        {{/absoluteUrl}}
         <link rel="stylesheet" href="{{{base}}}/css/reveal.css">
         <link rel="stylesheet" href="{{{themeUrl}}}" id="theme">
         <link rel="stylesheet" href="{{{base}}}{{{highlightThemeUrl}}}">
@@ -15,9 +21,13 @@
 
     {{#watch}}
 		<script>
-		  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-		  ':35729/livereload.js?snipver=1"></' + 'script>')
-		</script>
+		document.write(
+  '<script src="http://' +
+    (location.host || 'localhost').split(':')[0] +
+    ':35729/livereload.js?snipver=1"></' +
+    'script>'
+);
+</script>
     {{/watch}}
 
     </head>
@@ -77,7 +87,7 @@
         {{/scriptPaths}}
 
         <script>
-            Reveal.initialize(options);
-        </script>
+        Reveal.initialize(options);
+</script>
     </body>
 </html>

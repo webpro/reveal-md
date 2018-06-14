@@ -38,6 +38,10 @@ program
     '    --featured-slide <num>',
     'Capture snapshot from this slide to be used as og:image for static build. Defaults to first slide. Only used with --static.'
   )
+  .option(
+    '    --absolute-url <url>',
+    'Define url used for hosting static build. This is included in OpenGraph metadata. Only used with --static.'
+  )
   .parse(process.argv);
 
 if (program.args.length > 2) {
