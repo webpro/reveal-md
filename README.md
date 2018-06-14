@@ -258,6 +258,14 @@ Use `--static-dirs` to copy directories with static assets to the target directo
 reveal-md slides.md --static --static-dirs=assets
 ```
 
+Additional `--absolute-url` and `--featured-slide` parameters could be used to
+generate [OpenGraph](http://ogp.me) metadata enabling more attractive rendering
+for slide deck links when shared in some social sites.
+
+```bash
+reveal-md slides.md --static _site --absolute-url https://example.com --featured-slide 5
+```
+
 ### Disable Auto-open Browser
 
 Disable to automatically open your web browser:
