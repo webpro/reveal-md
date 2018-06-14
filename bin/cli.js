@@ -13,7 +13,10 @@ program
   .description('See https://github.com/webpro/reveal-md for more details.')
   .option('    --title <title>', 'Title of the presentation')
   .option(`-s, --separator <separator>`, `Slide separator [default: 3 dashes (---) surrounded by two blank lines]`)
-  .option('-S, --vertical-separator <separator>', 'Vertical slide separator [default: 4 dashes (----) surrounded by two blank lines]')
+  .option(
+    '-S, --vertical-separator <separator>',
+    'Vertical slide separator [default: 4 dashes (----) surrounded by two blank lines]'
+  )
   .option('-t, --theme <theme>', `Theme [default: ${defaults.theme}]`)
   .option('    --highlight-theme <theme>', `Highlight theme [default: ${defaults.highlightTheme}]`)
   .option('    --css <files>', 'CSS files to inject into the page')
@@ -23,14 +26,21 @@ program
   .option('    --listing-template <filename>', 'Template file for listing')
   .option('    --print [filename]', 'Print to PDF file')
   .option('    --static [dir]', 'Export static html to directory [_static]. Incompatible with --print.')
-  .option('    --static-dirs <dirs>', 'Extra directories to copy into static directory. Only used in conjunction with --static.')
+  .option(
+    '    --static-dirs <dirs>',
+    'Extra directories to copy into static directory. Only used in conjunction with --static.'
+  )
   .option('-w, --watch', `Watch for changes in markdown file and livereload presentation`)
   .option('    --disable-auto-open', 'Disable auto-opening your web browser')
   .option('    --host <host>', `Host [default: ${defaults.host}]`)
   .option('    --port <port>', `Port [default: ${defaults.port}]`)
+  .option(
+    '    --featured-slide <num>',
+    'Capture snapshot from this slide to be used as og:image for static build. Defaults to first slide. Only used with --static.'
+  )
   .parse(process.argv);
 
-if(program.args.length > 2) {
+if (program.args.length > 2) {
   program.help();
 }
 
