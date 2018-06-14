@@ -260,6 +260,12 @@ The files are saved to the directory passed to the `--static` parameter, or `./_
 reveal-md slides.md --static _site
 ```
 
+Use `--static-dirs` to copy directories with static assets to the target directory. You can use a comma-separated list to copy multiple directories.
+
+```bash
+reveal-md slides.md --static --static-dirs=assets
+```
+
 ### Disable Auto-open Browser
 
 Disable to automatically open your web browser:
