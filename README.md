@@ -20,14 +20,6 @@ This starts a local server and opens your Markdown file as a reveal.js presentat
 reveal-md https://raw.githubusercontent.com/webpro/reveal-md/master/demo/a.md
 ```
 
-## Quick demo
-
-Get a quick preview with a few demo decks:
-
-```bash
-reveal-md demo
-```
-
 ## Features
 
 * [Markdown](#markdown)
