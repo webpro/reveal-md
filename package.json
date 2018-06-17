@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "test": "mocha",
-    "format": "prettier --write lib/**/*.js *.md"
+    "format": "prettier --write lib/**/*.js bin/*.js test/*.js *.md"
   },
   "dependencies": {
     "bluebird": "3.5.1",
