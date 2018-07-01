@@ -36,7 +36,7 @@ program
   .option('    --port <port>', `Port [default: ${defaults.port}]`)
   .option(
     '    --featured-slide <num>',
-    'Capture snapshot from this slide to be used as og:image for static build. Defaults to first slide. Only used with --static.'
+    'Capture snapshot from this slide (numbering starts from 1) and use it as og:image for static build. Defaults to first slide. Only used with --static.'
   )
   .option(
     '    --absolute-url <url>',
