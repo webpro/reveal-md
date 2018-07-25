@@ -22,25 +22,25 @@ reveal-md https://raw.githubusercontent.com/webpro/reveal-md/master/demo/a.md
 
 ## Features
 
-* [Markdown](#markdown)
-* [Theme](#theme)
-* [Highlight Theme](#highlight-theme)
-* [Custom Slide Separators](#custom-slide-separators)
-* [Custom Slide Attributes](#custom-slide-attributes)
-* [reveal-md Options](#reveal-md-options)
-* [Reveal.js Options](#revealjs-options)
-* [Speaker Notes](#speaker-notes)
-* [YAML Front Matter](#yaml-front-matter)
-* [Live Reload](#live-reload)
-* [Custom Scripts](#custom-scripts)
-* [Custom CSS](#custom-css)
-* [Pre-process Markdown](#pre-process-markdown)
-* [Print to PDF](#print-to-pdf)
-* [Static Website](#static-website)
-* [Disable Auto-open Browser](#disable-auto-open-browser)
-* [Directory Listing](#directory-listing)
-* [Custom Port](#custom-port)
-* [Custom Template](#custom-template)
+- [Markdown](#markdown)
+- [Theme](#theme)
+- [Highlight Theme](#highlight-theme)
+- [Custom Slide Separators](#custom-slide-separators)
+- [Custom Slide Attributes](#custom-slide-attributes)
+- [reveal-md Options](#reveal-md-options)
+- [Reveal.js Options](#revealjs-options)
+- [Speaker Notes](#speaker-notes)
+- [YAML Front Matter](#yaml-front-matter)
+- [Live Reload](#live-reload)
+- [Custom Scripts](#custom-scripts)
+- [Custom CSS](#custom-css)
+- [Pre-process Markdown](#pre-process-markdown)
+- [Print to PDF](#print-to-pdf)
+- [Static Website](#static-website)
+- [Disable Auto-open Browser](#disable-auto-open-browser)
+- [Directory Listing](#directory-listing)
+- [Custom Port](#custom-port)
+- [Custom Template](#custom-template)
 
 ### Markdown
 
@@ -304,12 +304,12 @@ reveal-md slides.md --listing-template my-listing-template.html
 
 ## Related Projects & Alternatives
 
-* [Slides](https://slides.com/) is a place for creating, presenting and sharing slide decks.
-* [Sandstorm Hacker Slides](https://github.com/jacksingleton/hacker-slides) is a simple app that combines Ace Editor and RevealJS.
-* [Tools](https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware#tools) in the Plugins, Tools and Hardware section of Reveal.js.
-* [Org-Reveal](https://github.com/yjwen/org-reveal) exports Org-mode contents to Reveal.js HTML presentation.
-* [DeckTape](https://github.com/astefanutti/decktape) is a high-quality PDF exporter for HTML5 presentation frameworks.
-* [GitPitch](https://gitpitch.com) generates slideshows from PITCHME.md found in hosted Git repos.
+- [Slides](https://slides.com/) is a place for creating, presenting and sharing slide decks.
+- [Sandstorm Hacker Slides](https://github.com/jacksingleton/hacker-slides) is a simple app that combines Ace Editor and RevealJS.
+- [Tools](https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware#tools) in the Plugins, Tools and Hardware section of Reveal.js.
+- [Org-Reveal](https://github.com/yjwen/org-reveal) exports Org-mode contents to Reveal.js HTML presentation.
+- [DeckTape](https://github.com/astefanutti/decktape) is a high-quality PDF exporter for HTML5 presentation frameworks.
+- [GitPitch](https://gitpitch.com) generates slideshows from PITCHME.md found in hosted Git repos.
 
 ## License
 
