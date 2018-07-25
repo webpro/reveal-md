@@ -28,13 +28,13 @@
   },
   "dependencies": {
     "bluebird": "3.5.1",
-    "commander": "2.15.1",
+    "commander": "2.16.0",
     "express": "4.16.3",
     "fs-extra": "5.0.0",
     "glob": "7.1.2",
-    "got": "8.3.1",
+    "got": "8.3.2",
     "highlight.js": "9.12.0",
-    "image-data-uri": "1.1.0",
+    "image-data-uri": "1.1.1",
     "livereload": "0.7.0",
     "lodash": "4.17.10",
     "mustache": "2.3.0",
@@ -48,9 +48,9 @@
   },
   "devDependencies": {
     "debug": "3.1.0",
-    "expect": "22.4.3",
-    "mocha": "5.1.1",
-    "prettier": "1.12.1"
+    "expect": "23.4.0",
+    "mocha": "5.2.0",
+    "prettier": "1.13.7"
   },
   "engines": {
     "node": ">=6"
