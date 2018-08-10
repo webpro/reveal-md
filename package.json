@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "bluebird": "3.5.1",
-    "commander": "2.16.0",
+    "commander": "2.17.1",
     "express": "4.16.3",
     "fs-extra": "5.0.0",
     "glob": "7.1.2",
@@ -37,9 +37,9 @@
     "image-data-uri": "1.1.1",
     "livereload": "0.7.0",
     "lodash": "4.17.10",
-    "mustache": "2.3.0",
+    "mustache": "2.3.1",
     "opn": "5.3.0",
-    "reveal.js": "3.6.0",
+    "reveal.js": "3.7.0",
     "serve-favicon": "2.5.0",
     "yaml-front-matter": "4.0.0"
   },
@@ -48,9 +48,9 @@
   },
   "devDependencies": {
     "debug": "3.1.0",
-    "expect": "23.4.0",
+    "expect": "23.5.0",
     "mocha": "5.2.0",
-    "prettier": "1.13.7"
+    "prettier": "1.14.2"
   },
   "engines": {
     "node": ">=6"
