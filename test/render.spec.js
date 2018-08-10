@@ -79,6 +79,13 @@ describe('render', () => {
       expect(actual).toMatch(/<title>Foo Bar<\/title>/);
     });
   });
+
+  it('should render OpenGraph metadata', () => {
+    return render.render('', { absoluteUrl: 'http://example.com', title: 'Foo Bar' }).then(actual => {
+      expect(actual).toContain('<meta property="og:title" content="Foo Bar">');
+      expect(actual).toContain('<meta property="og:image" content="http://example.com/featured-slide.jpg">');
+    });
+  });
 });
 
 describe('parseSlides', () => {

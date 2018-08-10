@@ -34,6 +34,15 @@ program
   .option('    --disable-auto-open', 'Disable auto-opening your web browser')
   .option('    --host <host>', `Host [default: ${defaults.host}]`)
   .option('    --port <port>', `Port [default: ${defaults.port}]`)
+  .option(
+    '    --featured-slide <num>',
+    'Capture snapshot from this slide (numbering starts from 1) and use it as og:image for static build. Defaults to first slide. Only used with --static.'
+  )
+  .option(
+    '    --absolute-url <url>',
+    'Define url used for hosting static build. This is included in OpenGraph metadata. Only used with --static.'
+  )
+  .option('    --puppeteer-launch-args <args>', 'Customize how Puppeteer launches Chromium. Needed for some CI setups.')
   .parse(process.argv);
 
 if (program.args.length > 2) {
