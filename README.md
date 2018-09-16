@@ -241,7 +241,7 @@ This will create a PDF from the provided Markdown file and saves a PDF file:
 reveal-md slides.md --print slides.pdf
 ```
 
-Alternatively, you can append `?print-pdf` to the url from the command-line or in the browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the brower's (not the native) print dialog. This seems to work in Chrome.
+Alternatively, you can append `?print-pdf` to the url from the command-line or in the browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the browser's (not the native) print dialog. This seems to work in Chrome.
 
 ### Static Website
 
