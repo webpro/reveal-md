@@ -21,6 +21,7 @@ program
   .option('    --highlight-theme <theme>', `Highlight theme [default: ${defaults.highlightTheme}]`)
   .option('    --css <files>', 'CSS files to inject into the page')
   .option('    --scripts <files>', 'Scripts to inject into the page')
+  .option('    --assets-dir <dirname>', 'Defines assets directory name [default: _assets]')
   .option('    --preprocessor <script>', 'Markdown preprocessor script')
   .option('    --template <filename>', 'Template file for reveal.js')
   .option('    --listing-template <filename>', 'Template file for listing')
