@@ -42,7 +42,10 @@ program
     '    --absolute-url <url>',
     'Define url used for hosting static build. This is included in OpenGraph metadata. Only used with --static.'
   )
-  .option('    --puppeteer-launch-args <args>', 'Customize how Puppeteer launches Chromium. Needed for some CI setups.')
+  .option(
+    '    --puppeteer-launch-args <args>',
+    'Customize how Puppeteer launches Chromium. The arguments are specified as a space separated list (for example "--no-sandbox --disable-dev-shm-usage"). Needed for some CI setups.'
+  )
   .parse(process.argv);
 
 if (program.args.length > 2) {
