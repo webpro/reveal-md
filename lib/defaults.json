@@ -4,6 +4,7 @@
   "host": "localhost",
   "scripts": [],
   "css": [],
+  "assetsDir": "_assets",
   "preprocessor": null,
   "port": 1948,
   "print": false,
