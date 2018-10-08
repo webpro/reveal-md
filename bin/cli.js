@@ -46,6 +46,10 @@ program
     '    --puppeteer-launch-args <args>',
     'Customize how Puppeteer launches Chromium. The arguments are specified as a space separated list (for example "--no-sandbox --disable-dev-shm-usage"). Needed for some CI setups.'
   )
+  .option(
+    '    --puppeteer-chromium-executable <path>',
+    'Customize which Chromium executable puppeteer will launch. Allows to use a globally installed version of Chromium.'
+  )
   .parse(process.argv);
 
 if (program.args.length > 2) {
