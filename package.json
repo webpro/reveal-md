@@ -27,17 +27,17 @@
     "format": "prettier --write lib/**/*.js bin/*.js test/*.js *.md"
   },
   "dependencies": {
-    "bluebird": "3.5.2",
-    "commander": "2.18.0",
-    "express": "4.16.3",
+    "bluebird": "3.5.3",
+    "commander": "2.19.0",
+    "express": "4.16.4",
     "fs-extra": "5.0.0",
     "glob": "7.1.3",
     "got": "8.3.2",
-    "highlight.js": "9.12.0",
-    "image-data-uri": "1.1.1",
+    "highlight.js": "9.13.1",
+    "image-data-uri": "2.0.0",
     "livereload": "0.7.0",
     "lodash": "4.17.11",
-    "mustache": "3.0.0",
+    "mustache": "3.0.1",
     "opn": "5.4.0",
     "reveal.js": "3.7.0",
     "serve-favicon": "2.5.0",
@@ -47,10 +47,10 @@
     "puppeteer": "1.3.0"
   },
   "devDependencies": {
-    "debug": "4.0.1",
+    "debug": "4.1.0",
     "expect": "23.6.0",
     "mocha": "5.2.0",
-    "prettier": "1.14.3"
+    "prettier": "1.15.2"
   },
   "engines": {
     "node": ">=6"
