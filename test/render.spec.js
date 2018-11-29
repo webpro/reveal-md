@@ -61,7 +61,7 @@ describe('render', () => {
   });
 
   it('should render root-based domain-less links for static markup', () => {
-    return render.render('', { static: true }).then(actual => {
+    return render.render('', { static: true , base : "."}).then(actual => {console.log(actual)
       expect(actual.match(/href="\.\//g).length).toBe(4);
       expect(actual.match(/src="\.\//g).length).toBe(2);
       expect(actual.match(/src:\ '\.\//g).length).toBe(7);
