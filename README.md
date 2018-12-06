@@ -1,6 +1,6 @@
 # reveal-md
 
-[reveal.js](http://lab.hakim.se/reveal-js/#/) on steroids! Get beautiful reveal.js presentations from your Markdown files.
+[reveal.js](http://lab.hakim.se/reveal-js/#/) on steroids! Get beautiful reveal.js presentations from Markdown files.
 
 ## Installation
 
@@ -14,7 +14,8 @@ npm install -g reveal-md
 reveal-md path/to/my/slides.md
 ```
 
-This starts a local server and opens your Markdown file as a reveal.js presentation in the default browser. Remote resources are also possible:
+This starts a local server and opens any Markdown file as a reveal.js presentation in the default browser.
+Remote resources are also possible:
 
 ```bash
 reveal-md https://raw.githubusercontent.com/webpro/reveal-md/master/demo/a.md
@@ -44,7 +45,8 @@ reveal-md https://raw.githubusercontent.com/webpro/reveal-md/master/demo/a.md
 
 ### Markdown
 
-The Markdown feature of reveal.js is awesome, and has an easy (and configurable) syntax to separate slides. Use three dashes surrounded by two blank lines (`\n---\n`). Example:
+The Markdown feature of reveal.js is awesome, and has an easy (and configurable) syntax to separate slides.
+Use three dashes surrounded by two blank lines (`\n---\n`). Example:
 
 ```text
 # Title
@@ -109,9 +111,11 @@ reveal-md slides.md --vertical-separator "^\n\n"
 
 ### Custom Slide Attributes
 
-You can use the [reveal.js slide attributes](https://github.com/hakimel/reveal.js#slide-attributes) functionality to add HTML attributes, e.g. custom backgrounds. Alternatively you could add an HTML `id` attribute to a specific slide and style it with your own CSS.
+Use the [reveal.js slide attributes](https://github.com/hakimel/reveal.js#slide-attributes) functionality
+to add HTML attributes, e.g. custom backgrounds.
+Alternatively, add an HTML `id` attribute to a specific slide and style it with CSS.
 
-If you want yor second slide to have a png background:
+Example: set the second slide to have a PNG image as background:
 
 ```text
 # slide1
@@ -128,7 +132,8 @@ This one does!
 
 ### reveal-md Options
 
-You can define options similar to command-line options in a `reveal-md.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
+Define options similar to command-line options in a `reveal-md.json` file that must be located at the root of
+the Markdown files. They'll be picked up automatically. Example:
 
 ```json
 {
@@ -139,7 +144,8 @@ You can define options similar to command-line options in a `reveal-md.json` fil
 
 ### Reveal.js Options
 
-You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that you should put in the root directory of the Markdown files. They'll be picked up automatically. Example:
+Define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file
+that must be located at the root directory of the Markdown files. They'll be picked up automatically. Example:
 
 ```json
 {
@@ -150,12 +156,11 @@ You can define Reveal.js [options](https://github.com/hakimel/reveal.js#configur
 
 ### Speaker Notes
 
-You can use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) feature by using a line starting with `Note:`.
+Use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) feature by using a line starting with `Note:`.
 
 ### YAML Front matter
 
-You can set markdown options and revealoptions specific to your presentation in the .md file with YAML
-front matter header Jekyll style.
+Set Markdown (and reveal.js) options specific to a presentation with YAML front matter:
 
 ```
 ---
@@ -235,27 +240,37 @@ $ reveal-md --preprocessor preproc.js slides.md
 
 ### Print to PDF
 
-This will create a PDF from the provided Markdown file and saves a PDF file:
+Create a (printable) PDF from the provided Markdown file:
 
 ```bash
 reveal-md slides.md --print slides.pdf
 ```
 
-Alternatively, you can append `?print-pdf` to the url from the command-line or in the browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the browser's (not the native) print dialog. This seems to work in Chrome.
+Alternatively, append `?print-pdf` to the url from the command-line or in the browser
+(make sure to remove the `#/` or `#/1` hash).
+Then print the slides using the browser's (not the native) print dialog. This seems to work in Chrome.
 
 ### Static Website
 
-This will produce a standalone version of the passed file in HTML including static scripts and stylesheets.
-The files are saved to the directory passed to the `--static` parameter, or `./_static` if not provided:
+This will export the provided Markdown file into a stand-alone HTML website including scripts and stylesheets.
+The files are saved to the directory passed to the `--static` parameter (default: `./_static`):
 
 ```bash
 reveal-md slides.md --static _site
 ```
 
-Use `--static-dirs` to copy directories with static assets to the target directory. You can use a comma-separated list to copy multiple directories.
+Use `--static-dirs` to copy directories with static assets to the target directory.
+Use a comma-separated list to copy multiple directories.
 
 ```bash
 reveal-md slides.md --static --static-dirs=assets
+```
+
+Providing a directory will result in a stand-alone overview page with links to the presentations
+(similar to a [directory listing](#directory-listing)):
+
+```bash
+reveal-md dir/ --static
 ```
 
 Additional `--absolute-url` and `--featured-slide` parameters could be used to
@@ -268,7 +283,7 @@ reveal-md slides.md --static _site --absolute-url https://example.com --featured
 
 ### Disable Auto-open Browser
 
-Disable to automatically open your web browser:
+To disable auto-opening the browser:
 
 ```bash
 reveal-md slides.md --disable-auto-open
@@ -318,6 +333,10 @@ reveal-md slides.md --listing-template my-listing-template.html
 - [Org-Reveal](https://github.com/yjwen/org-reveal) exports Org-mode contents to Reveal.js HTML presentation.
 - [DeckTape](https://github.com/astefanutti/decktape) is a high-quality PDF exporter for HTML5 presentation frameworks.
 - [GitPitch](https://gitpitch.com) generates slideshows from PITCHME.md found in hosted Git repos.
+
+## Thank You
+
+Many thanks to all [contributors](https://github.com/webpro/reveal-md/graphs/contributors)!
 
 ## License
 
