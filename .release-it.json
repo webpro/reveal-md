@@ -1,9 +1,5 @@
 {
   "github": {
     "release": true
-  },
-  "dist": {
-    "repo": "https://github.com/webpro/reveal-md.git#gh-pages",
-    "beforeStageCommand": "cat ../gh-pages/index.yml ../README.md > index.md"
   }
 }
