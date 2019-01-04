@@ -49,7 +49,7 @@
     "puppeteer": "1.3.0"
   },
   "devDependencies": {
-    "debug": "4.1.0",
+    "debug": "4.1.1",
     "expect": "23.6.0",
     "mocha": "5.2.0",
     "prettier": "1.15.3"
