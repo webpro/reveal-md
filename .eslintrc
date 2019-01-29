@@ -1,36 +1,16 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "es6": true
   },
   "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {}
+    "ecmaVersion": 8,
+    "sourceType": "module"
   },
-  "extends": "eslint:recommended",
-  "plugins": [
-    "import"
-  ],
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["prettier", "import"],
   "rules": {
-    "strict": 0,
-    "indent": ["error", 2],
-    "quotes": [2, "single"],
-    "semi": [2, "always"],
-    "keyword-spacing": [2, {
-      "before": true,
-      "after": true,
-      "overrides": {
-        "catch": { "after": false},
-        "for": {"after": false},
-        "if": {"after": false},
-        "switch": { "after": false},
-        "while": {"after": false}
-      }
-    }],
-    "eqeqeq": [2, "smart"],
-    "no-multi-spaces": 2,
+    "prettier/prettier": ["error", { "singleQuote": true, "printWidth": 120 }],
     "import/no-unresolved": 2
-  },
-  "globals": {
-    "Promise": true
   }
 }

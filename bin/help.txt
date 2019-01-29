@@ -1,0 +1,29 @@
+Usage: cli <slides.md> [options]
+
+See https://github.com/webpro/reveal-md for more details.
+
+Options:
+  -V, --version                               output the version number
+      --title <title>                         Title of the presentation
+  -s, --separator <separator>                 Slide separator [default: 3 dashes (---) surrounded by two blank lines]
+  -S, --vertical-separator <separator>        Vertical slide separator [default: 4 dashes (----) surrounded by two blank lines]
+  -t, --theme <theme>                         Theme [default: black]
+      --highlight-theme <theme>               Highlight theme [default: zenburn]
+      --css <files>                           CSS files to inject into the page
+      --scripts <files>                       Scripts to inject into the page
+      --assets-dir <dirname>                  Defines assets directory name [default: _assets]
+      --preprocessor <script>                 Markdown preprocessor script
+      --template <filename>                   Template file for reveal.js
+      --listing-template <filename>           Template file for listing
+      --print [filename]                      Print to PDF file
+      --static [dir]                          Export static html to directory [_static]. Incompatible with --print.
+      --static-dirs <dirs>                    Extra directories to copy into static directory. Only used in conjunction with --static.
+  -w, --watch                                 Watch for changes in markdown file and livereload presentation
+      --disable-auto-open                     Disable auto-opening your web browser
+      --host <host>                           Host [default: localhost]
+      --port <port>                           Port [default: 1948]
+      --featured-slide <num>                  Capture snapshot from this slide (numbering starts from 1) and use it as og:image for static build. Defaults to first slide. Only used with --static.
+      --absolute-url <url>                    Define url used for hosting static build. This is included in OpenGraph metadata. Only used with --static.
+      --puppeteer-launch-args <args>          Customize how Puppeteer launches Chromium. The arguments are specified as a space separated list (for example --puppeteer-launch-args="--no-sandbox --disable-dev-shm-usage"). Needed for some CI setups.
+      --puppeteer-chromium-executable <path>  Customize which Chromium executable puppeteer will launch. Allows to use a globally installed version of Chromium.
+  -h, --help                                  output usage information
