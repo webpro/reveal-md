@@ -21,27 +21,30 @@ const alias = {
 
 const argv = argsParser(process.argv.slice(2), { alias });
 
+const { version, static: isStatic, featuredSlide, print, disableAutoOpen } = argv;
+
+const [isStartServer] = argv._;
+
 updater({ pkg }).notify();
 
 (async () => {
-  if (argv.version) {
-    console.log(pkg.version); // eslint-disable-line no-console
-  } else if (argv.static) {
-    let server;
-    if (argv.featuredSlide) {
-      [server] = await startServer();
-    }
-    await writeStatic();
-    if (server) {
-      server.close();
-    }
-  } else if (argv._[0]) {
-    const [server, initialUrl] = await startServer();
-    if (argv.print) {
-      await exportPDF(initialUrl, argv.print);
-      server.close();
-    } else if (!argv.disableAutoOpen) {
-      opn(initialUrl);
+  /* eslint-disable no-console */
+  if (version) {
+    console.log(pkg.version);
+  } else if (isStartServer || isStatic) {
+    try {
+      const [server, initialUrl] = isStartServer || (isStatic && featuredSlide) ? await startServer() : [];
+      if (isStatic) {
+        await writeStatic();
+        server.close();
+      } else if (print) {
+        await exportPDF(initialUrl, print);
+        server.close();
+      } else if (!disableAutoOpen) {
+        opn(initialUrl);
+      }
+    } catch (err) {
+      console.error(err);
     }
   } else {
     const help = await fs.readFile(path.join(__dirname, './help.txt'));
