@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "beforeStart": "npm run lint && npm test"
+  },
   "github": {
     "release": true
   }

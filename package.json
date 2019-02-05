@@ -26,6 +26,7 @@
   ],
   "scripts": {
     "test": "mocha",
+    "lint": "eslint lib/**/*.js",
     "format": "prettier --write lib/**/*.js bin/*.js test/*.js *.md"
   },
   "dependencies": {
