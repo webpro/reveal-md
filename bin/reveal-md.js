@@ -4,11 +4,11 @@ const argsParser = require('yargs-parser');
 const updater = require('update-notifier');
 const path = require('path');
 const fs = require('fs-extra');
+const opn = require('opn');
 const pkg = require('../package.json');
 const startServer = require('../lib/server');
 const writeStatic = require('../lib/static');
 const exportPDF = require('../lib/print');
-const opn = require('opn');
 
 const alias = {
   h: 'help',
@@ -45,6 +45,6 @@ updater({ pkg }).notify();
     }
   } else {
     const help = await fs.readFile(path.join(__dirname, './help.txt'));
-    console.log(help.toString()); // eslint-disable-line no-console
+    console.log(help.toString());
   }
 })();
