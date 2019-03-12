@@ -15,8 +15,7 @@ const alias = {
   s: 'separator',
   S: 'vertical-separator',
   t: 'theme',
-  V: 'version',
-  w: 'watch'
+  V: 'version'
 };
 
 const argv = argsParser(process.argv.slice(2), { alias });
