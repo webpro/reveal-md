@@ -35,10 +35,10 @@
 
     <script>
       function extend() {
-        var target = {};
-        for (var i = 0; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
+        const target = {};
+        for (let i = 0; i < arguments.length; i++) {
+          const source = arguments[i];
+          for (let key in source) {
             if (source.hasOwnProperty(key)) {
               target[key] = source[key];
             }
@@ -48,7 +48,7 @@
       }
 
       // Optional libraries used to extend on reveal.js
-      var deps = [
+      const deps = [
         { src: '{{{base}}}/lib/js/classList.js', condition: function() { return !document.body.classList; } },
         { src: '{{{base}}}/plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
         { src: '{{{base}}}/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
@@ -58,20 +58,23 @@
         { src: '{{{base}}}/plugin/math/math.js', async: true }
       ];
 
+      // extract user defined dependencies and userDefinedRevealOptions
+      const {dependencies: userDeps=[], ...userRevealOptions={}} = {{{revealOptionsStr}}};
+
       // default options to init reveal.js
-      var defaultOptions = {
+      const defaultOptions = {
         controls: true,
         progress: true,
         history: true,
         center: true,
         transition: 'default', // none/fade/slide/convex/concave/zoom
-        dependencies: deps
+        dependencies: [...deps, ...userDeps] // merge user dependencies
       };
 
       // options from URL query string
-      var queryOptions = Reveal.getQueryHash() || {};
+      const queryOptions = Reveal.getQueryHash() || {};
 
-      var options = extend(defaultOptions, {{{revealOptionsStr}}}, queryOptions);
+      const options = extend(defaultOptions, userRevealOptions, queryOptions);
     </script>
 
     {{#scriptPaths}}
