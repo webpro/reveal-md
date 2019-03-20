@@ -13,7 +13,7 @@ describe('render', () => {
     );
     expect(actual).toContain('<script src="/js/reveal.js"></script>');
     expect(actual).toContain("{ src: '/plugin/markdown/markdown.js'");
-    expect(actual).toContain('const {dependencies: userDeps=[], ...userRevealOptions={}} = {};');
+    expect(actual).toContain('const {dependencies: userDeps=[], ...userRevealOptions} = {};');
   });
 
   it('should render markdown content', async () => {
@@ -60,7 +60,7 @@ describe('render', () => {
 
   it('should render reveal.js options', async () => {
     const actual = await render('', { revealOptions: { controls: false } });
-    expect(actual).toContain('const {dependencies: userDeps=[], ...userRevealOptions={}} = {"controls":false};');
+    expect(actual).toContain('const {dependencies: userDeps=[], ...userRevealOptions} = {"controls":false};');
   });
 
   it('should render title from YAML front matter', async () => {
@@ -96,7 +96,7 @@ describe('render', () => {
     const revealOptions = { height: 100, transition: 'none' };
     const actual = await render('---\nrevealOptions:\n  width: 300\n  height: 500\n---\nSlide', { revealOptions });
     const expected = JSON.stringify(Object.assign({}, revealOptions, { width: 300, height: 500 }));
-    expect(actual).toContain(`const {dependencies: userDeps=[], ...userRevealOptions={}} = ${expected};`);
+    expect(actual).toContain(`const {dependencies: userDeps=[], ...userRevealOptions} = ${expected};`);
   });
 });
 
