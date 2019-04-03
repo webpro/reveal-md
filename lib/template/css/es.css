@@ -1,0 +1,466 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+section.has-dark-background,
+section.has-dark-background h1,
+section.has-dark-background h2,
+section.has-dark-background h3,
+section.has-dark-background h4,
+section.has-dark-background h5,
+section.has-dark-background h6 {
+  color: #fff;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #fff;
+  background-color: #fff;
+}
+
+.reveal {
+  font-family: arial, sans-serif;
+  font-size: 42px;
+  font-weight: normal;
+  color: #033399;
+}
+
+::selection {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.99);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.99);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+  top: 0;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 30px 0 40px 0;
+  color: #033399;
+  font-family: Times, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: 3.2em;
+}
+
+.reveal h2 {
+  font-size: 2.5em;
+}
+
+.reveal h3 {
+  font-size: 2em;
+}
+
+.reveal h4 {
+  font-size: 1em;
+}
+
+.reveal h1 {
+  text-shadow: none;
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 30px 0;
+  line-height: 1.3;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: block;
+  text-align: left;
+  margin: 0 2em;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: square;
+}
+
+.reveal ul ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: 30px auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(236, 221, 164, 0.1);
+  box-shadow: 0px 0px 2px #033399;
+  border-radius: 20px;
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 30px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+.reveal code {
+  font-family: monospace;
+  text-transform: none;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal table {
+  margin: auto;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 0.7em;
+}
+
+.reveal table thead {
+  background: #0794FF;
+}
+
+.reveal table th {
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-bottom: #FFFFFF 4px solid !important;
+}
+
+.reveal table th,
+.reveal table td {
+  border-left: 2px solid #FFFFFF;
+  padding: 10px;
+}
+
+.reveal table tbody tr {
+  border-bottom: #FFFFFF 2px solid !important;
+}
+
+.reveal table th:first-child,
+.reveal table td:first-child {
+  border: none;
+}
+
+.reveal table tbody td:first-child {
+  border-left: none;
+}
+
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal table th:first-of-type {
+  border-top-left-radius: 15px;
+}
+
+.reveal table th:last-of-type {
+  border-top-right-radius: 15px;
+}
+
+.reveal table tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: 15px;
+}
+
+.reveal table tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 15px;
+}
+
+.reveal table tbody tr:nth-child(even) {
+  background: #E6EEFE;
+}
+
+.reveal table tbody tr:nth-child(odd) {
+  background: #CADCFF;
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #8671ec;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: #d3cbf8;
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #4d2ee3;
+}
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0px;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none;
+}
+
+.reveal a img {
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #8671ec;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: #8671ec;
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: #8671ec;
+}
+
+.reveal .progress span {
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: #fff;
+  }
+}
+#header-left {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 17px;
+  width: 100%;
+  background-image: url("../images/header.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 17px;
+  z-index: -90;
+}
+
+#footer-left {
+  position: absolute;
+  font-size: 12px;
+  bottom: 10px;
+  right: 10px;
+  z-index: -90;
+}
+
+div.slide-background.present:first-child {
+  background-image: url("../images/cover.jpg");
+  background-position: bottom left;
+  background-size: 100% 100%;
+}
+
+h1.cover-page {
+  color: #033399 !important;
+  margin-top: 20% !important;
+  text-shadow: -1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+h1.cover-page::after {
+  content: "" !important;
+  display: block !important;
+  height: 20px !important;
+  width: 50% !important;
+  margin: 10px auto;
+  background-image: url("../images/h1-line.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 20px !important;
+}
+
+h1.topic-header {
+  margin-top: 25%;
+}
+
+div.topic-cover {
+  background-image: url("../images/topic.jpg");
+  background-position: bottom left;
+  background-size: 100% 100%;
+}
+
+.reveal .speaker-notes-pdf {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: -99 !important;
+}
+
+.reveal .slide-number {
+  position: absolute;
+  display: block;
+  left: 10px;
+  bottom: 10px;
+  z-index: 100;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: #033399;
+  background-color: transparent;
+  padding: 0;
+}
+
+/*
+ * Hide menu for pdf printing
+ */
+body.print-pdf .slide-menu-wrapper .slide-menu,
+body.print-pdf .reveal .slide-menu-button,
+body.print-pdf .slide-menu-wrapper .slide-menu-overlay,
+body.print-pdf a.btn-tools {
+  display: none;
+}
+
+/*# sourceMappingURL=es.css.map */

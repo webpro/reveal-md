@@ -1,0 +1,140 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "mixins";
+@import "settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+//@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+//@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: arial,
+sans-serif;
+$mainColor: #033399;
+$headingFont: Times,
+Arial,
+sans-serif;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #fff;
+$linkColorHover: lighten($linkColor, 20%);
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+$tableBorderRadius: 15px;
+
+section.has-dark-background {
+
+	&,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: #fff;
+	}
+}
+
+
+// Theme template ------------------------------
+@import "theme";
+// ---------------------------------------------
+
+#header-left {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 17px;
+	width: 100%;
+	background-image: url('../images/header.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 17px;
+	z-index: -90;
+}
+
+#footer-left {
+	position: absolute;
+	font-size: 12px;
+	bottom: 10px;
+	right: 10px;
+	z-index: -90;
+}
+
+div.slide-background.present:first-child {
+	background-image: url('../images/cover.jpg');
+	background-position: bottom left;
+	background-size: 100% 100%;
+}
+
+h1.cover-page {
+	color: #033399 !important;
+	margin-top: 20% !important;
+	text-shadow: -1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+h1.cover-page::after {
+	content: '' !important;
+	display: block !important;
+	height: 20px !important;
+	width: 50% !important;
+	margin: 10px auto;
+	background-image: url('../images/h1-line.jpg') !important;
+	background-repeat: no-repeat !important;
+	background-size: 100% 20px !important;
+}
+
+h1.topic-header {
+	margin-top: 25%;
+}
+
+div.topic-cover {
+	background-image: url('../images/topic.jpg');
+	background-position: bottom left;
+	background-size: 100% 100%;
+}
+
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-height: none;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+	z-index: -99 !important;
+}
+
+.reveal .slide-number {
+	position: absolute;
+	display: block;
+	left: 10px;
+	bottom: 10px;
+	z-index: 100;
+	font-family: Helvetica, sans-serif;
+	font-size: 16px;
+	color: $mainColor;
+	background-color: transparent;
+	padding: 0;
+}
+
+/*
+ * Hide menu for pdf printing
+ */
+body.print-pdf .slide-menu-wrapper .slide-menu,
+body.print-pdf .reveal .slide-menu-button,
+body.print-pdf .slide-menu-wrapper .slide-menu-overlay,
+body.print-pdf a.btn-tools {
+	display: none;
+}

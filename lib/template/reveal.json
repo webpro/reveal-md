@@ -1,0 +1,22 @@
+{
+    "__width": "100%",
+	"__height": "100%",
+
+    "width": 1684, 
+    "height": 1190,
+
+
+    "transition":"slide",
+    "transitionSpeed": "fast",
+	"mouseWheel": true,
+
+    "center": false,
+    "controls":true,
+    "progress":true,
+    "showNotes":true,
+    "slideNumber": true,
+
+    "data-separator": "^\n---\n$",
+    "data-separator-vertical": "^\n----\n$",
+    "data-separator-notes": "^Notes:"
+}
