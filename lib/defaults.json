@@ -1,17 +1,17 @@
 {
   "assetsDir": "_assets",
   "css": [],
-  "highlightTheme": "zenburn",
+  "highlightTheme": "googlecode",
   "host": "localhost",
-  "listingTemplate": "template/listing.html",
+  "listingTemplate": "template/es-listing.html",
   "port": 1948,
   "preprocessor": null,
   "scripts": [],
   "separator": "\r?\n---\r?\n",
   "staticDir": "_static",
   "staticDirs": [],
-  "template": "template/reveal.html",
+  "template": "template/es-reveal.html",
   "theme": "black",
-  "title": "reveal-md",
+  "title": "Elephant Scale",
   "verticalSeparator": "\r?\n----\r?\n"
 }

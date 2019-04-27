@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel='shortcut icon' type='image/x-icon' href='/template/images/favicon.ico' />
+
+  <title>{{{title}}}</title>
+  {{#absoluteUrl}}
+  <meta property="og:title" content="{{{title}}}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{{absoluteUrl}}}/featured-slide.jpg">
+  <meta property="og:url" content="{{{absoluteUrl}}}">
+  {{/absoluteUrl}}
+  <link rel="stylesheet" href="{{{base}}}/css/reveal.css">
+  <link rel="stylesheet" href="/template/css/es.css" id="theme">
+  <link rel="stylesheet" href="{{{base}}}{{{highlightThemeUrl}}}">
+  <link rel="stylesheet" href="{{{base}}}/css/print/{{#print}}pdf{{/print}}{{^print}}paper{{/print}}.css"
+    type="text/css" media="print">
+  {{#cssPaths}}
+  <link rel="stylesheet" href="{{{base}}}/{{{.}}}">
+  {{/cssPaths}}
+
+  {{#watch}}
+  <script>
+    document.write(
+      '<script src="http://' +
+      (location.host || 'localhost').split(':')[0] +
+      ':35729/livereload.js?snipver=1"></' + 'script>');
+  </script>
+  {{/watch}}
+</head>
+
+<body>
+
+  <div class="reveal">
+    <div class="slides">{{{slides}}}</div>
+  </div>
+
+  <script src="/template/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="{{{base}}}/lib/js/head.min.js"></script>
+  <script src="{{{base}}}/js/reveal.js"></script>
+
+  <script>
+    function extend() {
+      var target = {};
+      for (var i = 0; i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (source.hasOwnProperty(key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    }
+
+    // Optional libraries used to extend on reveal.js
+    var deps = [{
+        src: '{{{base}}}/lib/js/classList.js',
+        condition: function () {
+          return !document.body.classList;
+        }
+      },
+      {
+        src: '{{{base}}}/plugin/markdown/marked.js',
+        condition: function () {
+          return !!document.querySelector('[data-markdown]');
+        }
+      },
+      {
+        src: '{{{base}}}/plugin/markdown/markdown.js',
+        condition: function () {
+          return !!document.querySelector('[data-markdown]');
+        }
+      },
+      {
+        src: '{{{base}}}/plugin/highlight/highlight.js',
+        async: true,
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      },
+      {
+        src: '{{{base}}}/plugin/zoom-js/zoom.js',
+        async: true
+      },
+      {
+        src: '{{{base}}}/plugin/notes/notes.js',
+        async: true
+      },
+      {
+        src: '{{{base}}}/plugin/math/math.js',
+        async: true
+      },
+      {
+        src: '/template/plugin/menu/menu.js'
+      },
+      {
+        src: '/template/plugin/chalkboard/chalkboard.js'
+      },
+      {
+        src: '/template/plugin/search/search.js' 
+      }
+    ];
+
+    // default options to init reveal.js
+    var defaultOptions = {
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'default', // none/fade/slide/convex/concave/zoom
+      dependencies: deps,
+      keyboard: {
+				    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle chalkboard when 'c' is pressed
+				    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+				    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+				     8: function() { RevealChalkboard.reset() },	// reset all chalkboard data when 'BACKSPACE' is pressed
+				    68: function() { RevealChalkboard.download() },	// downlad chalkboard drawing when 'd' is pressed
+				}
+    };
+
+    // options from URL query string
+    var queryOptions = Reveal.getQueryHash() || {};
+
+    var options = {{{revealOptionsStr}}};
+    options = extend(defaultOptions, options, queryOptions);
+  </script>
+
+  {{#scriptPaths}}
+  <script src="{{{base}}}/{{{.}}}"></script>
+  {{/scriptPaths}}
+
+  <script>
+    Reveal.initialize(options);
+  </script>
+
+  <div id="hidden" style="display:none;">
+    <div id="header">
+      <div id="header-left"></div>
+      <div id="footer-left">Copyright © 2017 Elephant Scale. All rights reserved.</div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var header = $('#header').html();
+    if (window.location.search.match(/print-pdf/gi)) {
+      Reveal.addEventListener('ready', function (event) {
+        $('.slide-background').append(header);
+      });
+    } else {
+      $('div.reveal').append(header);
+    }
+
+
+
+    Reveal.addEventListener('ready', function (event) {
+      $('h1').first().addClass('cover-page');
+
+      $("section h1").not('.cover-page').parent().addClass('topic-cover')
+      $("section h1").not('.cover-page').addClass('topic-header');
+
+      var slides = new Array();
+      var i = 0;
+
+      $("div.reveal > div.slides > section").each(function () {
+        if ($(this).find("h1").not('.cover-page').length == 1)
+          slides.push(i);
+        i++
+      });
+
+      for (var i = 0; i < slides.length; i++) {
+        var bgs = $("div.slide-background");
+        $(bgs[slides[i]]).addClass('topic-cover');
+      }
+
+      $('a[href^="http"]').attr('target', function() {
+        if(this.host == location.host) 
+          return '_self'
+        else 
+          return '_blank'
+      });
+
+    });
+
+    Reveal.addEventListener('slidechanged', function (event) {
+      if ($(event.currentSlide).find("h1").length == 1)
+        $("div.slide-number").hide();
+      else
+        $("div.slide-number").show();
+    });
+  </script>
+</body>
+
+</html>
