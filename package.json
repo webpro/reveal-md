@@ -25,7 +25,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "mocha",
+    "test": "bron test/*.spec.js",
     "lint": "eslint lib/**/*.js",
     "format": "prettier --write lib/**/*.js bin/*.js test/*.js *.md"
   },
@@ -51,12 +51,11 @@
     "puppeteer": "1.3.0"
   },
   "devDependencies": {
+    "bron": "1.0.0",
     "eslint": "5.14.1",
     "eslint-config-prettier": "4.0.0",
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-prettier": "3.0.1",
-    "expect": "24.1.0",
-    "mocha": "6.0.2",
     "prettier": "1.16.4"
   },
   "engines": {
