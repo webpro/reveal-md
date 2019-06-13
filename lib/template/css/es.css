@@ -31,14 +31,14 @@ body {
 }
 
 ::selection {
-  color: #fff;
-  background: rgba(0, 0, 0, 0.99);
+  color: #FF0000;
+  background: #FFFF00;
   text-shadow: none;
 }
 
 ::-moz-selection {
-  color: #fff;
-  background: rgba(0, 0, 0, 0.99);
+  color: #FF0000;
+  background: #FFFF00;
   text-shadow: none;
 }
 
@@ -459,7 +459,7 @@ div.topic-cover {
 body.print-pdf .slide-menu-wrapper .slide-menu,
 body.print-pdf .reveal .slide-menu-button,
 body.print-pdf .slide-menu-wrapper .slide-menu-overlay,
-body.print-pdf a.btn-tools {
+body.print-pdf .btn-tools {
   display: none;
 }
 

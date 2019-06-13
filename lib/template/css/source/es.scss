@@ -30,7 +30,8 @@ $headingTextShadow: none;
 $headingTextTransform: none;
 $backgroundColor: #fff;
 $linkColorHover: lighten($linkColor, 20%);
-$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+$selectionBackgroundColor: #FFFF00;
+$selectionColor: #FF0000;
 $tableBorderRadius: 15px;
 
 section.has-dark-background {
@@ -135,7 +136,7 @@ div.topic-cover {
 body.print-pdf .slide-menu-wrapper .slide-menu,
 body.print-pdf .reveal .slide-menu-button,
 body.print-pdf .slide-menu-wrapper .slide-menu-overlay,
-body.print-pdf a.btn-tools {
+body.print-pdf .btn-tools {
 	display: none;
 }
 
