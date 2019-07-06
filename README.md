@@ -244,8 +244,14 @@ Create a (printable) PDF from the provided Markdown file:
 reveal-md slides.md --print slides.pdf
 ```
 
-Alternatively, append `?print-pdf` to the url from the command-line or in the browser (make sure to remove the `#/` or
-`#/1` hash). Then print the slides using the browser's (not the native) print dialog. This seems to work in Chrome.
+The PDF is generated using Puppeteer. Alternatively, append `?print-pdf` to the url from the command-line or in the
+browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the browser's (not the native) print
+dialog. This seems to work in Chrome.
+
+In case of an error, please try the following:
+
+- Analyze debug output, e.g. `DEBUG=reveal-md reveal-md slides.md --print`
+- See `reveal-md help` for Puppeteer arguments (`puppeteer-launch-args` and `puppeteer-chromium-executable`)
 
 ### Static Website
 
