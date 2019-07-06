@@ -14,12 +14,7 @@ npm install -g reveal-md
 reveal-md path/to/my/slides.md
 ```
 
-This starts a local server and opens any Markdown file as a reveal.js presentation in the default browser. Remote
-resources are also possible:
-
-```bash
-reveal-md https://raw.githubusercontent.com/webpro/reveal-md/master/demo/a.md
-```
+This starts a local server and opens any Markdown file as a reveal.js presentation in the default browser.
 
 ## Features
 
