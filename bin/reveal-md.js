@@ -4,7 +4,7 @@ const argsParser = require('yargs-parser');
 const updater = require('update-notifier');
 const path = require('path');
 const fs = require('fs-extra');
-const opn = require('opn');
+const open = require('open');
 const pkg = require('../package.json');
 const startServer = require('../lib/server');
 const writeStatic = require('../lib/static');
@@ -40,7 +40,7 @@ updater({ pkg }).notify();
         await exportPDF(initialUrl, print);
         server.close();
       } else if (!disableAutoOpen) {
-        opn(initialUrl);
+        open(initialUrl);
       }
     } catch (err) {
       console.error(err);

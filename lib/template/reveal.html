@@ -30,7 +30,6 @@
       <div class="slides">{{{slides}}}</div>
     </div>
 
-    <script src="{{{base}}}/lib/js/head.min.js"></script>
     <script src="{{{base}}}/js/reveal.js"></script>
 
     <script>
@@ -49,7 +48,6 @@
 
       // Optional libraries used to extend on reveal.js
       var deps = [
-        { src: '{{{base}}}/lib/js/classList.js', condition: function() { return !document.body.classList; } },
         { src: '{{{base}}}/plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
         { src: '{{{base}}}/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
         { src: '{{{base}}}/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
