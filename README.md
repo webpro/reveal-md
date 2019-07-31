@@ -30,6 +30,7 @@ This starts a local server and opens any Markdown file as a reveal.js presentati
 - [Live Reload](#live-reload)
 - [Custom Scripts](#custom-scripts)
 - [Custom CSS](#custom-css)
+- [Custom Favicon](#custom-favicon)
 - [Pre-process Markdown](#pre-process-markdown)
 - [Print to PDF](#print-to-pdf)
 - [Static Website](#static-website)
@@ -198,6 +199,11 @@ Inject custom CSS into the page:
 ```bash
 reveal-md slides.md --css style.css,another-style.css
 ```
+
+### Custom Favicon
+
+If the directory with the markdown files contains a `favicon.ico` file, it will automatically be used as a favicon
+instead of the [default favicon](lib/favicon.ico).
 
 ### Pre-process Markdown
 
