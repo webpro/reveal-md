@@ -14,6 +14,12 @@ test('should handle dimensions with units', () => {
   assert(actual.height === '297mm');
 });
 
+test('should handle fractional dimensions', () => {
+  const actual = getPageOptions('8.5x11in');
+  assert(actual.width === '8.5in');
+  assert(actual.height === '11in');
+});
+
 test('should handle format name', () => {
   const actual = getPageOptions('Letter');
   assert(actual.format === 'Letter');
