@@ -24,6 +24,7 @@ Options:
       --port <port>                           Port [default: 1948]
       --featured-slide <num>                  Capture snapshot from this slide (numbering starts from 1) and use it as og:image for static build. Defaults to first slide. Only used with --static.
       --absolute-url <url>                    Define url used for hosting static build. This is included in OpenGraph metadata. Only used with --static.
+      --print-size                            Paper size to use in exported PDF files
       --puppeteer-launch-args <args>          Customize how Puppeteer launches Chromium. The arguments are specified as a space separated list (for example --puppeteer-launch-args="--no-sandbox --disable-dev-shm-usage"). Needed for some CI setups.
       --puppeteer-chromium-executable <path>  Customize which Chromium executable puppeteer will launch. Allows to use a globally installed version of Chromium.
   -h, --help                                  output usage information

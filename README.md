@@ -249,6 +249,16 @@ The PDF is generated using Puppeteer. Alternatively, append `?print-pdf` to the 
 browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the browser's (not the native) print
 dialog. This seems to work in Chrome.
 
+By default, paper size is set to match options in your [`reveal.json`](#revealjs-options) file, falling back to
+a default value 960x700 pixels. To override this behaviour, you can pass custom dimensions or format
+in a command line option `--print-size`:
+
+```bash
+reveal-md slides.md --print slides.pdf --print-size 1024x768 # in pixels when no unit is given
+reveal-md slides.md --print slides.pdf --print-size 210x297mm # valid units are: px, in, cm, mm
+reveal-md slides.md --print slides.pdf --print-size A4 # valid formats are: A0-A6, Letter, Legal, Tabloid, Ledger
+```
+
 In case of an error, please try the following:
 
 - Analyze debug output, e.g. `DEBUG=reveal-md reveal-md slides.md --print`
