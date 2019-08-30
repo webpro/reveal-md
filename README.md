@@ -10,11 +10,34 @@ npm install -g reveal-md
 
 ## Usage
 
+#### Run locally
 ```bash
 reveal-md path/to/my/slides.md
 ```
 
 This starts a local server and opens any Markdown file as a reveal.js presentation in the default browser.
+
+#### Run in docker
+You can use the docker packaging to run this tool without needing node installed on your machine.
+
+##### Use the released version
+You can run the public docker image, providing your markdown slides as a volume:
+```
+docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpro/reveal-md:latest
+```
+Then just go to http://localhost:1948
+
+You can add any option you want or display the help like this:
+```
+docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpro/reveal-md:latest --help
+```
+
+##### Build your own image from source
+```
+git clone https://github.com/webpro/reveal-md.git
+docker build -t webpro/reveal-md .
+
+```
 
 ## Features
 
