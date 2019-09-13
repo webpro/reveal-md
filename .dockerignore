@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+.idea
+.vscode
+.git
+.npm
+.prettierrc
+.github
+.release-it.json
+*.md
+test/
+docs/
+demo/
