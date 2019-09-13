@@ -22,8 +22,8 @@ You can use Docker to run this tool without needing Node.js installed on your ma
 providing your markdown slides as a volume. A few examples:
 
 ```bash
-docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpro/reveal-md:latest
-docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpro/reveal-md:latest --help
+docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest
+docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest --help
 ```
 
 The service is now running at [http://localhost:1948](http://localhost:1948).
