@@ -34,7 +34,6 @@
     "express": "4.17.1",
     "fs-extra": "8.1.0",
     "glob": "7.1.4",
-    "got": "9.6.0",
     "highlight.js": "9.15.10",
     "livereload": "0.8.0",
     "lodash": "4.17.15",
