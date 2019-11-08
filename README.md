@@ -299,6 +299,12 @@ Providing a directory will result in a stand-alone overview page with links to t
 reveal-md dir/ --static
 ```
 
+By default all `*.md` files in all subdirectories are included in the generated website. You can provide custom [glob pattern](https://github.com/isaacs/node-glob) using `--glob` parameter to generate slides only from some files:
+
+```console
+reveal-md dir/ --static --glob '**/slides.md'
+```
+
 Additional `--absolute-url` and `--featured-slide` parameters could be used to generate [OpenGraph](http://ogp.me)
 metadata enabling more attractive rendering for slide deck links when shared in some social sites.
 
