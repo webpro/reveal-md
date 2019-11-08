@@ -14,5 +14,5 @@
   "theme": "black",
   "title": "reveal-md",
   "verticalSeparator": "\r?\n----\r?\n",
-  "slidesGlob": "**/*.md"
+  "glob": "**/*.md"
 }
