@@ -22,7 +22,7 @@ const argv = argsParser(process.argv.slice(2), { alias });
 
 const { version, static: isStatic, featuredSlide, print, printSize, disableAutoOpen } = argv;
 
-const [isStartServer] = argv._;
+const hasPath = Boolean(argv._[0]);
 
 updater({ pkg }).notify();
 
@@ -30,17 +30,20 @@ updater({ pkg }).notify();
   /* eslint-disable no-console */
   if (version) {
     console.log(pkg.version);
-  } else if (isStartServer || isStatic) {
+  } else if (hasPath || isStatic) {
+    let server, initialUrl;
     try {
-      const [server, initialUrl] = isStartServer || (isStatic && featuredSlide) ? await startServer() : [];
       if (isStatic) {
+        [server] = featuredSlide ? await startServer() : [];
         await writeStatic();
-        server.close();
+        server && server.close();
       } else if (print) {
+        [server, initialUrl] = await startServer();
         await exportPDF(initialUrl, print, printSize);
         server.close();
-      } else if (!disableAutoOpen) {
-        open(initialUrl);
+      } else {
+        [server, initialUrl] = await startServer();
+        !disableAutoOpen && open(initialUrl);
       }
     } catch (err) {
       console.error(err);
