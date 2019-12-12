@@ -55,6 +55,11 @@ test('should render alternate theme stylesheet', async () => {
   assert(actual.includes('<link rel="stylesheet" href="/css/theme/white.css"'));
 });
 
+test('should render remote theme stylesheet', async () => {
+  const actual = await render('', { theme: 'https://example.org/style.css' });
+  assert(actual.includes('<link rel="stylesheet" href="https://example.org/style.css"'));
+});
+
 test('should render root-based domain-less links for static markup', async () => {
   const actual = await render('', { static: true, base: '.' });
   assert.equal(actual.match(/href="\.\//g).length, 4);
