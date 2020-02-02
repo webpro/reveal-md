@@ -44,6 +44,11 @@ updater({ pkg }).notify();
       } else {
         [server, initialUrl] = await startServer();
         !disableAutoOpen && open(initialUrl);
+        process.on('SIGINT', () => {
+          console.log('Received SIGINT. Closing Gracefully.');
+          server.close();
+          process.exit(128);
+        })
       }
     } catch (err) {
       console.error(err);
