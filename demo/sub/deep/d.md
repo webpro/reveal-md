@@ -4,7 +4,7 @@
 * [Chapter 2a](#/2)
 * [Chapter 2b](#/2/1)
 * [Chapter 3](#/3)
-* [Entirely different deck](../../a.md)
+* [Entirely different deck](../../../a.md)
 
 ---
 
