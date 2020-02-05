@@ -45,10 +45,10 @@ updater({ pkg }).notify();
         [server, initialUrl] = await startServer();
         !disableAutoOpen && open(initialUrl);
         process.on('SIGINT', () => {
-          console.log('Received SIGINT. Closing Gracefully.');
+          console.log('Received SIGINT, closing gracefully.');
           server.close();
           process.exit(128);
-        })
+        });
       }
     } catch (err) {
       console.error(err);
