@@ -34,17 +34,17 @@
     "express": "4.17.1",
     "fs-extra": "8.1.0",
     "glob": "7.1.6",
-    "highlight.js": "9.18.0",
+    "highlight.js": "9.18.1",
     "livereload": "0.8.2",
     "lodash": "4.17.15",
-    "mustache": "3.1.0",
-    "open": "6.4.0",
+    "mustache": "4.0.0",
+    "open": "7.0.2",
     "reveal.js": "3.9.2",
     "serve-favicon": "2.5.0",
     "try-require": "1.2.1",
-    "update-notifier": "3.0.1",
+    "update-notifier": "4.1.0",
     "yaml-front-matter": "4.1.0",
-    "yargs-parser": "14.0.0"
+    "yargs-parser": "17.0.0"
   },
   "optionalDependencies": {
     "puppeteer": "1.19.0"
@@ -53,7 +53,7 @@
     "bron": "1.1.1",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
-    "eslint-plugin-import": "2.20.0",
+    "eslint-plugin-import": "2.20.1",
     "eslint-plugin-prettier": "3.1.2",
     "prettier": "1.19.1"
   },
