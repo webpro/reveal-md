@@ -204,6 +204,8 @@ Inject custom scripts into the page:
 reveal-md slides.md --scripts script.js,another-script.js
 ```
 
+Don't use absolute paths, files should be in adjacent or descending folders.
+
 ### Custom CSS
 
 Inject custom CSS into the page:
@@ -211,6 +213,8 @@ Inject custom CSS into the page:
 ```bash
 reveal-md slides.md --css style.css,another-style.css
 ```
+
+Don't use absolute paths, files should be in adjacent or descending folders.
 
 ### Custom Favicon
 
