@@ -52,6 +52,7 @@ updater({ pkg }).notify();
       }
     } catch (err) {
       console.error(err);
+      process.exit(1);
     }
   } else {
     const help = await fs.readFile(path.join(__dirname, './help.txt'));
