@@ -1,5 +1,6 @@
-module.exports = (markdown, options) =>
-  new Promise((resolve, reject) => {
+/* eslint-disable no-unused-vars */
+module.exports = (markdown, _options) =>
+  new Promise((resolve, _reject) => {
     const output = markdown
       .split('\n')
       .map((line, index) => {

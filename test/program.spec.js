@@ -7,11 +7,10 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
 const inspect_brk = process.env.VSCODE_DEBUGGING === 'true' ? '--inspect-brk' : '';
-const reveal_md =
-  `node ${inspect_brk} ${path.join(__dirname, '../bin', 'reveal-md.js')}`;
+const reveal_md = `node ${inspect_brk} ${path.join(__dirname, '../bin', 'reveal-md.js')}`;
 
 test('should print version', async () => {
-  const { stdout } = await exec(`${reveal_md} --version`)
+  const { stdout } = await exec(`${reveal_md} --version`);
   assert.equal(stdout.trim(), pkg.version);
 });
 
