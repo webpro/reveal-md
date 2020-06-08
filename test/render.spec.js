@@ -5,16 +5,15 @@ const { render } = require('../lib/render');
 test('should render basic template', async () => {
   const actual = await render('', {});
   assert(actual.includes('<title>reveal-md</title>'));
-  assert(actual.includes('<link rel="stylesheet" href="/css/theme/black.css"'));
+  assert(actual.includes('<link rel="stylesheet" href="/dist/theme/black.css"'));
   assert(actual.includes('<link rel="stylesheet" href="/css/highlight/zenburn.css"'));
-  assert(actual.includes('<link rel="stylesheet" href="/css/print/paper.css" type="text/css" media="print" />'));
   assert(
     actual.includes(
       '<div class="slides"><section  data-markdown><script type="text/template"></script></section></div>'
     )
   );
-  assert(actual.includes('<script src="/js/reveal.js"></script>'));
-  assert(actual.includes("{ src: '/plugin/markdown/markdown.js'"));
+  assert(actual.includes('<script src="/dist/reveal.js"></script>'));
+  assert(actual.includes('<script src="/plugin/markdown/markdown.js"></script>'));
   assert(actual.includes('var options = extend(defaultOptions, {}, queryOptions);'));
 });
 
@@ -45,14 +44,9 @@ test('should render custom css after theme', async () => {
   assert(actual.indexOf(style2Link) > actual.indexOf(style1Link));
 });
 
-test('should render print stylesheet', async () => {
-  const actual = await render('', { print: true });
-  assert(actual.includes('<link rel="stylesheet" href="/css/print/pdf.css" type="text/css" media="print" />'));
-});
-
 test('should render alternate theme stylesheet', async () => {
   const actual = await render('', { theme: 'white' });
-  assert(actual.includes('<link rel="stylesheet" href="/css/theme/white.css"'));
+  assert(actual.includes('<link rel="stylesheet" href="/dist/theme/white.css"'));
 });
 
 test('should render remote theme stylesheet', async () => {
@@ -62,9 +56,8 @@ test('should render remote theme stylesheet', async () => {
 
 test('should render root-based domain-less links for static markup', async () => {
   const actual = await render('', { static: true, base: '.' });
-  assert.equal(actual.match(/href="\.\//g).length, 4);
-  assert.equal(actual.match(/src="\.\//g).length, 1);
-  assert.equal(actual.match(/src: '\.\//g).length, 6);
+  assert.equal(actual.match(/href="\.\//g).length, 3);
+  assert.equal(actual.match(/src="\.\//g).length, 6);
 });
 
 test('should render reveal.js options', async () => {

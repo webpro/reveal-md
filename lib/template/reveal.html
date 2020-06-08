@@ -11,10 +11,9 @@
     <meta property="og:image" content="{{{absoluteUrl}}}/featured-slide.jpg" />
     <meta property="og:url" content="{{{absoluteUrl}}}" />
     {{/absoluteUrl}}
-    <link rel="stylesheet" href="{{{base}}}/css/reveal.css" />
+    <link rel="stylesheet" href="{{{base}}}/dist/reveal.css" />
     <link rel="stylesheet" href="{{{themeUrl}}}" id="theme" />
     <link rel="stylesheet" href="{{{base}}}{{{highlightThemeUrl}}}" />
-    <link rel="stylesheet" href="{{{base}}}/css/print/{{#print}}pdf{{/print}}{{^print}}paper{{/print}}.css" type="text/css" media="print" />
     {{#cssPaths}}
     <link rel="stylesheet" href="{{{base}}}/{{{.}}}" />
     {{/cssPaths}}
@@ -30,8 +29,13 @@
       <div class="slides">{{{slides}}}</div>
     </div>
 
-    <script src="{{{base}}}/js/reveal.js"></script>
+    <script src="{{{base}}}/dist/reveal.js"></script>
 
+    <script src="{{{base}}}/plugin/markdown/markdown.js"></script>
+    <script src="{{{base}}}/plugin/highlight/highlight.js"></script>
+    <script src="{{{base}}}/plugin/zoom/zoom.js"></script>
+    <script src="{{{base}}}/plugin/notes/notes.js"></script>
+    <script src="{{{base}}}/plugin/math/math.js"></script>
     <script>
       function extend() {
         var target = {};
@@ -46,16 +50,6 @@
         return target;
       }
 
-      // Optional libraries used to extend on reveal.js
-      var deps = [
-        { src: '{{{base}}}/plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-        { src: '{{{base}}}/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-        { src: '{{{base}}}/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-        { src: '{{{base}}}/plugin/zoom-js/zoom.js', async: true },
-        { src: '{{{base}}}/plugin/notes/notes.js', async: true },
-        { src: '{{{base}}}/plugin/math/math.js', async: true }
-      ];
-
       // default options to init reveal.js
       var defaultOptions = {
         controls: true,
@@ -63,11 +57,17 @@
         history: true,
         center: true,
         transition: 'default', // none/fade/slide/convex/concave/zoom
-        dependencies: deps
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
       };
 
       // options from URL query string
-      var queryOptions = Reveal.getQueryHash() || {};
+      var queryOptions = Reveal().getQueryHash() || {};
 
       var options = extend(defaultOptions, {{{revealOptionsStr}}}, queryOptions);
     </script>

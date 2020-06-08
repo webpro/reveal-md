@@ -79,7 +79,7 @@ Override theme (default: `black`):
 reveal-md slides.md --theme solarized
 ```
 
-See [available themes](https://github.com/hakimel/reveal.js/tree/master/css/theme).
+See [available themes](https://github.com/hakimel/reveal.js/tree/master/css/theme/source).
 
 Override reveal theme with a custom one. In this example, the file is at `./theme/my-custom.css`:
 
@@ -119,7 +119,7 @@ reveal-md slides.md --vertical-separator "^\n\n"
 
 ### Custom Slide Attributes
 
-Use the [reveal.js slide attributes](https://github.com/hakimel/reveal.js#slide-attributes) functionality to add HTML
+Use the [reveal.js slide attributes](https://revealjs.com/markdown/#slide-attributes) functionality to add HTML
 attributes, e.g. custom backgrounds. Alternatively, add an HTML `id` attribute to a specific slide and style it with
 CSS.
 
@@ -152,7 +152,7 @@ Markdown files. They'll be picked up automatically. Example:
 
 ### Reveal.js Options
 
-Define Reveal.js [options](https://github.com/hakimel/reveal.js#configuration) in a `reveal.json` file that must be
+Define Reveal.js [options](https://revealjs.com/config/) in a `reveal.json` file that must be
 located at the root directory of the Markdown files. They'll be picked up automatically. Example:
 
 ```json
@@ -164,7 +164,7 @@ located at the root directory of the Markdown files. They'll be picked up automa
 
 ### Speaker Notes
 
-Use the [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) feature by using a line starting with
+Use the [speaker notes](https://revealjs.com/speaker-view/) feature by using a line starting with
 `Note:`.
 
 ### YAML Front matter
