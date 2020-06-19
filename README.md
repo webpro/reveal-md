@@ -18,13 +18,8 @@ This starts a local server and opens any Markdown file as a reveal.js presentati
 
 ## Reveal.js v4
 
-Thanks to [hugo-vrijswijk](https://github.com/hugo-vrijswijk) we can use
-[Reveal.js v4](https://github.com/hakimel/reveal.js/releases). Please test the beta version of reveal-md v4 with your
-slides and let us know any issues you might encounter. Install this beta version:
-
-```bash
-npm install -g reveal-md@beta
-```
+Thanks to [hugo-vrijswijk](https://github.com/hugo-vrijswijk) we are now using
+[Reveal.js v4](https://github.com/hakimel/reveal.js/releases) in reveal-md v4!
 
 ## Docker
 
