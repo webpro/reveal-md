@@ -315,9 +315,10 @@ Providing a directory will result in a stand-alone overview page with links to t
 reveal-md dir/ --static
 ```
 
-By default all `*.md` files in all subdirectories are included in the generated website. You can provide custom [glob pattern](https://github.com/isaacs/node-glob) using `--glob` parameter to generate slides only from some files:
+By default, all `*.md` files in all subdirectories are included in the generated website. Provide a custom
+[glob pattern](https://github.com/isaacs/node-glob) using `--glob` to generate slides only from matching files:
 
-```console
+```bash
 reveal-md dir/ --static --glob '**/slides.md'
 ```
 
