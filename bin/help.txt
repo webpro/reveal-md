@@ -15,6 +15,7 @@ Options:
       --preprocessor <script>                 Markdown preprocessor script
       --template <filename>                   Template file for reveal.js
       --listing-template <filename>           Template file for listing
+      --glob <pattern>                        Glob pattern to select markdown files for listing and conversion [default: **/*.md]
       --print [filename]                      Print to PDF file
       --static [dir]                          Export static html to directory [_static]. Incompatible with --print.
       --static-dirs <dirs>                    Extra directories to copy into static directory. Only used in conjunction with --static.

@@ -13,5 +13,6 @@
   "template": "template/reveal.html",
   "theme": "black",
   "title": "reveal-md",
-  "verticalSeparator": "\r?\n----\r?\n"
+  "verticalSeparator": "\r?\n----\r?\n",
+  "glob": "**/*.md"
 }
