@@ -12,5 +12,6 @@ COPY . /app
 
 EXPOSE 1948
 
-ENTRYPOINT [ "node", "bin/reveal-md.js" ]
+WORKDIR /slides
+ENTRYPOINT [ "node", "/app/bin/reveal-md.js" ]
 CMD [ "/slides" ]
