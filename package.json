@@ -36,8 +36,8 @@
     "fs-extra": "9.0.1",
     "glob": "7.1.6",
     "highlight.js": "10.1.1",
-    "livereload": "0.8.2",
-    "lodash": "4.17.15",
+    "livereload": "0.9.1",
+    "lodash": "4.17.19",
     "mustache": "4.0.1",
     "open": "7.0.4",
     "reveal.js": "4.0.2",
@@ -52,12 +52,12 @@
   },
   "devDependencies": {
     "bron": "1.1.1",
-    "eslint": "7.2.0",
+    "eslint": "7.4.0",
     "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-import": "2.22.0",
     "eslint-plugin-prettier": "3.1.4",
     "prettier": "2.0.5",
-    "release-it": "13.6.3"
+    "release-it": "13.6.5"
   },
   "engines": {
     "node": ">=8"
