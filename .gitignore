@@ -1,5 +1,5 @@
-node_modules
 .idea
-dist
-_static
 .vscode
+_static
+/dist
+/node_modules
