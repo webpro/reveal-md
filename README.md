@@ -60,6 +60,7 @@ The service is now running at [http://localhost:1948](http://localhost:1948).
   - [Directory Listing](#directory-listing)
   - [Custom Port](#custom-port)
   - [Custom Template](#custom-template)
+- [Scripts, Preprocessors and Plugins](#scripts-preprocessors-and-plugins)
 - [Related Projects & Alternatives](#related-projects--alternatives)
 - [Thank You](#thank-you)
 - [License](#license)
@@ -374,6 +375,10 @@ Override listing HTML template
 ```bash
 reveal-md slides.md --listing-template my-listing-template.html
 ```
+
+## Scripts, Preprocessors and Plugins
+
+- [reveal-md-scripts](https://github.com/amra/reveal-md-scripts)
 
 ## Related Projects & Alternatives
 
