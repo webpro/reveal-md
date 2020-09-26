@@ -56,7 +56,7 @@ test('should render remote theme stylesheet', async () => {
 
 test('should render root-based domain-less links for static markup', async () => {
   const actual = await render('', { static: true, base: '.' });
-  assert.equal(actual.match(/href="\.\//g).length, 3);
+  assert.equal(actual.match(/href="\.\//g).length, 4);
   assert.equal(actual.match(/src="\.\//g).length, 6);
 });
 
@@ -103,4 +103,9 @@ test('should merge revealOptions from front matter and local options', async () 
   const actual = await render('---\nrevealOptions:\n  width: 300\n  height: 500\n---\nSlide', { revealOptions });
   const expected = JSON.stringify(Object.assign({}, revealOptions, { width: 300, height: 500 }));
   assert(actual.includes(`var options = extend(defaultOptions, ${expected}, queryOptions);`));
+});
+
+test('should render correct favicon', async () => {
+  const actual = await render('', { static: true, base: '.' });
+  assert(actual.includes(`<link rel="shortcut icon" href="./favicon.ico"/>`));
 });
