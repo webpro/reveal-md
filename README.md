@@ -293,6 +293,18 @@ In case of an error, please try the following:
 - Analyze debug output, e.g. `DEBUG=reveal-md reveal-md slides.md --print`
 - See `reveal-md help` for Puppeteer arguments (`puppeteer-launch-args` and `puppeteer-chromium-executable`)
 
+### Printing with DeckTape
+
+The default method of printing does not currently work when running reveal-md in a Docker container, so it is recommended that you print with [DeckTape](https://github.com/astefanutti/decktape) instead, which also has a Docker container and an npm-installable version. Using DeckTape may also resolve issues if you have a problem with the built-in printing method’s output.
+
+To create a PDF of a presentation from reveal-md instance running on localhost on the default port 1948 using the DeckTape Docker image, use the following command, where `$OUTPUT_DIR` is the folder you want the PDF to be saved to, `$PRESENTATION_URL` is the URL at which the presentation can be accessed in your browser (without the `?print-pdf` suffix), and `$OUTPUT_FILENAME` is the name of the PDF:
+
+```bash
+$ docker run --rm -t --net=host -v $OUTPUT_DIR:/slides astefanutti/decktape $PRESENTATION_URL $OUTPUT_FILENAME
+```
+
+For a full list of export options, please see the the [DeckTape github](https://github.com/astefanutti/decktape), or run the Docker container with the `-h` flag.
+
 ### Static Website
 
 This will export the provided Markdown file into a stand-alone HTML website including scripts and stylesheets. The files
