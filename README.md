@@ -303,6 +303,8 @@ To create a PDF of a presentation from reveal-md instance running on localhost o
 $ docker run --rm -t --net=host -v $OUTPUT_DIR:/slides astefanutti/decktape $PRESENTATION_URL $OUTPUT_FILENAME
 ```
 
+Note: if you are not running reveal-md in Docker, you will need to replace the `localhost` portion of the presentation URL with the IP address of your computer.
+
 For a full list of export options, please see the the [DeckTape github](https://github.com/astefanutti/decktape), or run the Docker container with the `-h` flag.
 
 ### Static Website
