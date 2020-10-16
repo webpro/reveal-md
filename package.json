@@ -31,33 +31,33 @@
     "release": "release-it"
   },
   "dependencies": {
-    "debug": "4.1.1",
+    "debug": "4.2.0",
     "express": "4.17.1",
     "fs-extra": "9.0.1",
     "glob": "7.1.6",
-    "highlight.js": "10.2.0",
+    "highlight.js": "10.2.1",
     "livereload": "0.9.1",
     "lodash": "4.17.20",
     "mustache": "4.0.1",
-    "open": "7.2.1",
-    "reveal.js": "4.0.2",
+    "open": "7.3.0",
+    "reveal.js": "4.1.0",
     "serve-favicon": "2.5.0",
     "try-require": "1.2.1",
-    "update-notifier": "4.1.1",
+    "update-notifier": "5.0.0",
     "yaml-front-matter": "4.1.0",
-    "yargs-parser": "20.0.0"
+    "yargs-parser": "20.2.3"
   },
   "optionalDependencies": {
     "puppeteer": "1.19.0"
   },
   "devDependencies": {
     "bron": "1.1.1",
-    "eslint": "7.9.0",
-    "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-import": "2.22.0",
+    "eslint": "7.11.0",
+    "eslint-config-prettier": "6.13.0",
+    "eslint-plugin-import": "2.22.1",
     "eslint-plugin-prettier": "3.1.4",
-    "prettier": "2.1.1",
-    "release-it": "14.0.2"
+    "prettier": "2.1.2",
+    "release-it": "14.1.0"
   },
   "engines": {
     "node": ">=8"
