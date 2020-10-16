@@ -55,6 +55,8 @@ The service is now running at [http://localhost:1948](http://localhost:1948).
   - [Custom Favicon](#custom-favicon)
   - [Pre-process Markdown](#pre-process-markdown)
   - [Print to PDF](#print-to-pdf)
+    - [1. Using Puppeteer](#1-using-puppeteer)
+    - [2. Using Docker & DeckTape](#2-using-docker--decktape)
   - [Static Website](#static-website)
   - [Disable Auto-open Browser](#disable-auto-open-browser)
   - [Directory Listing](#directory-listing)
@@ -268,6 +270,10 @@ $ reveal-md --preprocessor preproc.js slides.md
 
 ### Print to PDF
 
+There are (at least) two options to export a deck to a PDF file.
+
+#### 1. Using Puppeteer
+
 Create a (printable) PDF from the provided Markdown file:
 
 ```bash
@@ -292,20 +298,30 @@ In case of an error, please try the following:
 
 - Analyze debug output, e.g. `DEBUG=reveal-md reveal-md slides.md --print`
 - See `reveal-md help` for Puppeteer arguments (`puppeteer-launch-args` and `puppeteer-chromium-executable`)
+- Use Docker & DeckTape:
 
-### Printing with DeckTape
+#### 2. Using Docker & DeckTape
 
-The default method of printing does not currently work when running reveal-md in a Docker container, so it is recommended that you print with [DeckTape](https://github.com/astefanutti/decktape) instead, which also has a Docker container and an npm-installable version. Using DeckTape may also resolve issues if you have a problem with the built-in printing method’s output.
+The first method of printing does not currently work when running reveal-md in a Docker container, so it is recommended
+that you print with [DeckTape](https://github.com/astefanutti/decktape) instead. Using DeckTape may also resolve issues
+with the built-in printing method’s output.
 
-To create a PDF of a presentation from reveal-md instance running on localhost on the default port 1948 using the DeckTape Docker image, use the following command, where `$OUTPUT_DIR` is the folder you want the PDF to be saved to, `$PRESENTATION_URL` is the URL at which the presentation can be accessed in your browser (without the `?print-pdf` suffix), and `$OUTPUT_FILENAME` is the name of the PDF:
+To create a PDF of a presentation using reveal-md running on your localhost using the DeckTape Docker image, use the
+following command:
 
 ```bash
-$ docker run --rm -t --net=host -v $OUTPUT_DIR:/slides astefanutti/decktape $PRESENTATION_URL $OUTPUT_FILENAME
+$ docker run --rm -t --net=host -v $OUTPUT_DIR:/slides astefanutti/decktape $URL $OUTPUT_FILENAME
 ```
 
-Note: if you are not running reveal-md in Docker, you will need to replace the `localhost` portion of the presentation URL with the IP address of your computer.
+Replace these variables:
 
-For a full list of export options, please see the the [DeckTape github](https://github.com/astefanutti/decktape), or run the Docker container with the `-h` flag.
+- `$OUTPUT_DIR` is the folder you want the PDF to be saved to.
+- `$OUTPUT_FILENAME` is the name of the PDF.
+- `$URL` is where the presentation can be accessed in your browser (without the `?print-pdf` suffix). If you are not
+  running reveal-md in Docker, you will need to replace `localhost` with the IP address of your computer.
+
+For a full list of export options, please see the the [DeckTape github](https://github.com/astefanutti/decktape), or run
+the Docker container with the `-h` flag.
 
 ### Static Website
 
