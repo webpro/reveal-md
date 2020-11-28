@@ -7,6 +7,10 @@
   </head>
 
   <body>
-    {{{listing}}}
+    <ul>
+      {{#filePaths}}
+      <li><a href="{{.}}">{{.}}</a></li>
+      {{/filePaths}}
+    </ul>
   </body>
 </html>
