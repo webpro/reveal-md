@@ -8,9 +8,11 @@
 
   <body>
     <ul>
-      {{#filePaths}}
-      <li><a href="{{.}}">{{.}}</a></li>
-      {{/filePaths}}
+      {{#extendedFileRecords}}
+        {{#.}}
+          <li><a href="{{filePath}}" title="{{yamlOptions.title}}">{{filePath}}</a></li>
+        {{/.}}
+      {{/extendedFileRecords}}
     </ul>
   </body>
 </html>
