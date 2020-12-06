@@ -2,17 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Directory Listing</title>
+    <title>{{pageTitle}}</title>
     <link rel="stylesheet" href="{{{themeUrl}}}" id="theme" />
   </head>
 
   <body>
     <ul>
-      {{#extendedFileRecords}}
-        {{#.}}
-          <li><a href="{{filePath}}" title="{{yamlOptions.title}}">{{filePath}}</a></li>
-        {{/.}}
-      {{/extendedFileRecords}}
+      {{#files}}
+      <li>
+        <a href="{{filePath}}" title="{{title}}">
+          {{#title}}{{.}} ({{filePath}}){{/title}}{{^title}}{{filePath}}{{/title}}
+        </a>
+      </li>
+      {{/files}}
     </ul>
   </body>
 </html>
