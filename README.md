@@ -24,7 +24,7 @@ The service is now running at [http://localhost:1948][2].
 
 To enable live reload in the container, port 35729 should be mapped as well:
 
-    docker run --rm -p 1948:1948 -p 35729:35729 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest --watch
+    docker run --rm -p 1948:1948 -p 35729:35729 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest /slides --watch
 
 ## Features
 
