@@ -30,7 +30,6 @@ To enable live reload in the container, port 35729 should be mapped as well:
 
 - [Installation][3]
 - [Usage][4]
-- [Reveal.js v4][5]
 - [Docker][6]
 - [Features][7]
   - [Markdown][8]
@@ -350,6 +349,7 @@ Override listing HTML template ([default template][44]):
 ## Scripts, Preprocessors and Plugins
 
 - [reveal-md-scripts][45]
+- [How to add reveal.js plugins][58]
 
 ## Related Projects & Alternatives
 
@@ -433,3 +433,4 @@ Many thanks to all [contributors][56]!
 [55]: https://blog.hanklu.tw/post/2021/use-reveal-md-to-generate-multiple-slides-and-host-them-on-github-page/
 [56]: https://github.com/webpro/reveal-md/graphs/contributors
 [57]: http://webpro.mit-license.org
+[58]: https://github.com/webpro/reveal-md/issues/102#issuecomment-692494366
