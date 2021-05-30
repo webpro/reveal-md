@@ -40,7 +40,7 @@
     "lodash": "4.17.21",
     "mustache": "4.2.0",
     "open": "8.0.8",
-    "reveal.js": "4.1.0",
+    "reveal.js": "4.1.1",
     "serve-favicon": "2.5.0",
     "try-require": "1.2.1",
     "update-notifier": "5.1.0",
