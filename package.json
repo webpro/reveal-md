@@ -39,7 +39,7 @@
     "livereload": "0.9.3",
     "lodash": "4.17.21",
     "mustache": "4.2.0",
-    "open": "8.0.8",
+    "open": "8.2.0",
     "reveal.js": "4.1.1",
     "serve-favicon": "2.5.0",
     "try-require": "1.2.1",
@@ -52,12 +52,12 @@
   },
   "devDependencies": {
     "bron": "1.1.1",
-    "eslint": "7.26.0",
+    "eslint": "7.27.0",
     "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-import": "2.23.4",
     "eslint-plugin-prettier": "3.4.0",
-    "prettier": "2.2.1",
-    "release-it": "14.6.1"
+    "prettier": "2.3.0",
+    "release-it": "14.7.0"
   },
   "engines": {
     "node": ">=10"
