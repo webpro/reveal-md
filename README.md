@@ -4,11 +4,15 @@
 
 ## Installation
 
-    npm install -g reveal-md
+```bash
+npm install -g reveal-md
+```
 
 ## Usage
 
-    reveal-md slides.md
+```bash
+reveal-md slides.md
+```
 
 This starts a local server and opens any Markdown file as a reveal.js presentation in the default browser.
 
@@ -17,14 +21,18 @@ This starts a local server and opens any Markdown file as a reveal.js presentati
 You can use Docker to run this tool without needing Node.js installed on your machine. Run the public Docker image,
 providing your markdown slides as a volume. A few examples:
 
-    docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest
-    docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest --help
+```bash
+docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest
+docker run --rm -p 1948:1948 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest --help
+```
 
 The service is now running at [http://localhost:1948][2].
 
 To enable live reload in the container, port 35729 should be mapped as well:
 
-    docker run --rm -p 1948:1948 -p 35729:35729 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest /slides --watch
+```bash
+docker run --rm -p 1948:1948 -p 35729:35729 -v <path-to-your-slides>:/slides webpronl/reveal-md:latest /slides --watch
+```
 
 ## Features
 
@@ -64,7 +72,7 @@ To enable live reload in the container, port 35729 should be mapped as well:
 The Markdown feature of reveal.js is awesome, and has an easy (and configurable) syntax to separate slides. Use three
 dashes surrounded by two blank lines (`\n---\n`). Example:
 
-```text
+```md
 # Title
 
 * Point 1
@@ -83,23 +91,31 @@ Note: speaker notes FTW!
 
 Override theme (default: `black`):
 
-    reveal-md slides.md --theme solarized
+```bash
+reveal-md slides.md --theme solarized
+```
 
 See [available themes][34].
 
 Override reveal theme with a custom one. In this example, the file is at `./theme/my-custom.css`:
 
-    reveal-md slides.md --theme theme/my-custom.css
+```bash
+reveal-md slides.md --theme theme/my-custom.css
+```
 
 Override reveal theme with a remote one (use rawgit.com because the url must allow cross-site access):
 
-    reveal-md slides.md --theme https://rawgit.com/puzzle/pitc-revealjs-theme/master/theme/puzzle.css
+```bash
+reveal-md slides.md --theme https://rawgit.com/puzzle/pitc-revealjs-theme/master/theme/puzzle.css
+```
 
 ### Highlight Theme
 
 Override highlight theme (default: `zenburn`):
 
-    reveal-md slides.md --highlight-theme github
+```bash
+reveal-md slides.md --highlight-theme github
+```
 
 See [available themes][35].
 
@@ -107,11 +123,15 @@ See [available themes][35].
 
 Override slide separator (default: `\n---\n`):
 
-    reveal-md slides.md --separator "^\n\n\n"
+```bash
+reveal-md slides.md --separator "^\n\n\n"
+```
 
 Override vertical/nested slide separator (default: `\n----\n`):
 
-    reveal-md slides.md --vertical-separator "^\n\n"
+```bash
+reveal-md slides.md --vertical-separator "^\n\n"
+```
 
 ### Custom Slide Attributes
 
@@ -120,7 +140,7 @@ add an HTML `id` attribute to a specific slide and style it with CSS.
 
 Example: set the second slide to have a PNG image as background:
 
-```text
+~~~md
 # slide1
 
 This slide has no background image.
@@ -131,7 +151,7 @@ This slide has no background image.
 # slide2
 
 This one does!
-```
+~~~
 
 ### reveal-md Options
 
@@ -165,34 +185,42 @@ Use the [speaker notes][38] feature by using a line starting with `Note:`.
 
 Set Markdown (and reveal.js) options specific to a presentation with YAML front matter:
 
-    ---
-    title: Foobar
-    separator: <!--s-->
-    verticalSeparator: <!--v-->
-    theme: solarized
-    revealOptions:
-        transition: 'fade'
-    ---
-    Foo
+~~~md
+---
+title: Foobar
+separator: <!--s-->
+verticalSeparator: <!--v-->
+theme: solarized
+revealOptions:
+transition: 'fade'
+---
+Foo
 
-    Note: test note
+Note: test note
 
-    <!--s-->
+<!--s-->
 
-    # Bar
+# Bar
 
-    <!--v-->
+<!--v-->
+~~~
 
 ### Live Reload
 
 Using `-w` option changes to markdown files will trigger the browser to reload and thus display the changed presentation
 without the user having to reload the browser.
 
+```bash
+reveal-md slides.md -w
+```
+
 ### Custom Scripts
 
 Inject custom scripts into the page:
 
-    reveal-md slides.md --scripts script.js,another-script.js
+```bash
+reveal-md slides.md --scripts script.js,another-script.js
+```
 
 Don't use absolute paths, files should be in adjacent or descending folders.
 
@@ -200,7 +228,9 @@ Don't use absolute paths, files should be in adjacent or descending folders.
 
 Inject custom CSS into the page:
 
-    reveal-md slides.md --css style.css,another-style.css
+```bash
+reveal-md slides.md --css style.css,another-style.css
+```
 
 Don't use absolute paths, files should be in adjacent or descending folders.
 
@@ -237,7 +267,9 @@ module.exports = (markdown, options) => {
 
 and use it like this
 
-    $ reveal-md --preprocessor preproc.js slides.md
+```bash
+reveal-md --preprocessor preproc.js slides.md
+```
 
 ### Print to PDF
 
@@ -247,7 +279,9 @@ There are (at least) two options to export a deck to a PDF file.
 
 Create a (printable) PDF from the provided Markdown file:
 
-    reveal-md slides.md --print slides.pdf
+```bash
+reveal-md slides.md --print slides.pdf
+```
 
 The PDF is generated using Puppeteer. Alternatively, append `?print-pdf` to the url from the command-line or in the
 browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the browser's (not the native) print
@@ -256,9 +290,11 @@ dialog. This seems to work in Chrome.
 By default, paper size is set to match options in your [`reveal.json`][14] file, falling back to a default value 960x700
 pixels. To override this behaviour, you can pass custom dimensions or format in a command line option `--print-size`:
 
-    reveal-md slides.md --print slides.pdf --print-size 1024x768   # in pixels when no unit is given
-    reveal-md slides.md --print slides.pdf --print-size 210x297mm  # valid units are: px, in, cm, mm
-    reveal-md slides.md --print slides.pdf --print-size A4         # valid formats are: A0-6, Letter, Legal, Tabloid, Ledger
+```bash
+reveal-md slides.md --print slides.pdf --print-size 1024x768   # in pixels when no unit is given
+reveal-md slides.md --print slides.pdf --print-size 210x297mm  # valid units are: px, in, cm, mm
+reveal-md slides.md --print slides.pdf --print-size A4         # valid formats are: A0-6, Letter, Legal, Tabloid, Ledger
+```
 
 In case of an error, please try the following:
 
@@ -275,7 +311,9 @@ output.
 To create a PDF of a presentation using reveal-md running on your localhost using the DeckTape Docker image, use the
 following command:
 
-    $ docker run --rm -t --net=host -v $OUTPUT_DIR:/slides astefanutti/decktape $URL $OUTPUT_FILENAME
+```bash
+docker run --rm -t --net=host -v $OUTPUT_DIR:/slides astefanutti/decktape $URL $OUTPUT_FILENAME
+```
 
 Replace these variables:
 
@@ -292,59 +330,81 @@ flag.
 This will export the provided Markdown file into a stand-alone HTML website including scripts and stylesheets. The files
 are saved to the directory passed to the `--static` parameter (default: `./_static`):
 
-    reveal-md slides.md --static _site
+```bash
+reveal-md slides.md --static _site
+```
 
 This should copy images along with the slides. Use `--static-dirs` to copy directories with other static assets to the
 target directory. Use a comma-separated list to copy multiple directories.
 
-    reveal-md slides.md --static --static-dirs=assets
+```bash
+reveal-md slides.md --static --static-dirs=assets
+```
 
 Providing a directory will result in a stand-alone overview page with links to the presentations (similar to a
 [directory listing][27]):
 
-    reveal-md dir/ --static
+```bash
+reveal-md dir/ --static
+```
 
 By default, all `*.md` files in all subdirectories are included in the generated website. Provide a custom [glob
 pattern][41] using `--glob` to generate slides only from matching files:
 
-    reveal-md dir/ --static --glob '**/slides.md'
+```bash
+reveal-md dir/ --static --glob '**/slides.md'
+```
 
 Additional `--absolute-url` and `--featured-slide` parameters could be used to generate [OpenGraph][42] metadata
 enabling more attractive rendering for slide deck links when shared in some social sites.
 
-    reveal-md slides.md --static _site --absolute-url https://example.com --featured-slide 5
+```bash
+reveal-md slides.md --static _site --absolute-url https://example.com --featured-slide 5
+```
 
 ### Disable Auto-open Browser
 
 To disable auto-opening the browser:
 
-    reveal-md slides.md --disable-auto-open
+```bash
+reveal-md slides.md --disable-auto-open
+```
 
 ### Directory Listing
 
 Show (recursive) directory listing of Markdown files:
 
-    reveal-md dir/
+```bash
+reveal-md dir/
+```
 
 Show directory listing of Markdown files in current directory:
 
-    reveal-md
+```bash
+reveal-md
+```
 
 ### Custom Port
 
 Override port (default: `1948`):
 
-    reveal-md slides.md --port 8888
+```bash
+reveal-md slides.md --port 8888
+```
 
 ### Custom Template
 
 Override reveal.js HTML template ([default template][43]):
 
-    reveal-md slides.md --template my-reveal-template.html
+```bash
+reveal-md slides.md --template my-reveal-template.html
+```
 
 Override listing HTML template ([default template][44]):
 
-    reveal-md slides.md --listing-template my-listing-template.html
+```bash
+reveal-md slides.md --listing-template my-listing-template.html
+```
 
 ## Scripts, Preprocessors and Plugins
 
