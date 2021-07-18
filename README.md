@@ -72,7 +72,7 @@ docker run --rm -p 1948:1948 -p 35729:35729 -v <path-to-your-slides>:/slides web
 The Markdown feature of reveal.js is awesome, and has an easy (and configurable) syntax to separate slides. Use three
 dashes surrounded by two blank lines (`\n---\n`). Example:
 
-```md
+~~~mkdn
 # Title
 
 * Point 1
@@ -85,7 +85,7 @@ dashes surrounded by two blank lines (`\n---\n`). Example:
 > Best quote ever.
 
 Note: speaker notes FTW!
-```
+~~~
 
 ### Theme
 
@@ -140,7 +140,7 @@ add an HTML `id` attribute to a specific slide and style it with CSS.
 
 Example: set the second slide to have a PNG image as background:
 
-~~~md
+~~~mkdn
 # slide1
 
 This slide has no background image.
@@ -185,7 +185,7 @@ Use the [speaker notes][38] feature by using a line starting with `Note:`.
 
 Set Markdown (and reveal.js) options specific to a presentation with YAML front matter:
 
-~~~md
+~~~mkdn
 ---
 title: Foobar
 separator: <!--s-->
@@ -194,6 +194,7 @@ theme: solarized
 revealOptions:
 transition: 'fade'
 ---
+
 Foo
 
 Note: test note
