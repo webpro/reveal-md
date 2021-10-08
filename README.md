@@ -193,7 +193,7 @@ separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: solarized
 revealOptions:
-transition: 'fade'
+  transition: 'fade'
 ---
 
 Foo
