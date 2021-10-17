@@ -27,19 +27,22 @@ test('should render markdown content', async () => {
 });
 
 test('should render custom scripts', async () => {
-  const actual = await render('# header', { scripts: 'custom.js,also.js' });
+  const actual = await render('# header', { scripts: 'custom.js,also.js,http://example.org/script.js' });
   assert(actual.includes('<script src="/_assets/custom.js"></script>'));
   assert(actual.includes('<script src="/_assets/also.js"></script>'));
+  assert(actual.includes('<script src="http://example.org/script.js"></script>'));
 });
 
 test('should render custom css after theme', async () => {
-  const actual = await render('# header', { css: 'style1.css,style2.css' });
+  const actual = await render('# header', { css: 'style1.css,style2.css,http://example.org/style.css' });
   const themeLink = '<link rel="stylesheet" href="/css/highlight/zenburn.css" />';
   const style1Link = '<link rel="stylesheet" href="/_assets/style1.css" />';
   const style2Link = '<link rel="stylesheet" href="/_assets/style2.css" />';
+  const style3Link = '<link rel="stylesheet" href="http://example.org/style.css" />';
   assert(actual.includes(themeLink));
   assert(actual.includes(style1Link));
   assert(actual.includes(style2Link));
+  assert(actual.includes(style3Link));
   assert(actual.indexOf(style1Link) > actual.indexOf(themeLink));
   assert(actual.indexOf(style2Link) > actual.indexOf(style1Link));
 });
@@ -107,5 +110,5 @@ test('should merge revealOptions from front matter and local options', async () 
 
 test('should render correct favicon', async () => {
   const actual = await render('', { static: true, base: '.' });
-  assert(actual.includes(`<link rel="shortcut icon" href="./favicon.ico"/>`));
+  assert(actual.includes(`<link rel="shortcut icon" href="./favicon.ico" />`));
 });
