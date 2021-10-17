@@ -11,17 +11,24 @@
     <meta property="og:image" content="{{{absoluteUrl}}}/featured-slide.jpg" />
     <meta property="og:url" content="{{{absoluteUrl}}}" />
     {{/absoluteUrl}}
-    <link rel="shortcut icon" href="{{{base}}}/favicon.ico"/>
+    <link rel="shortcut icon" href="{{{base}}}/favicon.ico" />
     <link rel="stylesheet" href="{{{base}}}/dist/reveal.css" />
     <link rel="stylesheet" href="{{{themeUrl}}}" id="theme" />
     <link rel="stylesheet" href="{{{base}}}{{{highlightThemeUrl}}}" />
+
     {{#cssPaths}}
     <link rel="stylesheet" href="{{{.}}}" />
     {{/cssPaths}}
 
     {{#watch}}
+
     <script>
-      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+      document.write(
+        '<script src="http://' +
+          (location.host || 'localhost').split(':')[0] +
+          ':35729/livereload.js?snipver=1"></' +
+          'script>'
+      );
     </script>
     {{/watch}}
   </head>
