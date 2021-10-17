@@ -224,7 +224,8 @@ Inject custom scripts into the page:
 reveal-md slides.md --scripts script.js,another-script.js
 ```
 
-Don't use absolute paths, files should be in adjacent or descending folders.
+- Don't use absolute file paths, files should be in adjacent or descending folders.
+- Absolute URL's are allowed.
 
 ### Custom CSS
 
@@ -234,7 +235,8 @@ Inject custom CSS into the page:
 reveal-md slides.md --css style.css,another-style.css
 ```
 
-Don't use absolute paths, files should be in adjacent or descending folders.
+- Don't use absolute file paths, files should be in adjacent or descending folders.
+- Absolute URL's are allowed.
 
 ### Custom Favicon
 
