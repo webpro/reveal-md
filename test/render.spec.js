@@ -59,7 +59,7 @@ test('should render remote theme stylesheet', async () => {
 
 test('should render root-based domain-less links for static markup', async () => {
   const actual = await render('', { static: true, base: '.' });
-  assert.equal(actual.match(/href="\.\//g).length, 4);
+  assert.equal(actual.match(/href="\.\//g).length, 5);
   assert.equal(actual.match(/src="\.\//g).length, 6);
 });
 
