@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Publish
-        uses: jerray/publish-docker-action@v1.0.3
+        uses: jerray/publish-docker-action@v1.0.5
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
