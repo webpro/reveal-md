@@ -28,16 +28,16 @@ test('should render markdown content', async () => {
 
 test('should render custom scripts', async () => {
   const actual = await render('# header', { scripts: 'custom.js,also.js,http://example.org/script.js' });
-  assert(actual.includes('<script src="/_assets/custom.js"></script>'));
-  assert(actual.includes('<script src="/_assets/also.js"></script>'));
+  assert(actual.includes('<script src="./_assets/custom.js"></script>'));
+  assert(actual.includes('<script src="./_assets/also.js"></script>'));
   assert(actual.includes('<script src="http://example.org/script.js"></script>'));
 });
 
 test('should render custom css after theme', async () => {
   const actual = await render('# header', { css: 'style1.css,style2.css,http://example.org/style.css' });
   const themeLink = '<link rel="stylesheet" href="/css/highlight/zenburn.css" />';
-  const style1Link = '<link rel="stylesheet" href="/_assets/style1.css" />';
-  const style2Link = '<link rel="stylesheet" href="/_assets/style2.css" />';
+  const style1Link = '<link rel="stylesheet" href="./_assets/style1.css" />';
+  const style2Link = '<link rel="stylesheet" href="./_assets/style2.css" />';
   const style3Link = '<link rel="stylesheet" href="http://example.org/style.css" />';
   assert(actual.includes(themeLink));
   assert(actual.includes(style1Link));
