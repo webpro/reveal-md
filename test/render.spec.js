@@ -112,3 +112,33 @@ test('should render correct favicon', async () => {
   const actual = await render('', { static: true, base: '.' });
   assert(actual.includes(`<link rel="shortcut icon" href="./favicon.ico" />`));
 });
+
+test('should insert optional webmanifest link', async () => {
+  const actual = await render('# header', { webmanifest: 'site.webmanifest' });
+  const webManifestLink = '<link rel="manifest" href="/_assets/site.webmanifest">';
+  assert(actual.includes(webManifestLink));
+});
+
+test('should not insert optional webmanifest link', async () => {
+  const actual = await render('# header');
+  const webManifestLink = '<link rel="manifest"';
+  assert(!actual.includes(webManifestLink));
+});
+
+test('should insert optional webmanifest link from other assets directory', async () => {
+  const actual = await render('# header', { assetsDir: 'other-dir', webmanifest: 'site.webmanifest' });
+  const webManifestLink = '<link rel="manifest" href="/other-dir/site.webmanifest">';
+  assert(actual.includes(webManifestLink));
+});
+
+test('should insert optional service worker script', async () => {
+  const actual = await render('# header', { serviceworker: 'sw.js' });
+  const serviceWorkerCode = `.register('/_assets/sw.js')`;
+  assert(actual.includes(serviceWorkerCode));
+});
+
+test('should not insert optional service worker script', async () => {
+  const actual = await render('# header');
+  const serviceWorkerCode = `.register`;
+  assert(!actual.includes(serviceWorkerCode));
+});

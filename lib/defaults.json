@@ -14,5 +14,7 @@
   "theme": "black",
   "title": "reveal-md",
   "verticalSeparator": "\r?\n----\r?\n",
-  "glob": "**/*.md"
+  "glob": "**/*.md",
+  "webmanifest": null,
+  "serviceworker": null
 }

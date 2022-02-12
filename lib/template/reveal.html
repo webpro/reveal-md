@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="{{{.}}}" />
     {{/cssPaths}}
 
+    {{#webManifest}}
+    <link rel="manifest" href="{{{webManifest}}}">
+    {{/webManifest}}
+    {{#serviceWorker}}
+    <script>
+     if('serviceWorker' in navigator) {
+       navigator.serviceWorker
+                .register('{{{serviceWorker}}}')
+                .then(function(registration) { console.log("Service Worker Registered with scope: " + registration.scope); })
+                .catch(function(error) { console.log("Service Worker Registration failed with error: "+ error); });
+     }
+     </script>
+     {{/serviceWorker}}
+
     {{#watch}}
 
     <script>

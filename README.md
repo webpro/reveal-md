@@ -53,6 +53,8 @@ docker run --rm -p 1948:1948 -p 35729:35729 -v <path-to-your-slides>:/slides web
   - [Custom Scripts][18]
   - [Custom CSS][19]
   - [Custom Favicon][20]
+  - [Custom WebManifest][20b]
+  - [Custom ServiceWorker][20c]
   - [Pre-process Markdown][21]
   - [Print to PDF][22]
     - [1. Using Puppeteer][23]
@@ -237,6 +239,26 @@ reveal-md slides.md --css style.css,another-style.css
 
 - Don't use absolute file paths, files should be in adjacent or descending folders.
 - Absolute URL's are allowed.
+
+### Custom WebManifest
+
+Inject a link to a custom [Web Manifest][59]:
+
+```bash
+reveal-md slides.md --webmanifest site.webmanifest
+```
+
+- you have to provide your own webmanifest file.
+
+### Custom ServiceWorker
+
+Inject a custom [Service Worker][60]:
+
+```bash
+reveal-md slides.md --serviceworker sw.js
+```
+
+- you have to provide your own Service worker JavaScript code.
 
 ### Custom Favicon
 
@@ -460,6 +482,8 @@ Many thanks to all [contributors][56]!
 [18]: #custom-scripts
 [19]: #custom-css
 [20]: #custom-favicon
+[20b]: #custom-webmanifest
+[20c]: #custom-serviceworker
 [21]: #pre-process-markdown
 [22]: #print-to-pdf
 [23]: #1-using-puppeteer
@@ -498,3 +522,5 @@ Many thanks to all [contributors][56]!
 [56]: https://github.com/webpro/reveal-md/graphs/contributors
 [57]: http://webpro.mit-license.org
 [58]: https://github.com/webpro/reveal-md/issues/102#issuecomment-692494366
+[59]: https://developer.mozilla.org/docs/Web/Manifest
+[60]: https://developer.mozilla.org/docs/Web/API/ServiceWorker

@@ -29,3 +29,5 @@ Options:
       --puppeteer-launch-args <args>          Customize how Puppeteer launches Chromium. The arguments are specified as a space separated list (for example --puppeteer-launch-args="--no-sandbox --disable-dev-shm-usage"). Needed for some CI setups.
       --puppeteer-chromium-executable <path>  Customize which Chromium executable puppeteer will launch. Allows to use a globally installed version of Chromium.
   -h, --help                                  output usage information
+      --serviceworker <filename>              ServiceWorker to inject into the page
+      --webmanifest <filename>                WebManifest to inject into the page
