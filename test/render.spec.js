@@ -132,8 +132,18 @@ test('should insert optional webmanifest link from other assets directory', asyn
 });
 
 test('should insert optional service worker script', async () => {
+  // service worker registration uses the URL to assign a scope.
+  // unless otherwise, we'd like our SW to be scoped to "/"
   const actual = await render('# header', { serviceworker: 'sw.js' });
-  const serviceWorkerCode = `.register('/_assets/sw.js')`;
+  const serviceWorkerCode = `.register('/sw.js')`;
+  assert(actual.includes(serviceWorkerCode));
+});
+
+test('should insert optional scoped service worker script', async () => {
+  // service worker registration uses the URL to assign a scope.
+  // here, we'd like our SW to be scoped to "/scope"
+  const actual = await render('# header', { serviceworker: 'scope/sw.js' });
+  const serviceWorkerCode = `.register('/scope/sw.js')`;
   assert(actual.includes(serviceWorkerCode));
 });
 
