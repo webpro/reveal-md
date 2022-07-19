@@ -1,7 +1,7 @@
 {
   "assetsDir": "_assets",
   "css": [],
-  "highlightTheme": "zenburn",
+  "highlightTheme": "base16/zenburn",
   "host": "localhost",
   "listingTemplate": "template/listing.html",
   "port": 1948,

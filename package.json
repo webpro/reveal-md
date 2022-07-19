@@ -9,7 +9,7 @@
     "server",
     "cli"
   ],
-  "version": "5.3.3",
+  "version": "5.3.4",
   "repository": {
     "type": "git",
     "url": "git://github.com/webpro/reveal-md.git"
@@ -52,12 +52,12 @@
   },
   "devDependencies": {
     "bron": "1.1.1",
-    "eslint": "8.16.0",
+    "eslint": "8.18.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "prettier": "2.6.2",
-    "release-it": "15.0.0"
+    "eslint-plugin-prettier": "4.2.1",
+    "prettier": "2.7.1",
+    "release-it": "15.1.1"
   },
   "engines": {
     "node": ">=12"

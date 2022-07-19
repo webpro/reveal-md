@@ -6,7 +6,7 @@ test('should render basic template', async () => {
   const actual = await render('', {});
   assert(actual.includes('<title>reveal-md</title>'));
   assert(actual.includes('<link rel="stylesheet" href="/dist/theme/black.css"'));
-  assert(actual.includes('<link rel="stylesheet" href="/css/highlight/zenburn.css"'));
+  assert(actual.includes('<link rel="stylesheet" href="/css/highlight/base16/zenburn.css"'));
   assert(
     actual.includes(
       '<div class="slides"><section  data-markdown><script type="text/template"></script></section></div>'
@@ -35,7 +35,7 @@ test('should render custom scripts', async () => {
 
 test('should render custom css, after theme', async () => {
   const actual = await render('# header', { css: 'style1.css,style2.css,http://example.org/style.css' });
-  const themeLink = '<link rel="stylesheet" href="/css/highlight/zenburn.css" />';
+  const themeLink = '<link rel="stylesheet" href="/css/highlight/base16/zenburn.css" />';
   const style1Link = '<link rel="stylesheet" href="/_assets/style1.css" />';
   const style2Link = '<link rel="stylesheet" href="/_assets/style2.css" />';
   const style3Link = '<link rel="stylesheet" href="http://example.org/style.css" />';
