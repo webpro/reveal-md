@@ -41,6 +41,7 @@ docker run --rm -p 1948:1948 -p 35729:35729 -v <path-to-your-slides>:/slides web
 - [Docker][6]
 - [Features][7]
   - [Markdown][8]
+    - [Code Section][59]
   - [Theme][9]
   - [Highlight Theme][10]
   - [Custom Slide Separators][11]
@@ -86,6 +87,32 @@ dashes surrounded by two blank lines (`\n---\n`). Example:
 
 Note: speaker notes FTW!
 ```
+
+#### Code section
+
+##### Syntax highlighting
+
+~~~mkdn
+```js
+console.log('Hello world!')
+```
+~~~
+
+##### Highlight some lines
+
+You can highlight one line, multiple lines or both.
+
+~~~mkdn
+```python [1|3-6]
+n = 0
+while n < 10:
+  if n % 2 == 0:
+    print(f"{n} is even")
+  else:
+    print(f"{n} is odd")
+  n += 1
+```
+~~~
 
 ### Theme
 
@@ -498,3 +525,4 @@ Many thanks to all [contributors][56]!
 [56]: https://github.com/webpro/reveal-md/graphs/contributors
 [57]: http://webpro.mit-license.org
 [58]: https://github.com/webpro/reveal-md/issues/102#issuecomment-692494366
+[59]: #code-section
