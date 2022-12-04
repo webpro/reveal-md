@@ -92,17 +92,17 @@ Note: speaker notes FTW!
 
 ##### Syntax highlighting
 
-~~~mkdn
+````mkdn
 ```js
-console.log('Hello world!')
+console.log('Hello world!');
 ```
-~~~
+````
 
 ##### Highlight some lines
 
 You can highlight one line, multiple lines or both.
 
-~~~mkdn
+````mkdn
 ```python [1|3-6]
 n = 0
 while n < 10:
@@ -112,7 +112,7 @@ while n < 10:
     print(f"{n} is odd")
   n += 1
 ```
-~~~
+````
 
 ### Theme
 
