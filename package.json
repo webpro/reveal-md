@@ -43,7 +43,7 @@
     "reveal.js": "4.4.0",
     "serve-favicon": "2.5.0",
     "try-require": "1.2.1",
-    "update-notifier": "5.1.0",
+    "update-notifier": "6.0.2",
     "yaml-front-matter": "4.1.1",
     "yargs-parser": "21.1.1"
   },
