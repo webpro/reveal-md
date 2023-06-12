@@ -521,7 +521,7 @@ Many thanks to all [contributors][56]!
 [52]: https://ericmjl.github.io/blog/2020/1/18/create-your-own-auto-publishing-slides-with-reveal-md-and-travis-ci/
 [53]: https://mandieq.medium.com/beautiful-presentations-from-markdown-who-knew-it-could-be-so-easy-d279aa7f787a
 [54]: https://lacourt.dev/2019/03/12
-[55]: https://blog.hanklu.tw/post/2021/use-reveal-md-to-generate-multiple-slides-and-host-them-on-github-page/
+[55]: https://hanklu.tw/blog/use-reveal-md-to-generate-multiple-slides-and-host-them-on-github-page/
 [56]: https://github.com/webpro/reveal-md/graphs/contributors
 [57]: http://webpro.mit-license.org
 [58]: https://github.com/webpro/reveal-md/issues/102#issuecomment-692494366
