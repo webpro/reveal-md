@@ -26,7 +26,7 @@ do is describe the feature in detail, and why it would be useful to others as we
 In case you've encountered a bug, please make sure:
 
 - You are using the [latest version](https://github.com/webpro/reveal-md/releases).
-- You have read the [documentation](https://github.com/webpro/reveal-md/blob/master/README.md) first, and double-checked
+- You have read the [documentation](https://github.com/webpro/reveal-md/blob/main/README.md) first, and double-checked
   your configuration.
 - In your issue description, please include:
   - What you expected to see, and what happened instead.
