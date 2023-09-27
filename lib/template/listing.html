@@ -11,10 +11,19 @@
       {{#files}}
       <li>
         <a href="{{filePath}}" title="{{title}}">
-          {{#title}}{{.}} ({{filePath}}){{/title}}{{^title}}{{filePath}}{{/title}}
+          {{#title}}
+            {{.}} ({{filePath}})
+          {{/title}}
+          {{^title}}
+            {{filePath}}
+          {{/title}}
         </a>
       </li>
       {{/files}}
     </ul>
+
+    <p>
+      Last update: {{date}}
+    </p>
   </body>
 </html>
