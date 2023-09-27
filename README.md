@@ -195,8 +195,7 @@ Markdown files. They'll be picked up automatically. Example:
 
 ### Reveal.js Options
 
-Define Reveal.js [options][37] in a `reveal.json` file at the project root.
-They'll be picked up automatically. Example:
+Define Reveal.js [options][37] in a `reveal.json` file at the project root. They'll be picked up automatically. Example:
 
 ```json
 {
