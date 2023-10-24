@@ -9,7 +9,7 @@
     "server",
     "cli"
   ],
-  "version": "5.5.1",
+  "version": "5.5.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/webpro/reveal-md.git"
