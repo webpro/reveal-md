@@ -1,6 +1,6 @@
-const test = require('bron');
-const assert = require('assert').strict;
-const { slidify } = require('../lib/render');
+import test from 'node:test';
+import { strict as assert } from 'assert';
+import { slidify } from '../lib/render.js';
 
 test('should render slides split by horizontal separator', () => {
   const actual = slidify('Slide A\n\n---\n\nSlide B');

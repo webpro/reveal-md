@@ -1,9 +1,10 @@
-const test = require('bron');
-const assert = require('assert').strict;
-const { join } = require('path');
-const { getFilePaths } = require('../lib/util');
-const { getFilesGlob } = require('../lib/config');
+import test from 'node:test';
+import { strict as assert } from 'assert';
+import { join } from 'path';
+import { getFilePaths } from '../lib/util.js';
+import { getFilesGlob } from '../lib/config.js';
 
+const __dirname = new URL('.', import.meta.url).pathname;
 const FIXTURES_DIR = join(__dirname, 'fixtures');
 
 test('should list all Markdown files with default config', async () => {
