@@ -3,15 +3,14 @@
 import argsParser from 'yargs-parser';
 import updater from 'update-notifier';
 import path from 'path';
-import { readFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
-import * as open from 'open';
+import open from 'open';
 import startServer from '../lib/server.js';
 import writeStatic from '../lib/static.js';
 import exportPDF from '../lib/print.js';
+import pkg from '../package.json' assert { type: 'json' };
 
 const __dirname = new URL('.', import.meta.url).pathname;
-const pkg = JSON.parse(readFileSync('package.json'));
 
 const alias = {
   h: 'help',
