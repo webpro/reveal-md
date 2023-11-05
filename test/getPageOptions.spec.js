@@ -1,6 +1,6 @@
-const test = require('bron');
-const assert = require('assert').strict;
-const { getPageOptions } = require('../lib/config');
+import test from 'node:test';
+import { strict as assert } from 'assert';
+import { getPageOptions } from '../lib/config.js';
 
 test('should handle dimensions without units', () => {
   const actual = getPageOptions('1024x768');

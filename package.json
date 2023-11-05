@@ -24,8 +24,9 @@
     "bin",
     "lib"
   ],
+  "type": "module",
   "scripts": {
-    "test": "bron test/*.spec.js",
+    "test": "node --test test/*.spec.js",
     "lint": "eslint lib test",
     "format": "prettier --write lib/**/*.js bin/*.js test/*.js *.md",
     "release": "release-it"
@@ -34,24 +35,23 @@
     "debug": "4.3.4",
     "express": "4.18.2",
     "fs-extra": "11.1.1",
-    "glob": "8.1.0",
+    "glob": "10.3.10",
     "highlight.js": "11.9.0",
     "json5": "2.2.3",
     "livereload": "0.9.3",
     "lodash": "4.17.21",
     "mustache": "4.2.0",
-    "open": "8.4.2",
+    "open": "9.1.0",
     "reveal.js": "4.5.0",
     "serve-favicon": "2.5.0",
-    "update-notifier": "5.1.0",
+    "update-notifier": "7.0.0",
     "yaml-front-matter": "4.1.1",
     "yargs-parser": "21.1.1"
   },
   "optionalDependencies": {
-    "puppeteer": "1.20.0"
+    "puppeteer": "21.5.0"
   },
   "devDependencies": {
-    "bron": "1.1.1",
     "eslint": "8.52.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-import": "2.29.0",
@@ -60,6 +60,6 @@
     "release-it": "16.2.1"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=20"
   }
 }

@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 
-const argsParser = require('yargs-parser');
-const updater = require('update-notifier');
-const path = require('path');
-const fs = require('fs-extra');
-const open = require('open');
-const pkg = require('../package.json');
-const startServer = require('../lib/server');
-const writeStatic = require('../lib/static');
-const exportPDF = require('../lib/print');
+import argsParser from 'yargs-parser';
+import updater from 'update-notifier';
+import path from 'path';
+import { readFile } from 'node:fs/promises';
+import open from 'open';
+import startServer from '../lib/server.js';
+import writeStatic from '../lib/static.js';
+import exportPDF from '../lib/print.js';
+import pkg from '../package.json' assert { type: 'json' };
+
+const __dirname = new URL('.', import.meta.url).pathname;
 
 const alias = {
   h: 'help',
@@ -56,7 +58,7 @@ updater({ pkg }).notify();
       process.exit(1);
     }
   } else {
-    const help = await fs.readFile(path.join(__dirname, './help.txt'));
+    const help = await readFile(path.join(__dirname, './help.txt'));
     console.log(help.toString());
   }
 })();

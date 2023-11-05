@@ -1,6 +1,6 @@
-const test = require('bron');
-const assert = require('assert').strict;
-const { render } = require('../lib/render');
+import test from 'node:test';
+import { strict as assert } from 'assert';
+import { render } from '../lib/render.js';
 
 test('should render basic template', async () => {
   const actual = await render('', {});
@@ -91,7 +91,7 @@ test('should render OpenGraph metadata', async () => {
 });
 
 test('should use preprocesser for markdown', async () => {
-  const actual = await render('# Slide A\n\ncontent\n\n# Slide B\n\ncontent', { preprocessor: 'test/preproc' });
+  const actual = await render('# Slide A\n\ncontent\n\n# Slide B\n\ncontent', { preprocessor: '../test/preproc.js' });
   assert(
     actual.includes(
       '' +

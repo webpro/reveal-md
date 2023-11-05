@@ -1,11 +1,14 @@
-const test = require('bron');
-const assert = require('assert').strict;
-const pkg = require('../package.json');
-const path = require('path');
-const fs = require('fs-extra');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+import test from 'node:test';
+import { strict as assert } from 'assert';
+import path from 'path';
+import { readFile } from 'node:fs/promises';
+import { exec as _exec } from 'node:child_process';
+import { promisify } from 'node:util';
+import pkg from '../package.json' assert { type: 'json' };
 
+const exec = promisify(_exec);
+
+const __dirname = new URL('.', import.meta.url).pathname;
 const inspect_brk = process.env.VSCODE_DEBUGGING === 'true' ? '--inspect-brk' : '';
 const reveal_md = `node ${inspect_brk} ${path.join(__dirname, '../bin', 'reveal-md.js')}`;
 
@@ -15,8 +18,8 @@ test('should print version', async () => {
 });
 
 test('should provide help', async () => {
-  const help = await fs.readFile(path.join(process.cwd(), 'bin/help.txt'));
   const { stdout } = await exec(`${reveal_md} --help`);
+  const help = await readFile(path.join(process.cwd(), 'bin/help.txt'));
   assert.equal(stdout.trim(), help.toString().trim());
 });
 
