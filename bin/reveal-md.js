@@ -8,9 +8,11 @@ import open from 'open';
 import startServer from '../lib/server.js';
 import writeStatic from '../lib/static.js';
 import exportPDF from '../lib/print.js';
-import pkg from '../package.json' assert { type: 'json' };
+import { loadJSON } from '../lib/util.js';
 
 const __dirname = new URL('.', import.meta.url).pathname;
+
+const pkg = loadJSON(path.join(__dirname, '../package.json'));
 
 const alias = {
   h: 'help',

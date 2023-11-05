@@ -4,11 +4,14 @@ import path from 'path';
 import { readFile } from 'node:fs/promises';
 import { exec as _exec } from 'node:child_process';
 import { promisify } from 'node:util';
-import pkg from '../package.json' assert { type: 'json' };
+import { loadJSON } from '../lib/util.js';
+
+const __dirname = new URL('.', import.meta.url).pathname;
+
+const pkg = loadJSON(path.join(__dirname, '../package.json'));
 
 const exec = promisify(_exec);
 
-const __dirname = new URL('.', import.meta.url).pathname;
 const inspect_brk = process.env.VSCODE_DEBUGGING === 'true' ? '--inspect-brk' : '';
 const reveal_md = `node ${inspect_brk} ${path.join(__dirname, '../bin', 'reveal-md.js')}`;
 
