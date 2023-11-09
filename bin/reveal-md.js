@@ -2,7 +2,8 @@
 
 import argsParser from 'yargs-parser';
 import updater from 'update-notifier';
-import path from 'path';
+import path from 'node:path';
+import url from 'node:url';
 import { readFile } from 'node:fs/promises';
 import open from 'open';
 import startServer from '../lib/server.js';
@@ -10,7 +11,7 @@ import writeStatic from '../lib/static.js';
 import exportPDF from '../lib/print.js';
 import { loadJSON } from '../lib/util.js';
 
-const __dirname = new URL('.', import.meta.url).pathname;
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 const pkg = loadJSON(path.join(__dirname, '../package.json'));
 
