@@ -42,7 +42,7 @@
     "lodash": "4.17.21",
     "mustache": "4.2.0",
     "open": "9.1.0",
-    "reveal.js": "4.5.0",
+    "reveal.js": "5.0.2",
     "serve-favicon": "2.5.0",
     "update-notifier": "7.0.0",
     "yaml-front-matter": "4.1.1",
