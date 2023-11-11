@@ -1,12 +1,13 @@
 import test from 'node:test';
 import { strict as assert } from 'assert';
-import path from 'path';
+import path from 'node:path';
+import url from 'node:url';
 import { readFile } from 'node:fs/promises';
 import { exec as _exec } from 'node:child_process';
 import { promisify } from 'node:util';
 import { loadJSON } from '../lib/util.js';
 
-const __dirname = new URL('.', import.meta.url).pathname;
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 const pkg = loadJSON(path.join(__dirname, '../package.json'));
 
