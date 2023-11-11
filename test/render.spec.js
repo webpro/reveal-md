@@ -14,7 +14,7 @@ test('should render basic template', async () => {
   );
   assert(actual.includes('<script src="/dist/reveal.js"></script>'));
   assert(actual.includes('<script src="/plugin/markdown/markdown.js"></script>'));
-  assert(actual.includes('var options = extend(defaultOptions, {}, queryOptions);'));
+  assert(actual.includes('var options = extend(defaultOptions, {"_":[]}, queryOptions);'));
 });
 
 test('should render markdown content', async () => {
@@ -65,7 +65,8 @@ test('should render root-based domain-less links for static markup', async () =>
 
 test('should render reveal.js options', async () => {
   const actual = await render('', { revealOptions: { controls: false } });
-  assert(actual.includes('var options = extend(defaultOptions, {"controls":false}, queryOptions);'));
+  console.log(actual);
+  assert(actual.includes('var options = extend(defaultOptions, {"controls":false,"_":[]}, queryOptions);'));
 });
 
 test('should render title from YAML front matter', async () => {
@@ -104,7 +105,7 @@ test('should use preprocesser for markdown', async () => {
 test('should merge revealOptions from front matter and local options', async () => {
   const revealOptions = { height: 100, transition: 'none' };
   const actual = await render('---\nrevealOptions:\n  width: 300\n  height: 500\n---\nSlide', { revealOptions });
-  const expected = JSON.stringify(Object.assign({}, revealOptions, { width: 300, height: 500 }));
+  const expected = JSON.stringify(Object.assign({}, revealOptions, { _: [] }, { width: 300, height: 500 }));
   assert(actual.includes(`var options = extend(defaultOptions, ${expected}, queryOptions);`));
 });
 

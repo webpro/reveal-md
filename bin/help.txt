@@ -12,6 +12,7 @@ Options:
       --css <files>                           CSS files to inject into the page
       --scripts <files>                       Scripts to inject into the page
       --assets-dir <dirname>                  Defines assets directory name [default: _assets]
+      --view scroll                           Use reveal.js scroll view feature [default: undefined]
       --preprocessor <script>                 Markdown preprocessor script
       --template <filename>                   Template file for reveal.js
       --listing-template <filename>           Template file for listing
