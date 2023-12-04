@@ -9,7 +9,7 @@
     "server",
     "cli"
   ],
-  "version": "6.0.0-next.0",
+  "version": "6.0.0-next.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/webpro/reveal-md.git"
@@ -42,7 +42,7 @@
     "lodash": "4.17.21",
     "mustache": "4.2.0",
     "open": "9.1.0",
-    "reveal.js": "4.5.0",
+    "reveal.js": "5.0.2",
     "serve-favicon": "2.5.0",
     "update-notifier": "7.0.0",
     "yaml-front-matter": "4.1.1",
@@ -52,12 +52,12 @@
     "puppeteer": "21.5.0"
   },
   "devDependencies": {
-    "eslint": "8.52.0",
+    "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-prettier": "5.0.1",
     "prettier": "3.0.3",
-    "release-it": "16.2.1"
+    "release-it": "17.0.0"
   },
   "engines": {
     "node": ">=18"
