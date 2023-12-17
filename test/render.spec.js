@@ -8,8 +8,8 @@ test('should render basic template', async () => {
   assert(actual.includes('<link rel="stylesheet" href="/dist/theme/black.css"'));
   assert(actual.includes('<link rel="stylesheet" href="/css/highlight/base16/zenburn.css"'));
   assert(
-    actual.includes(
-      '<div class="slides"><section  data-markdown><script type="text/template"></script></section></div>'
+    /<section data-markdown data-separator="\\r\?\\n---\\r\?\\n" data-separator-vertical="\\r\?\\n----\\r\?\\n">\s*<textarea data-template>\s*<\/textarea>\s*<\/section>/.test(
+      actual
     )
   );
   assert(actual.includes('<script src="/dist/reveal.js"></script>'));
@@ -19,11 +19,7 @@ test('should render basic template', async () => {
 
 test('should render markdown content', async () => {
   const actual = await render('# header', {});
-  assert(
-    actual.includes(
-      '<div class="slides"><section  data-markdown><script type="text/template"># header</script></section></div>'
-    )
-  );
+  assert(/<section data-markdown.*?>\s*<textarea data-template>\s*# header\s*<\/textarea>\s*<\/section>/.test(actual));
 });
 
 test('should render custom scripts', async () => {
@@ -65,7 +61,6 @@ test('should render root-based domain-less links for static markup', async () =>
 
 test('should render reveal.js options', async () => {
   const actual = await render('', { revealOptions: { controls: false } });
-  console.log(actual);
   assert(actual.includes('var options = extend(defaultOptions, {"controls":false,"_":[]}, queryOptions);'));
 });
 
@@ -77,10 +72,8 @@ test('should render title from YAML front matter', async () => {
 test('should parse YAML front matter', async () => {
   const actual = await render('---\nseparator: <!--s-->\n---\nSlide A<!--s-->Slide B');
   assert(
-    actual.includes(
-      '' +
-        '<section  data-markdown><script type="text/template">\nSlide A</script></section>' +
-        '<section  data-markdown><script type="text/template">Slide B</script></section>'
+    /<section data-markdown data-separator="<!--s-->" .*?>\s*<textarea data-template>\s*Slide A<!--s-->Slide B\s*<\/textarea>\s*<\/section>/.test(
+      actual
     )
   );
 });
@@ -94,10 +87,8 @@ test('should render OpenGraph metadata', async () => {
 test('should use preprocesser for markdown', async () => {
   const actual = await render('# Slide A\n\ncontent\n\n# Slide B\n\ncontent', { preprocessor: '../test/preproc.js' });
   assert(
-    actual.includes(
-      '' +
-        '<section  data-markdown><script type="text/template"># Slide A\n\ncontent\n\n</script></section>' +
-        '<section  data-markdown><script type="text/template">\n# Slide B\n\ncontent</script></section>'
+    /<section data-markdown.*?>\s*<textarea data-template>\s*# Slide A\s+content\s+---\s+# Slide B\s*content\s*<\/textarea>\s*<\/section>/.test(
+      actual
     )
   );
 });
