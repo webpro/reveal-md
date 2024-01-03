@@ -35,7 +35,13 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides">{{{slides}}}</div>
+      <div class="slides">
+        <section data-markdown {{{slidifyAttributes}}}>
+          <textarea data-template>
+            {{{markdown}}}
+          </textarea>
+        </section>
+      </div>
     </div>
 
     <script src="{{{base}}}/dist/reveal.js"></script>
