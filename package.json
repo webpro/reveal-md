@@ -41,7 +41,7 @@
     "livereload": "0.9.3",
     "lodash": "4.17.21",
     "mustache": "4.2.0",
-    "open": "10.0.2",
+    "open": "10.0.3",
     "reveal.js": "5.0.4",
     "serve-favicon": "2.5.0",
     "update-notifier": "7.0.0",
@@ -49,7 +49,7 @@
     "yargs-parser": "21.1.1"
   },
   "optionalDependencies": {
-    "puppeteer": "21.6.1"
+    "puppeteer": "21.7.0"
   },
   "devDependencies": {
     "eslint": "8.56.0",
