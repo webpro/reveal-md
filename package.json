@@ -49,15 +49,15 @@
     "yargs-parser": "21.1.1"
   },
   "optionalDependencies": {
-    "puppeteer": "21.7.0"
+    "puppeteer": "21.11.0"
   },
   "devDependencies": {
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-prettier": "5.1.2",
-    "prettier": "3.1.1",
-    "release-it": "17.0.1"
+    "eslint-plugin-prettier": "5.1.3",
+    "prettier": "3.2.4",
+    "release-it": "17.0.3"
   },
   "engines": {
     "node": ">=18"
