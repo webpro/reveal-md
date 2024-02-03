@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -19,9 +19,7 @@
 
     {{#cssPaths}}
     <link rel="stylesheet" href="{{{.}}}" />
-    {{/cssPaths}}
-
-    {{#watch}}
+    {{/cssPaths}} {{#watch}}
 
     <script>
       document.write(
@@ -45,6 +43,10 @@
     </div>
 
     <script src="{{{base}}}/dist/reveal.js"></script>
+
+    {{#mermaidOptionsStr}}
+    <script src="{{{base}}}/mermaid/dist/mermaid.min.js"></script>
+    {{/mermaidOptionsStr}}
 
     <script src="{{{base}}}/plugin/markdown/markdown.js"></script>
     <script src="{{{base}}}/plugin/highlight/highlight.js"></script>
@@ -73,6 +75,9 @@
         center: true,
         transition: 'default', // none/fade/slide/convex/concave/zoom
         slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
         plugins: [
           RevealMarkdown,
           RevealHighlight,
@@ -94,6 +99,18 @@
 
     <script>
       Reveal.initialize(options);
+      // var mermaidOptions = extend({ startOnLoad: true }, {{{revealOptionsStr}}}, queryOptions);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
     </script>
+
+    {{#mermaidOptionsStr}}
+    <script>
+      mermaid.initialize({{{mermaidOptionsStr}}});
+    </script>
+    {{/mermaidOptionsStr}}
   </body>
 </html>

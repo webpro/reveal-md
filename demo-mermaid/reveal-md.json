@@ -1,0 +1,8 @@
+{
+  "mermaid": {
+    "theme": "base",
+    "themeVariables": {
+      "primaryColor": "#0f0"
+    }
+  }
+}
