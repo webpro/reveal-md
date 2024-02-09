@@ -15,5 +15,5 @@
   "title": "reveal-md",
   "verticalSeparator": "\r?\n----\r?\n",
   "glob": "**/*.md",
-  "mermaid": null
+  "mermaid": {}
 }

@@ -99,7 +99,6 @@
 
     <script>
       Reveal.initialize(options);
-      // var mermaidOptions = extend({ startOnLoad: true }, {{{revealOptionsStr}}}, queryOptions);
       Reveal.addEventListener('ready', function (event) {
         const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
         const hlp = Reveal.getPlugin('highlight');
@@ -109,7 +108,12 @@
 
     {{#mermaidOptionsStr}}
     <script>
-      mermaid.initialize({{{mermaidOptionsStr}}});
+      const mermaidOptions = extend({ startOnLoad: false }, {{{mermaidOptionsStr}}});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present pre code.mermaid'); };
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidechanged', cb);
     </script>
     {{/mermaidOptionsStr}}
   </body>
