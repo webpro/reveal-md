@@ -113,7 +113,7 @@
       mermaid.initialize(mermaidOptions);
       const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present pre code.mermaid'); };
       Reveal.addEventListener('ready', cb);
-      Reveal.addEventListener('slidechanged', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
     </script>
     {{/mermaidOptionsStr}}
   </body>
