@@ -313,7 +313,7 @@ Create a (printable) PDF from the provided Markdown file:
 reveal-md slides.md --print slides.pdf
 ```
 
-The PDF is generated using Puppeteer. Alternatively, append `?view=print` to the url from the command-line or in the
+The PDF is generated using Puppeteer. Alternatively, append `?print-pdf` to the url from the command-line or in the
 browser (make sure to remove the `#/` or `#/1` hash). Then print the slides using the browser's (not the native) print
 dialog. This seems to work in Chrome.
 
@@ -349,7 +349,7 @@ Replace these variables:
 
 - `$OUTPUT_DIR` is the folder you want the PDF to be saved to.
 - `$OUTPUT_FILENAME` is the name of the PDF.
-- `$URL` is where the presentation can be accessed in your browser (without the `?view=print` suffix). If you are not
+- `$URL` is where the presentation can be accessed in your browser (without the `?print-pdf` suffix). If you are not
   running reveal-md in Docker, you will need to replace `localhost` with the IP address of your computer.
 
 For a full list of export options, please see the the [DeckTape github][40], or run the Docker container with the `-h`
