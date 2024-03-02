@@ -516,7 +516,7 @@ Many thanks to all [contributors][56]!
 [48]: https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware#tools
 [49]: https://github.com/yjwen/org-reveal
 [50]: https://github.com/gitpitch/gitpitch
-[51]: https://csinva.io/blog/misc/reveal_md_enhanced/readme.html
+[51]: https://csinva.io/blog/misc/19_reveal_md_enhanced/readme.html
 [52]: https://ericmjl.github.io/blog/2020/1/18/create-your-own-auto-publishing-slides-with-reveal-md-and-travis-ci/
 [53]: https://mandieq.medium.com/beautiful-presentations-from-markdown-who-knew-it-could-be-so-easy-d279aa7f787a
 [54]: https://lacourt.dev/2019/03/12
