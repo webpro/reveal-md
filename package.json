@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "debug": "4.3.4",
-    "express": "4.18.2",
+    "express": "4.19.2",
     "fs-extra": "11.2.0",
     "glob": "10.3.10",
     "highlight.js": "11.9.0",
