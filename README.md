@@ -298,7 +298,7 @@ module.exports = (markdown, options) => {
 and use it like this
 
 ```console
-reveal-md --preprocessor preproc.js slides.md
+reveal-md --preprocessor ./preproc.js slides.md
 ```
 
 ### Print to PDF
