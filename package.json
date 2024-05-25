@@ -28,7 +28,7 @@
   "scripts": {
     "test": "node --test test/*.spec.js",
     "lint": "eslint lib test",
-    "format": "prettier --write lib/**/*.js bin/*.js test/*.js *.md",
+    "format": "prettier --write eslint.config.mjs lib/**/*.js bin/*.js test/*.js *.md",
     "release": "release-it"
   },
   "dependencies": {
@@ -53,10 +53,13 @@
     "puppeteer": "22.9.0"
   },
   "devDependencies": {
-    "eslint": "8.56.0",
+    "@eslint/eslintrc": "3.1.0",
+    "@eslint/js": "9.3.0",
+    "eslint": "9.3.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prettier": "5.1.3",
+    "globals": "15.3.0",
     "prettier": "3.2.5",
     "release-it": "17.2.1"
   },
