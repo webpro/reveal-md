@@ -85,7 +85,7 @@ test('should render OpenGraph metadata', async () => {
 });
 
 test('should use preprocesser for markdown', async () => {
-  const actual = await render('# Slide A\n\ncontent\n\n# Slide B\n\ncontent', { preprocessor: '../test/preproc.js' });
+  const actual = await render('# Slide A\n\ncontent\n\n# Slide B\n\ncontent', { preprocessor: './test/preproc.js' });
   assert(
     /<section data-markdown.*?>\s*<textarea data-template>\s*# Slide A\s+content\s+---\s+# Slide B\s*content\s*<\/textarea>\s*<\/section>/.test(
       actual
