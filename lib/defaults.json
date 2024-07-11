@@ -1,5 +1,5 @@
 {
-  "assetsDir": "_assets",
+  "assetsDir": "assets",
   "css": [],
   "highlightTheme": "base16/zenburn",
   "host": "localhost",
