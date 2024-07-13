@@ -4,12 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>{{{title}}}</title>
+    <meta name="description" content="{{{description}}}" />
+
     {{#absoluteUrl}}
     <meta property="og:title" content="{{{title}}}" />
+    <meta property="og:description" content="{{{description}}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{{absoluteUrl}}}/featured-slide.jpg" />
-    <meta property="og:url" content="{{{absoluteUrl}}}" />
+    <meta property="og:image" content="{{{absoluteUrl}}}/{{{ogImage}}}" />
+    <meta property="og:url" content="{{{absoluteUrl}}}/{{{ogUrl}}}" />
+    <meta property="og:type" content="article" />
+
+    <meta itemProp="name" content="{{{title}}}" />
+    <meta itemProp="description" content="{{{description}}}" />
     {{/absoluteUrl}}
     <link rel="shortcut icon" href="{{{base}}}/favicon.ico" />
     <link rel="stylesheet" href="{{{base}}}/dist/reset.css" />
