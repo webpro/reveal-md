@@ -26,7 +26,7 @@
   ],
   "type": "module",
   "scripts": {
-    "test": "node --test test/*.spec.js",
+    "test": "node --test test/*.spec.js && installed-check",
     "lint": "eslint lib test",
     "format": "prettier --write eslint.config.mjs lib/**/*.js bin/*.js test/*.js *.md",
     "release": "release-it"
@@ -35,7 +35,7 @@
     "debug": "4.3.6",
     "express": "4.19.2",
     "fs-extra": "11.2.0",
-    "glob": "11.0.0",
+    "glob": "10.4.5",
     "highlight.js": "11.10.0",
     "json5": "2.2.3",
     "livereload": "0.9.3",
@@ -60,10 +60,11 @@
     "eslint-plugin-import-x": "4.1.1",
     "eslint-plugin-prettier": "5.2.1",
     "globals": "15.9.0",
+    "installed-check": "9.3.0",
     "prettier": "3.3.3",
     "release-it": "17.6.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": "^18.18.0 || ^20.9.0 || ^22.0.0"
   }
 }

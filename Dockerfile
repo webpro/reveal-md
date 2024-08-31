@@ -5,7 +5,7 @@ COPY package.json package-lock.json /app/
 WORKDIR /app
 
 # First install dependencies
-RUN npm install --omit=dev --legacy-peer-deps
+RUN npm install --omit=dev
 
 # Install app
 COPY . /app
