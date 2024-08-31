@@ -45,12 +45,12 @@
     "open": "10.1.0",
     "reveal.js": "5.1.0",
     "serve-favicon": "2.5.0",
-    "update-notifier": "7.2.0",
+    "update-notifier": "7.3.0",
     "yaml-front-matter": "4.1.1",
     "yargs-parser": "21.1.1"
   },
   "optionalDependencies": {
-    "puppeteer": "23.1.1"
+    "puppeteer": "23.2.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.1.0",
