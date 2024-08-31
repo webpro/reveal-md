@@ -9,11 +9,11 @@ on:
       - '!**'
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npx pkg-pr-new@0.0.21 publish
+      - run: npx --yes pkg-pr-new@0.0.20 publish
