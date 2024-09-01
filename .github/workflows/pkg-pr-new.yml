@@ -16,4 +16,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npx --yes pkg-pr-new@0.0.20 publish
+      - run: npx --yes pkg-pr-new publish
