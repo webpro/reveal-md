@@ -2,6 +2,18 @@
 
 [reveal.js][1] on steroids! Get beautiful reveal.js presentations from Markdown files.
 
+> [!NOTE]
+>
+> reveal-md is no longer in active development.
+
+No new features will be added. Pull requests for bug and documentation fixes will be considered. Occasional dependency
+upgrades and CVEs might happen.
+
+Thanks for using reveal-md! Please consider alternatives to Markdown-based solutions:
+
+- [MkSlides](https://martenbe.github.io/mkslides/)
+- [Slidev](https://sli.dev)
+
 ## Installation
 
 ```console
